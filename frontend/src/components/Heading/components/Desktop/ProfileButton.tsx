@@ -1,4 +1,4 @@
-const JoinButton = () => {
+const ProfileButton = () => {
   return (
     <button
       className={`
@@ -17,9 +17,9 @@ const JoinButton = () => {
           hover:before:translate-y-[0%]
           active:scale-100`}
     >
-      Join waitlist
+      Profile
     </button>
   );
 };
 
-export default JoinButton;
+export default ProfileButton;

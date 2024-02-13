@@ -1,7 +1,7 @@
 import ThemeSwitcher from "../ThemeSwitcher.tsx";
 import { HeadingObjectType } from "../../Heading.tsx";
 import Logo from "../Logo.tsx";
-import JoinButton from "./JoinButton.tsx";
+import ProfileButton from "./ProfileButton.tsx";
 import NavLink from "./NavLink.tsx";
 
 const DesktopNavigation = ({ data }: { data: HeadingObjectType[] }) => {
@@ -10,14 +10,14 @@ const DesktopNavigation = ({ data }: { data: HeadingObjectType[] }) => {
       <Logo />
 
       {data.map((dat) => (
-        <NavLink key={dat.id} link={dat.link} width={dat.width}>
+        <NavLink key={dat.id} link={dat.link}>
           {dat.name}
         </NavLink>
       ))}
 
       <ThemeSwitcher />
 
-      <JoinButton />
+      <ProfileButton />
     </nav>
   );
 };

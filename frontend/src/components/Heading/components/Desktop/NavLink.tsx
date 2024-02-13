@@ -1,15 +1,7 @@
 import { Link, useMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const NavLink = ({
-  children,
-  link,
-  width,
-}: {
-  children: string;
-  link: string;
-  width: string;
-}) => {
+const NavLink = ({ children, link }: { children: string; link: string }) => {
   const match = useMatch(link);
   console.log(match?.pathname);
 
@@ -18,8 +10,7 @@ const NavLink = ({
       to={link}
       rel="nofollow"
       className={
-        "block overflow-hidden w-28" +
-        width +
+        "block overflow-hidden text-nowrap pr-4" +
         (match?.pathname === link ? " underline dark:text-white" : "")
       }
     >
