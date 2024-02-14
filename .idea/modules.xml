@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../HMMC_OTS_interface-main/.idea/HMMC_OTS_interface.iml" filepath="$PROJECT_DIR$/../HMMC_OTS_interface-main/.idea/HMMC_OTS_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cft-problem-lists.iml" filepath="$PROJECT_DIR$/.idea/cft-problem-lists.iml" />
     </modules>
   </component>
