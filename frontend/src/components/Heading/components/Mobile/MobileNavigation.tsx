@@ -17,7 +17,7 @@ const MobileNavigation = ({ data }: { data: HeadingObjectType[] }) => {
 
   return (
     <>
-      <div className="flex left-0 right-0 top-0 md:hidden justify-end gap-6 bg-violet-600 dark:bg-black pr-8">
+      <div className="flex left-0 right-0 top-0 md:hidden justify-end gap-6 bg-violet-500 dark:bg-black pr-8">
         <div className="flex items-center gap-2 w-full">
           <Logo />
         </div>
@@ -38,7 +38,7 @@ const MobileNavigation = ({ data }: { data: HeadingObjectType[] }) => {
       <div
         id="menu"
         className={
-          "absolute top-0 bottom-0 left-0 flex-col self-end w-full min-h-screen py-1 pt-40 pl-24 space-y-3 text-lg text-white uppercase bg-violet-600 dark:bg-black" +
+          "absolute z-10 top-0 bottom-0 left-0 flex-col self-end w-full min-h-screen py-1 pt-40 pl-24 space-y-3 text-lg text-white uppercase bg-violet-500 dark:bg-black" +
           (open ? " flex" : " hidden")
         }
       >

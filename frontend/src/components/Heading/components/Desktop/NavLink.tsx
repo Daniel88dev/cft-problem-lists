@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 const NavLink = ({ children, link }: { children: string; link: string }) => {
   const match = useMatch(link);
-  console.log(match?.pathname);
 
   return (
     <Link
