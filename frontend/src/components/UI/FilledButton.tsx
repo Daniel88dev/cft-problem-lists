@@ -1,11 +1,17 @@
 import React from "react";
 
-const FilledButton = ({children, ...rest}: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
-    return (
-        <button
-            {...rest}
-            className={`
-        relative flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+const FilledButton = ({
+  children,
+  ...rest
+}: React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>) => {
+  return (
+    <button
+      {...rest}
+      className={`
+        relative flex items-center gap-2 overflow-hidden rounded-lg border-[1px] h-10 mb-2
         border-black dark:border-white px-4 py-2 font-semibold
         text-black dark:text-white hover:dark:text-white transition-all duration-500
         hover:dark:border-black
@@ -21,10 +27,10 @@ const FilledButton = ({children, ...rest}: React.DetailedHTMLProps<React.ButtonH
         hover:before:translate-x-[0%]
         hover:before:translate-y-[0%]
         active:scale-95`}
-        >
-            <span>{children}</span>
-        </button>
-    );
+    >
+      <span>{children}</span>
+    </button>
+  );
 };
 
 export default FilledButton;

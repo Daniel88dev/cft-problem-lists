@@ -6,7 +6,7 @@ const RootLayout = () => {
   return (
     <React.Fragment>
       <Heading />
-      <main className="pt-10 md:pt-20">
+      <main className="pt-10 md:pt-16 my-2">
         <Outlet />
       </main>
     </React.Fragment>
