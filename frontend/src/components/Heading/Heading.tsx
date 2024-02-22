@@ -42,7 +42,7 @@ export const Heading = () => {
   ];
 
   return (
-    <header className="absolute inset-x-0 top-0">
+    <header className="absolute inset-x-0 top-0 h-24">
       <DesktopNavigation data={HeadingObjects} />
       <MobileNavigation data={HeadingObjects} />
     </header>

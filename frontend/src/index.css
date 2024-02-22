@@ -5,7 +5,7 @@
 @layer base {
     html,
     body {
-        @apply bg-white dark:bg-gray-800 dark:text-white w-full h-full m-0 p-0
+        @apply bg-white dark:bg-gray-800 dark:text-white w-full h-full m-0 p-0 overflow-auto
     }
 
     #root {
