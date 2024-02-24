@@ -6,7 +6,7 @@ type TableHeadingType = {
 
 const TableHeading = ({ children }: TableHeadingType) => {
   return (
-    <thead className="sticky top-0">
+    <thead className="sticky z-10 top-24 bg-violet-200 dark:bg-gray-800">
       <tr>{children}</tr>
     </thead>
   );

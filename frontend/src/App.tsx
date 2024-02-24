@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 const ProblemLists = lazy(() => import("./pages/ProblemLists.tsx"));
 const VehicleLists = lazy(() => import("./pages/VehicleLists.tsx"));
 const VehicleIssues = lazy(() => import("./pages/VehicleIssues.tsx"));
+const UIComponents = lazy(() => import("./pages/UIComponents.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<p>loading...</p>}>
             <VehicleIssues />
+          </Suspense>
+        ),
+      },
+      {
+        path: "ui-components",
+        element: (
+          <Suspense fallback={<p>loading...</p>}>
+            <UIComponents />
           </Suspense>
         ),
       },

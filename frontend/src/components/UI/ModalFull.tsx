@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
-import CloseButton from "./CloseButton.tsx";
+import CloseButton from "./Buttons/CloseButton.tsx";
 
 type ModalFullType = {
   onClose: () => void;

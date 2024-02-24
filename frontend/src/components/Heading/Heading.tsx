@@ -36,13 +36,13 @@ export const Heading = () => {
     },
     {
       id: 6,
-      name: "Longer test",
-      link: "/anothertest",
+      name: "UI Components",
+      link: "/ui-components",
     },
   ];
 
   return (
-    <header className="absolute inset-x-0 top-0 h-24">
+    <header className="absolute bg-white dark:bg-gray-800 z-10 inset-x-0 top-0 h-24 w-full">
       <DesktopNavigation data={HeadingObjects} />
       <MobileNavigation data={HeadingObjects} />
     </header>

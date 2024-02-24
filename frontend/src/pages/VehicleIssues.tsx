@@ -1,14 +1,17 @@
 import FilterMenu from "../components/UI/FilterMenu.tsx";
 import InputText from "../components/UI/InputText.tsx";
-import FilledButton from "../components/UI/FilledButton.tsx";
+import FilledButton from "../components/UI/Buttons/FilledButton.tsx";
 import SelectSearch, {
   type OptionType,
 } from "../components/UI/SelectSearch.tsx";
 import MultiSelect, { MultiOptionType } from "../components/UI/MultiSelect.tsx";
-import TableMain from "../components/VehicleIssues/TableMain.tsx";
-import TableHeading from "./TableHeading.tsx";
+import TableMain from "../components/UI/Tables/TableMain.tsx";
+import TableHeading from "../components/UI/Tables/TableHeading.tsx";
 
 import { EXAMPLE_DATA } from "../components/VehicleIssues/EXAMPLE_DATA.tsx";
+import TableRow from "../components/UI/Tables/TableRow.tsx";
+import TablePicture from "../components/UI/Tables/TablePicture.tsx";
+import TableStages from "../components/UI/Tables/TableStages.tsx";
 
 const SAMPLE_OPTIONS: OptionType[] = [
   {
@@ -80,10 +83,10 @@ const VehicleIssues = () => {
         </TableHeading>
         <tbody>
           {EXAMPLE_DATA.map((item) => (
-            <tr className="h-48" key={item.id}>
+            <TableRow key={item.id}>
               <td>{item.item}</td>
-              <td>{item.stages.LP1}</td>
-              <td>{item.picture}</td>
+              <TableStages stages={item.stages} />
+              <TablePicture src={item.picture} alt="testing picture" />
               <td>{item.problemName}</td>
               <td>{item.problemDescription}</td>
               <td>{item.actionsDone}</td>
@@ -92,7 +95,7 @@ const VehicleIssues = () => {
               <td>{item.class}</td>
               <td>{item.status}</td>
               <td>{item.responsibility}</td>
-            </tr>
+            </TableRow>
           ))}
         </tbody>
       </TableMain>
