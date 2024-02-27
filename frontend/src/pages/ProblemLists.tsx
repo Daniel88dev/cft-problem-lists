@@ -1,25 +1,14 @@
-import { createContext } from "react";
-
-export interface ProblemListContextType {
-  data: string;
-  format: string;
-  user: string;
-}
-
-const ProblemListContext = createContext<ProblemListContextType | null>(null);
+import ProblemListStore from "../Stores/ProblemListStore.tsx";
+import ProblemListHeader from "../components/ProblemLists/ProblemListHeader.tsx";
 
 const ProblemLists = () => {
-  const contextValues = {
-    data: "data loaded from backend",
-    format:
-      "format data for heading, and some values, which can be different based on selection",
-    user: "User specific settings",
-  };
+  //console.log(problemListCtx.format.user);
 
   return (
-    <ProblemListContext.Provider value={contextValues}>
+    <ProblemListStore>
       <h1>Problem Lists</h1>
-    </ProblemListContext.Provider>
+      <ProblemListHeader />
+    </ProblemListStore>
   );
 };
 
