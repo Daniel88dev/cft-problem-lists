@@ -7,23 +7,24 @@ import {
 } from "../../Assets/PROBLEM_LIST_DATA.ts";
 
 const ProblemListHeader = () => {
-  const problemListCtx = useProblemListContext();
+  const { loadInitialData, format } = useProblemListContext();
 
-  const loadInitialData = useCallback(() => {
+  const loadInitial = useCallback(() => {
     //TODO apply loading from backend
     const loadedData = {
       user: USER_DEFAULT,
       allUsers: USERS_DEFAULT,
       projects: PROJECTS_DEFAULT,
     };
-    problemListCtx.loadInitialData(loadedData);
-  }, [problemListCtx]);
+    loadInitialData(loadedData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  console.log(problemListCtx.format);
+  console.log(format);
 
   useEffect(() => {
-    loadInitialData();
-  }, [loadInitialData]);
+    loadInitial();
+  }, [loadInitial]);
 
   return <h1>Test</h1>;
 };
