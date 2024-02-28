@@ -4,7 +4,7 @@ import Select, { ActionMeta, MultiValue } from "react-select";
 
 export interface MultiOptionType {
   label: string;
-  value: string;
+  value: string | number;
 }
 
 interface SelectProps {

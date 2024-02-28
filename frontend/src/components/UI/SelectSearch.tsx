@@ -4,7 +4,7 @@ import Select, { ActionMeta } from "react-select";
 
 export interface OptionType {
   label: string;
-  value: string;
+  value: string | number;
 }
 
 interface SelectProps {

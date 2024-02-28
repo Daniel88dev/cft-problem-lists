@@ -13,7 +13,7 @@ import TableRow from "../components/UI/Tables/TableRow.tsx";
 import TablePicture from "../components/UI/Tables/TablePicture.tsx";
 import TableStages from "../components/UI/Tables/TableStages.tsx";
 
-const SAMPLE_OPTIONS: OptionType[] = [
+const SAMPLE_OPTIONS: OptionType[] | MultiOptionType[] = [
   {
     label: "Tested value",
     value: "Tested value",

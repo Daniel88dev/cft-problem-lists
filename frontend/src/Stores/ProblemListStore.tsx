@@ -82,6 +82,7 @@ type InitialStateType = {
 type ProblemListContextType = InitialStateType & {
   loadUser: (user: UserSettingType) => void;
   loadInitialData: (data: FormatType) => void;
+  loadProblems: (problems: ProblemListDataType[]) => void;
 };
 
 // Setting Context and default values for reducer
@@ -124,7 +125,12 @@ type AddInitialData = {
   payload: FormatType;
 };
 
-type Action = AddDefaultUser | AddInitialData;
+type AddProblems = {
+  type: "ADD_PROBLEMS";
+  payload: ProblemListDataType[];
+};
+
+type Action = AddDefaultUser | AddInitialData | AddProblems;
 
 function problemListReducer(
   state: InitialStateType,
@@ -153,6 +159,17 @@ function problemListReducer(
         allUsers: action.payload.allUsers,
         projects: action.payload.projects,
       },
+      isDataLoaded: true,
+    };
+  }
+
+  if (action.type === "ADD_PROBLEMS") {
+    const processData: ProblemListDataType[] = action.payload.map((record) => {
+      return record;
+    });
+    return {
+      ...state,
+      data: processData,
     };
   }
 
@@ -175,6 +192,9 @@ const ProblemListStore = ({ children }: ProblemListType) => {
     },
     loadInitialData(data) {
       dispatch({ type: "ADD_INITIAL_DATA", payload: data });
+    },
+    loadProblems(problems) {
+      dispatch({ type: "ADD_PROBLEMS", payload: problems });
     },
   };
   return (
