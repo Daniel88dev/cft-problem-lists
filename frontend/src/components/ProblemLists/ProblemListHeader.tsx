@@ -1,14 +1,17 @@
-import { useProblemListContext } from "../../Stores/ProblemListStore.tsx";
-import { useCallback, useEffect, useState } from "react";
+import useProblemListContext from "../../Stores/ProblemList/ProblemListContext.tsx";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  EXAMPLE_ACTION_DATA,
+  EXAMPLE_CLASS_DATA,
   EXAMPLE_PROBLEM_LIST_DATA,
   PROJECTS_DEFAULT,
   USER_DEFAULT,
   USERS_DEFAULT,
 } from "../../Assets/PROBLEM_LIST_DATA.ts";
 import FilterMenu from "../UI/FilterMenu.tsx";
-import SelectSearch, { OptionType } from "../UI/SelectSearch.tsx";
+import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
+import Notification, { type ChildMethods } from "../UI/Notification.tsx";
 
 type SelectedType = {
   projectId: number;
@@ -16,12 +19,13 @@ type SelectedType = {
 };
 
 const ProblemListHeader = () => {
-  const { loadInitialData, format, loadProblems, data } =
+  const { loadInitialData, format, loadProblems, setLoading } =
     useProblemListContext();
   const [selectedData, setSelectedData] = useState<SelectedType>({
     projectId: 0,
     list: [],
   });
+  const notifyRef = useRef<ChildMethods>(null);
 
   const loadInitial = useCallback(() => {
     //TODO apply loading from backend
@@ -29,17 +33,21 @@ const ProblemListHeader = () => {
       user: USER_DEFAULT,
       allUsers: USERS_DEFAULT,
       projects: PROJECTS_DEFAULT,
+      classes: EXAMPLE_CLASS_DATA,
+      actions: EXAMPLE_ACTION_DATA,
     };
     loadInitialData(loadedData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadProblemList = () => {
+    setLoading();
     //TODO load data from backend logic
-    loadProblems(EXAMPLE_PROBLEM_LIST_DATA);
+    loadProblems(EXAMPLE_PROBLEM_LIST_DATA, selectedData.projectId);
+    if (notifyRef.current) {
+      notifyRef.current.setNotify("Data Load Successfully", "basic");
+    }
   };
-
-  console.log(data);
 
   const projectList = () => {
     const projects: OptionType[] = [];
@@ -99,6 +107,7 @@ const ProblemListHeader = () => {
         />
         <FilledButton onClick={loadProblemList}>Load Data</FilledButton>
       </FilterMenu>
+      <Notification ref={notifyRef} />
     </>
   );
 };

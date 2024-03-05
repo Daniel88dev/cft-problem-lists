@@ -27,7 +27,7 @@ const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
       " w-96 h-32 left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center";
   } else if (type === "medium") {
     format +=
-      " w-[48rem] h-[56rem] left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center";
+      " w-[48rem] h-[40rem] left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center";
   } else if (type === "full") {
     format += " top-14 left-14 right-14 bottom-14";
   }
@@ -38,7 +38,9 @@ const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
         <h2 className="text-2xl">{title ? title : "Popup window"}</h2>
         <CloseButton onClick={onClose} />
       </div>
-      <div className="flex">{children}</div>
+      <div className="overflow-y-auto w-full h-full">
+        <div className="flex overflow-hidden">{children}</div>
+      </div>
     </div>
   );
 };

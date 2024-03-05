@@ -1,17 +1,18 @@
 import FilterMenu from "../components/UI/FilterMenu.tsx";
-import InputText from "../components/UI/InputText.tsx";
+import InputText from "../components/UI/Input/InputText.tsx";
 import FilledButton from "../components/UI/Buttons/FilledButton.tsx";
 import SelectSearch, {
   type OptionType,
-} from "../components/UI/SelectSearch.tsx";
-import MultiSelect, { MultiOptionType } from "../components/UI/MultiSelect.tsx";
+} from "../components/UI/Select/SelectSearch.tsx";
+import MultiSelect, {
+  MultiOptionType,
+} from "../components/UI/Select/MultiSelect.tsx";
 import TableMain from "../components/UI/Tables/TableMain.tsx";
 import TableHeading from "../components/UI/Tables/TableHeading.tsx";
 
 import { EXAMPLE_DATA } from "../components/VehicleIssues/EXAMPLE_DATA.tsx";
 import TableRow from "../components/UI/Tables/TableRow.tsx";
 import TablePicture from "../components/UI/Tables/TablePicture.tsx";
-import TableStages from "../components/UI/Tables/TableStages.tsx";
 
 const SAMPLE_OPTIONS: OptionType[] | MultiOptionType[] = [
   {
@@ -85,7 +86,7 @@ const VehicleIssues = () => {
           {EXAMPLE_DATA.map((item) => (
             <TableRow key={item.id}>
               <td>{item.item}</td>
-              <TableStages stages={item.stages} />
+              <td>Stages empty</td>
               <TablePicture src={item.picture} alt="testing picture" />
               <td>{item.problemName}</td>
               <td>{item.problemDescription}</td>

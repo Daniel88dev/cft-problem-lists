@@ -1,95 +1,19 @@
-import { createContext, ReactNode, useContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
-// Setting types
-
-type ProblemListType = {
-  children: ReactNode;
-};
-
-export type Stages = {
-  Stage1: boolean;
-  Stage2: boolean;
-  Stage3: boolean;
-  Stage4: boolean;
-  Stage5: boolean;
-  Stage6: boolean;
-};
-
-export type ProblemListDataType = {
-  id: number;
-  item: number;
-  stages: Stages;
-  picture: string;
-  problemName: string;
-  problemDescription: string;
-  actionsDone: string;
-  counterMeasure: string;
-  grade: string;
-  class: string;
-  status: string;
-  responsibility: string;
-};
-
-type StagesNamesType = {
-  stage1: string;
-  stage2: string;
-  stage3: string;
-  stage4: string;
-  stage5: string;
-  stage6: string;
-  active: string;
-};
-
-export type ProjectTypes = {
-  id: number;
-  name: string;
-  stages: StagesNamesType;
-  lists: string[];
-};
-
-type UserType = {
-  id: number;
-  userId: string;
-  userName: string;
-};
-
-export type AllUsersType = {
-  id: number;
-  userId: string;
-  userName: string;
-  avatar: string;
-};
-
-type FormatType = {
-  user: UserType;
-  allUsers: AllUsersType[];
-  projects: ProjectTypes[];
-};
-
-export type UserSettingType = {
-  id: number;
-  userId: string;
-  userName: string;
-};
-
-type InitialStateType = {
-  isInitialLoaded: boolean;
-  isDataLoaded: boolean;
-  format: FormatType;
-  data: ProblemListDataType[];
-};
-
-type ProblemListContextType = InitialStateType & {
-  loadUser: (user: UserSettingType) => void;
-  loadInitialData: (data: FormatType) => void;
-  loadProblems: (problems: ProblemListDataType[]) => void;
-};
-
+import {
+  ProblemListType,
+  ProblemListDataType,
+  UserSettingType,
+  InitialStateType,
+  ProblemListContextType,
+  FormatType,
+} from "./ProblemListTypes.tsx";
 // Setting Context and default values for reducer
 
 const initialState: InitialStateType = {
   isInitialLoaded: false,
   isDataLoaded: false,
+  isLoading: true,
   format: {
     user: {
       id: 0,
@@ -98,22 +22,29 @@ const initialState: InitialStateType = {
     },
     allUsers: [],
     projects: [],
+    classes: [],
+    actions: [],
   },
   data: [],
+  activeProject: {
+    id: 0,
+    name: "",
+    stages: {
+      stage1: "",
+      stage2: "",
+      stage3: "",
+      stage4: "",
+      stage5: "",
+      stage6: "",
+      active: "",
+    },
+    lists: [],
+  },
 };
 
 export const ProblemListContext = createContext<ProblemListContextType | null>(
   null
 );
-
-export function useProblemListContext() {
-  const problemListCtx = useContext(ProblemListContext);
-
-  if (problemListCtx === null) {
-    throw new Error("problemListContext is null");
-  }
-  return problemListCtx;
-}
 
 type AddDefaultUser = {
   type: "ADD_DEFAULT_USER";
@@ -125,12 +56,21 @@ type AddInitialData = {
   payload: FormatType;
 };
 
-type AddProblems = {
-  type: "ADD_PROBLEMS";
-  payload: ProblemListDataType[];
+type PayloadForAddProblems = {
+  problems: ProblemListDataType[];
+  projectId: number;
 };
 
-type Action = AddDefaultUser | AddInitialData | AddProblems;
+type AddProblems = {
+  type: "ADD_PROBLEMS";
+  payload: PayloadForAddProblems;
+};
+
+type AddLoadingState = {
+  type: "SET_LOADING";
+};
+
+type Action = AddDefaultUser | AddInitialData | AddProblems | AddLoadingState;
 
 function problemListReducer(
   state: InitialStateType,
@@ -158,18 +98,36 @@ function problemListReducer(
         user: action.payload.user,
         allUsers: action.payload.allUsers,
         projects: action.payload.projects,
+        classes: action.payload.classes,
+        actions: action.payload.actions,
       },
-      isDataLoaded: true,
+      isInitialLoaded: true,
+      isLoading: false,
     };
   }
 
   if (action.type === "ADD_PROBLEMS") {
-    const processData: ProblemListDataType[] = action.payload.map((record) => {
-      return record;
+    const findActiveProject = state.format.projects.find((project) => {
+      return project.id === action.payload.projectId;
     });
+    const processData: ProblemListDataType[] = action.payload.problems.map(
+      (record) => {
+        return record;
+      }
+    );
     return {
       ...state,
+      activeProject: findActiveProject!,
       data: processData,
+      isDataLoaded: true,
+      isLoading: false,
+    };
+  }
+
+  if (action.type === "SET_LOADING") {
+    return {
+      ...state,
+      isLoading: true,
     };
   }
 
@@ -185,16 +143,27 @@ const ProblemListStore = ({ children }: ProblemListType) => {
   const store: ProblemListContextType = {
     isInitialLoaded: problemListState.isInitialLoaded,
     isDataLoaded: problemListState.isDataLoaded,
+    isLoading: problemListState.isLoading,
     format: problemListState.format,
     data: problemListState.data,
+    activeProject: problemListState.activeProject,
     loadUser(user) {
       dispatch({ type: "ADD_DEFAULT_USER", payload: user });
     },
     loadInitialData(data) {
       dispatch({ type: "ADD_INITIAL_DATA", payload: data });
     },
-    loadProblems(problems) {
-      dispatch({ type: "ADD_PROBLEMS", payload: problems });
+    loadProblems(problems, projectId) {
+      dispatch({
+        type: "ADD_PROBLEMS",
+        payload: {
+          problems: problems,
+          projectId: projectId,
+        },
+      });
+    },
+    setLoading() {
+      dispatch({ type: "SET_LOADING" });
     },
   };
   return (

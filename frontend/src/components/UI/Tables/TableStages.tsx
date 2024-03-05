@@ -1,17 +1,21 @@
-import { Stages } from "../../VehicleIssues/EXAMPLE_DATA.tsx";
+import {
+  Stages,
+  StagesNamesType,
+} from "../../../Stores/ProblemList/ProblemListTypes.tsx";
 
 type TableStagesType = {
   stages: Stages;
+  names: StagesNamesType;
 };
-const TableStages = ({ stages }: TableStagesType) => {
+const TableStages = ({ stages, names }: TableStagesType) => {
   const data = (
     <>
-      {stages.Proto && <p>Proto</p>}
-      {stages.SP1 && <p>SP1</p>}
-      {stages.SP2 && <p>SP2</p>}
-      {stages.LP1 && <p>LP1</p>}
-      {stages.LP2 && <p>LP2</p>}
-      {stages.M && <p>M</p>}
+      {stages.Stage1 && <p>{names.stage1}</p>}
+      {stages.Stage2 && <p>{names.stage2}</p>}
+      {stages.Stage3 && <p>{names.stage3}</p>}
+      {stages.Stage4 && <p>{names.stage4}</p>}
+      {stages.Stage5 && <p>{names.stage5}</p>}
+      {stages.Stage6 && <p>{names.stage6}</p>}
     </>
   );
 

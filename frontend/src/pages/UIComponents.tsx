@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Notification, { ChildMethods } from "../components/UI/Notification.tsx";
 import FilledButton from "../components/UI/Buttons/FilledButton.tsx";
 import CloseButton from "../components/UI/Buttons/CloseButton.tsx";
-import InputText from "../components/UI/InputText.tsx";
+import InputText from "../components/UI/Input/InputText.tsx";
 import ModalFull from "../components/UI/ModalFull.tsx";
 
 const UIComponents = () => {

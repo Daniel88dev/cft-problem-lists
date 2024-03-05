@@ -1,9 +1,11 @@
 import {
+  ActionType,
   AllUsersType,
+  ClassType,
   ProblemListDataType,
   ProjectTypes,
   UserSettingType,
-} from "../Stores/ProblemListStore.tsx";
+} from "../Stores/ProblemList/ProblemListTypes.tsx";
 
 export const USER_DEFAULT: UserSettingType = {
   id: 1,
@@ -77,6 +79,37 @@ export const USERS_DEFAULT: AllUsersType[] = [
   },
 ];
 
+export const EXAMPLE_CLASS_DATA: ClassType[] = [
+  { class: "Design" },
+  { class: "Part" },
+  { class: "Equipment" },
+  { class: "Workability" },
+];
+
+export const EXAMPLE_ACTION_DATA: ActionType[] = [
+  { class: "Design", action: "U/Consideration" },
+  { class: "Design", action: "Tryout" },
+  { class: "Design", action: "EO plan" },
+  { class: "Design", action: "EO issued" },
+  { class: "Design", action: "W&S (keep)" },
+  { class: "Design", action: "Improved" },
+  { class: "Part", action: "U/Consideration" },
+  { class: "Part", action: "Tryout" },
+  { class: "Part", action: "W&S (keep)" },
+  { class: "Part", action: "C/M" },
+  { class: "Part", action: "Improved" },
+  { class: "Workability", action: "U/Consideration" },
+  { class: "Workability", action: "Tryout" },
+  { class: "Workability", action: "EO plan" },
+  { class: "Workability", action: "EO issued" },
+  { class: "Workability", action: "W&S (keep)" },
+  { class: "Workability", action: "C/M" },
+  { class: "Workability", action: "Improved" },
+  { class: "Equipment", action: "U/Consideration" },
+  { class: "Equipment", action: "C/M" },
+  { class: "Equipment", action: "Improved" },
+];
+
 export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
   {
     id: 1,
@@ -96,7 +129,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "NEW",
+    status: "U/Consideration",
     responsibility: "Responsible person",
   },
   {
@@ -115,9 +148,9 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     problemDescription: "Description about problem which happened",
     actionsDone: "Some actions which was done filled by responsible person.",
     counterMeasure: "Action to solve caused problem.",
-    grade: "A",
+    grade: "S",
     class: "Equipment",
-    status: "NEW",
+    status: "U/Consideration",
     responsibility: "Responsible person",
   },
   {
@@ -136,9 +169,9 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     problemDescription: "Description about problem which happened",
     actionsDone: "Some actions which was done filled by responsible person.",
     counterMeasure: "Action to solve caused problem.",
-    grade: "A",
+    grade: "S",
     class: "Equipment",
-    status: "NEW",
+    status: "U/Consideration",
     responsibility: "Responsible person",
   },
   {
@@ -159,7 +192,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "NEW",
+    status: "U/Consideration",
     responsibility: "Responsible person",
   },
   {
@@ -180,7 +213,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "NEW",
+    status: "U/Consideration",
     responsibility: "Responsible person",
   },
   {
@@ -201,7 +234,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "NEW",
+    status: "U/Consideration",
     responsibility: "Responsible person",
   },
 ];
