@@ -1,4 +1,4 @@
-import useProblemListContext from "../../Stores/ProblemList/ProblemListContext.tsx";
+import useProblemListContext from "./Store/ProblemListContext.tsx";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   EXAMPLE_ACTION_DATA,

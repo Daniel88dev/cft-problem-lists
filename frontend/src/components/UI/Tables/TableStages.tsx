@@ -1,7 +1,7 @@
 import {
   Stages,
   StagesNamesType,
-} from "../../../Stores/ProblemList/ProblemListTypes.tsx";
+} from "../../ProblemLists/Store/ProblemListTypes.tsx";
 
 type TableStagesType = {
   stages: Stages;

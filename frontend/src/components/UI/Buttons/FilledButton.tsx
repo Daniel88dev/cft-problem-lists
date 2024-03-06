@@ -15,6 +15,7 @@ const FilledButton = ({
         border-black dark:border-white px-4 py-2 font-semibold
         text-black dark:text-white hover:dark:text-white transition-all duration-500
         hover:dark:border-black
+        my-2 mx-2
         
         before:absolute before:inset-0
         before:-z-10 before:translate-x-[150%]

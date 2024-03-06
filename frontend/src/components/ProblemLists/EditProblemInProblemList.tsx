@@ -1,21 +1,24 @@
 import ModalFull from "../UI/ModalFull.tsx";
-import { ProblemListDataType } from "../../Stores/ProblemList/ProblemListTypes.tsx";
+import { ProblemListDataType } from "./Store/ProblemListTypes.tsx";
 import { useRef, useState } from "react";
 import InputText from "../UI/Input/InputText.tsx";
 import InputTextArea from "../UI/Input/InputTextArea.tsx";
-import useProblemListContext from "../../Stores/ProblemList/ProblemListContext.tsx";
+import useProblemListContext from "./Store/ProblemListContext.tsx";
 import InputCheckbox from "../UI/Input/InputCheckbox.tsx";
 import GradeSelect from "../UI/Select/GradeSelect.tsx";
 import BasicSelect from "../UI/Select/BasicSelect.tsx";
+import FilledButton from "../UI/Buttons/FilledButton.tsx";
 
 type EditProblemType = {
   onClose: () => void;
   dataForEdit: ProblemListDataType;
+  onSubmitData: (value: ProblemListDataType) => void;
 };
 
 const EditProblemInProblemList = ({
   onClose,
   dataForEdit,
+  onSubmitData,
 }: EditProblemType) => {
   const { activeProject, format } = useProblemListContext();
   const problemName = useRef<HTMLInputElement>(null);
@@ -43,7 +46,7 @@ const EditProblemInProblemList = ({
   });
   const [status, setStatus] = useState(() => {
     const findStatus = format.actions.filter((action) => {
-      return action.class === dataForEdit.status;
+      return action.class === dataForEdit.class;
     });
     const array = findStatus.map((action) => {
       return action.action;
@@ -54,7 +57,52 @@ const EditProblemInProblemList = ({
     };
   });
 
-  console.log(classes, grade);
+  const onSubmit = () => {
+    if (
+      !stage1.current ||
+      !stage2.current ||
+      !stage3.current ||
+      !stage4.current ||
+      !stage5.current ||
+      !stage6.current
+    ) {
+      return alert("Stage selection error!");
+    }
+    if (grade === "") {
+      return alert("Select grade!");
+    }
+    if (
+      !problemName.current ||
+      !problemDescription.current ||
+      !actionsDone.current ||
+      !counterMeasure.current
+    ) {
+      return alert("Problem with filled form!");
+    }
+    const editedData: ProblemListDataType = {
+      id: dataForEdit.id,
+      item: dataForEdit.item,
+      stages: {
+        Stage1: stage1.current.checked,
+        Stage2: stage2.current.checked,
+        Stage3: stage3.current.checked,
+        Stage4: stage4.current.checked,
+        Stage5: stage5.current.checked,
+        Stage6: stage6.current.checked,
+      },
+      picture: dataForEdit.picture,
+      problemName: problemName.current.value,
+      problemDescription: problemDescription.current.value,
+      actionsDone: actionsDone.current.value,
+      counterMeasure: counterMeasure.current.value,
+      grade: grade,
+      class: classes.value,
+      status: status.selected,
+      responsibility: dataForEdit.responsibility,
+    };
+
+    onSubmitData(editedData);
+  };
 
   const onChangeClass = (value: string) => {
     setClasses((prevState) => {
@@ -178,6 +226,10 @@ const EditProblemInProblemList = ({
         onChange={onStatusChange}
         valuesArray={status.array}
       />
+      <div className={"flex"}>
+        <FilledButton onClick={onSubmit}>Submit</FilledButton>
+        <FilledButton onClick={onClose}>Cancel</FilledButton>
+      </div>
     </div>
   );
 

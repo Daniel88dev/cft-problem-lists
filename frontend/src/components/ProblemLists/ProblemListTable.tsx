@@ -1,4 +1,4 @@
-import useProblemListContext from "../../Stores/ProblemList/ProblemListContext.tsx";
+import useProblemListContext from "./Store/ProblemListContext.tsx";
 import TableMain from "../UI/Tables/TableMain.tsx";
 import TableHeading from "../UI/Tables/TableHeading.tsx";
 import Th from "../UI/Tables/Th.tsx";
@@ -6,18 +6,27 @@ import TableRow from "../UI/Tables/TableRow.tsx";
 import TableStages from "../UI/Tables/TableStages.tsx";
 import TablePicture from "../UI/Tables/TablePicture.tsx";
 import Loader from "../UI/Loader.tsx";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import EditProblemInProblemList from "./EditProblemInProblemList.tsx";
-import { ProblemListDataType } from "../../Stores/ProblemList/ProblemListTypes.tsx";
+import { ProblemListDataType } from "./Store/ProblemListTypes.tsx";
 import GradeCell from "../UI/Tables/GradeCell.tsx";
+import Notification, { ChildMethods } from "../UI/Notification.tsx";
 
 const ProblemListTable = () => {
-  const { data, activeProject, isDataLoaded, isLoading } =
+  const { data, activeProject, isDataLoaded, isLoading, changeProblem } =
     useProblemListContext();
   const [dataForEdit, setDataForEdit] = useState<ProblemListDataType | null>(
     null
   );
-  console.log(data);
+  const notifyRef = useRef<ChildMethods>(null);
+
+  const onProblemEditSubmit = (dataForChange: ProblemListDataType) => {
+    changeProblem(dataForChange);
+    if (notifyRef.current) {
+      notifyRef.current.setNotify("Data updated", "basic");
+    }
+    setDataForEdit(null);
+  };
 
   return (
     <>
@@ -68,8 +77,10 @@ const ProblemListTable = () => {
         <EditProblemInProblemList
           onClose={() => setDataForEdit(null)}
           dataForEdit={dataForEdit}
+          onSubmitData={onProblemEditSubmit}
         />
       )}
+      <Notification ref={notifyRef} />
     </>
   );
 };

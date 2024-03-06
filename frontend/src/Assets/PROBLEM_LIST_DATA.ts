@@ -5,7 +5,7 @@ import {
   ProblemListDataType,
   ProjectTypes,
   UserSettingType,
-} from "../Stores/ProblemList/ProblemListTypes.tsx";
+} from "../components/ProblemLists/Store/ProblemListTypes.tsx";
 
 export const USER_DEFAULT: UserSettingType = {
   id: 1,

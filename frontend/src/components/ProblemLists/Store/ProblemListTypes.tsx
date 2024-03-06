@@ -24,7 +24,7 @@ export type ProblemListDataType = {
   problemDescription: string;
   actionsDone: string;
   counterMeasure: string;
-  grade: "A" | "B" | "C" | "D" | "S";
+  grade: "A" | "B" | "C" | "D" | "S" | "";
   class: string;
   status: string;
   responsibility: string;
@@ -93,8 +93,8 @@ export type InitialStateType = {
 };
 
 export type ProblemListContextType = InitialStateType & {
-  loadUser: (user: UserSettingType) => void;
   loadInitialData: (data: FormatType) => void;
   loadProblems: (problems: ProblemListDataType[], projectId: number) => void;
   setLoading: () => void;
+  changeProblem: (problem: ProblemListDataType) => void;
 };

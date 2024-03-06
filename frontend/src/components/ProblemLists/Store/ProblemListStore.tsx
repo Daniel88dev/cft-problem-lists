@@ -3,7 +3,6 @@ import { createContext, useReducer } from "react";
 import {
   ProblemListType,
   ProblemListDataType,
-  UserSettingType,
   InitialStateType,
   ProblemListContextType,
   FormatType,
@@ -46,11 +45,6 @@ export const ProblemListContext = createContext<ProblemListContextType | null>(
   null
 );
 
-type AddDefaultUser = {
-  type: "ADD_DEFAULT_USER";
-  payload: UserSettingType;
-};
-
 type AddInitialData = {
   type: "ADD_INITIAL_DATA";
   payload: FormatType;
@@ -70,27 +64,17 @@ type AddLoadingState = {
   type: "SET_LOADING";
 };
 
-type Action = AddDefaultUser | AddInitialData | AddProblems | AddLoadingState;
+type ChangeProblem = {
+  type: "CHANGE_PROBLEM";
+  payload: ProblemListDataType;
+};
+
+type Action = AddInitialData | AddProblems | AddLoadingState | ChangeProblem;
 
 function problemListReducer(
   state: InitialStateType,
   action: Action
 ): InitialStateType {
-  if (action.type === "ADD_DEFAULT_USER") {
-    return {
-      ...state,
-      isInitialLoaded: true,
-      format: {
-        ...state.format,
-        user: {
-          id: action.payload.id,
-          userId: action.payload.userId,
-          userName: action.payload.userName,
-        },
-      },
-    };
-  }
-
   if (action.type === "ADD_INITIAL_DATA") {
     return {
       ...state,
@@ -131,6 +115,20 @@ function problemListReducer(
     };
   }
 
+  if (action.type === "CHANGE_PROBLEM") {
+    const NewProblemsArray = state.data.map((problem) => {
+      if (problem.id === action.payload.id) {
+        return action.payload;
+      } else {
+        return problem;
+      }
+    });
+    return {
+      ...state,
+      data: NewProblemsArray,
+    };
+  }
+
   return state;
 }
 
@@ -147,9 +145,6 @@ const ProblemListStore = ({ children }: ProblemListType) => {
     format: problemListState.format,
     data: problemListState.data,
     activeProject: problemListState.activeProject,
-    loadUser(user) {
-      dispatch({ type: "ADD_DEFAULT_USER", payload: user });
-    },
     loadInitialData(data) {
       dispatch({ type: "ADD_INITIAL_DATA", payload: data });
     },
@@ -164,6 +159,12 @@ const ProblemListStore = ({ children }: ProblemListType) => {
     },
     setLoading() {
       dispatch({ type: "SET_LOADING" });
+    },
+    changeProblem(problem) {
+      dispatch({
+        type: "CHANGE_PROBLEM",
+        payload: problem,
+      });
     },
   };
   return (

@@ -1,4 +1,4 @@
-import ProblemListStore from "../Stores/ProblemList/ProblemListStore.tsx";
+import ProblemListStore from "../components/ProblemLists/Store/ProblemListStore.tsx";
 import ProblemListHeader from "../components/ProblemLists/ProblemListHeader.tsx";
 import ProblemListTable from "../components/ProblemLists/ProblemListTable.tsx";
 

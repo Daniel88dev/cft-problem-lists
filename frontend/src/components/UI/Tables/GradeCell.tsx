@@ -1,5 +1,5 @@
 type GradeCellType = {
-  value: "A" | "B" | "C" | "D" | "S";
+  value: "A" | "B" | "C" | "D" | "S" | "";
 };
 
 const GradeCell = ({ value }: GradeCellType) => {
