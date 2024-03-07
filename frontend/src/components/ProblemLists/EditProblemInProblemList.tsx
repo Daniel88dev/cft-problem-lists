@@ -99,6 +99,7 @@ const EditProblemInProblemList = ({
       class: classes.value,
       status: status.selected,
       responsibility: dataForEdit.responsibility,
+      listeners: dataForEdit.listeners,
     };
 
     onSubmitData(editedData);
