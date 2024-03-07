@@ -28,6 +28,7 @@ export type ProblemListDataType = {
   class: string;
   status: string;
   responsibility: string;
+  listeners: AllUsersType[];
 };
 
 export type StagesNamesType = {
@@ -55,9 +56,9 @@ export type UserType = {
 
 export type AllUsersType = {
   id: number;
-  userId: string;
-  userName: string;
-  avatar: string;
+  name: string;
+  designation: string;
+  image: string;
 };
 
 export type ClassType = {
@@ -75,12 +76,6 @@ export type FormatType = {
   projects: ProjectTypes[];
   classes: ClassType[];
   actions: ActionType[];
-};
-
-export type UserSettingType = {
-  id: number;
-  userId: string;
-  userName: string;
 };
 
 export type InitialStateType = {

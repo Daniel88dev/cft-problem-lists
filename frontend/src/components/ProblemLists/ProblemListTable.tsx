@@ -11,6 +11,7 @@ import EditProblemInProblemList from "./EditProblemInProblemList.tsx";
 import { ProblemListDataType } from "./Store/ProblemListTypes.tsx";
 import GradeCell from "../UI/Tables/GradeCell.tsx";
 import Notification, { ChildMethods } from "../UI/Notification.tsx";
+import { PersonTableCell } from "./PersonTableCell.tsx";
 
 const ProblemListTable = () => {
   const { data, activeProject, isDataLoaded, isLoading, changeProblem } =
@@ -45,6 +46,7 @@ const ProblemListTable = () => {
             <Th width="w-24">Class</Th>
             <Th width="w-24">Status</Th>
             <Th width="w-24">Responsibility</Th>
+            <Th width={"w-96"}>Listeners</Th>
           </TableHeading>
           <tbody>
             {data.map((item) => (
@@ -68,6 +70,7 @@ const ProblemListTable = () => {
                 <td className={"px-2"}>{item.class}</td>
                 <td className={"px-2"}>{item.status}</td>
                 <td className={"px-2"}>{item.responsibility}</td>
+                <PersonTableCell users={item.listeners} />
               </TableRow>
             ))}
           </tbody>
