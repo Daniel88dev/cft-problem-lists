@@ -9,8 +9,10 @@ import {
 
 export const USER_DEFAULT: UserType = {
   id: 1,
-  userId: "18105061",
-  userName: "Daniel Hrynusiw",
+  name: "John Doe",
+  designation: "ASSY ME",
+  image:
+    "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
 };
 
 export const PROJECTS_DEFAULT: ProjectTypes[] = [
@@ -154,7 +156,13 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     grade: "A",
     class: "Equipment",
     status: "U/Consideration",
-    responsibility: "Responsible person",
+    responsibility: {
+      id: 1,
+      name: "John Doe",
+      designation: "ASSY ME",
+      image:
+        "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    },
     listeners: [
       {
         id: 1,
@@ -184,7 +192,13 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     grade: "S",
     class: "Equipment",
     status: "U/Consideration",
-    responsibility: "Responsible person",
+    responsibility: {
+      id: 1,
+      name: "John Doe",
+      designation: "ASSY ME",
+      image:
+        "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    },
     listeners: [],
   },
   {
@@ -206,7 +220,13 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     grade: "S",
     class: "Equipment",
     status: "U/Consideration",
-    responsibility: "Responsible person",
+    responsibility: {
+      id: 5,
+      name: "Tyler Durden",
+      designation: "PD",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    },
     listeners: [
       {
         id: 3,
@@ -243,7 +263,13 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     grade: "A",
     class: "Equipment",
     status: "U/Consideration",
-    responsibility: "Responsible person",
+    responsibility: {
+      id: 5,
+      name: "Tyler Durden",
+      designation: "PD",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    },
     listeners: [
       {
         id: 1,
@@ -308,7 +334,13 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     grade: "A",
     class: "Equipment",
     status: "U/Consideration",
-    responsibility: "Responsible person",
+    responsibility: {
+      id: 5,
+      name: "Tyler Durden",
+      designation: "PD",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    },
     listeners: [
       {
         id: 1,
@@ -373,7 +405,13 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     grade: "A",
     class: "Equipment",
     status: "U/Consideration",
-    responsibility: "Responsible person",
+    responsibility: {
+      id: 5,
+      name: "Tyler Durden",
+      designation: "PD",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    },
     listeners: [
       {
         id: 1,

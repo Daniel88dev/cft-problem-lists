@@ -6,6 +6,7 @@ import {
   InitialStateType,
   ProblemListContextType,
   FormatType,
+  AllUsersType,
 } from "./ProblemListTypes.tsx";
 // Setting Context and default values for reducer
 
@@ -16,8 +17,9 @@ const initialState: InitialStateType = {
   format: {
     user: {
       id: 0,
-      userId: "",
-      userName: "",
+      name: "",
+      designation: "",
+      image: "",
     },
     allUsers: [],
     projects: [],
@@ -69,7 +71,23 @@ type ChangeProblem = {
   payload: ProblemListDataType;
 };
 
-type Action = AddInitialData | AddProblems | AddLoadingState | ChangeProblem;
+type Subscribe = {
+  type: "SUBSCRIBE";
+  payload: { itemId: number };
+};
+
+type Unsubscribe = {
+  type: "UNSUBSCRIBE";
+  payload: { itemId: number };
+};
+
+type Action =
+  | AddInitialData
+  | AddProblems
+  | AddLoadingState
+  | ChangeProblem
+  | Subscribe
+  | Unsubscribe;
 
 function problemListReducer(
   state: InitialStateType,
@@ -129,6 +147,56 @@ function problemListReducer(
     };
   }
 
+  if (action.type === "SUBSCRIBE") {
+    const findProblem = state.data.find((problem) => {
+      return problem.id === action.payload.itemId;
+    });
+    const updatedProblem = {
+      ...findProblem,
+      listeners: [...findProblem!.listeners, { ...state.format.user }],
+    };
+    const newProblems = state.data.map((problem) => {
+      if (problem.id === action.payload.itemId) {
+        return updatedProblem;
+      } else {
+        return problem;
+      }
+    });
+    return {
+      ...state,
+      data: newProblems as ProblemListDataType[],
+    };
+  }
+
+  if (action.type === "UNSUBSCRIBE") {
+    const findProblem = state.data.find((problem) => {
+      return problem.id === action.payload.itemId;
+    });
+    const newListeners: AllUsersType[] = [];
+    findProblem!.listeners.map((listener) => {
+      if (listener.id !== state.format.user.id) {
+        return newListeners.push(listener);
+      } else {
+        return;
+      }
+    });
+    const updatedProblem = {
+      ...findProblem,
+      listeners: newListeners,
+    };
+    const newProblems = state.data.map((problem) => {
+      if (problem.id === action.payload.itemId) {
+        return updatedProblem;
+      } else {
+        return problem;
+      }
+    });
+    return {
+      ...state,
+      data: newProblems as ProblemListDataType[],
+    };
+  }
+
   return state;
 }
 
@@ -165,6 +233,12 @@ const ProblemListStore = ({ children }: ProblemListType) => {
         type: "CHANGE_PROBLEM",
         payload: problem,
       });
+    },
+    setSubscribed(itemId) {
+      dispatch({ type: "SUBSCRIBE", payload: { itemId } });
+    },
+    setUnsubscribed(itemId) {
+      dispatch({ type: "UNSUBSCRIBE", payload: { itemId } });
     },
   };
   return (

@@ -8,10 +8,12 @@ import TablePicture from "../UI/Tables/TablePicture.tsx";
 import Loader from "../UI/Loader.tsx";
 import { useRef, useState } from "react";
 import EditProblemInProblemList from "./EditProblemInProblemList.tsx";
-import { ProblemListDataType } from "./Store/ProblemListTypes.tsx";
+import { type ProblemListDataType } from "./Store/ProblemListTypes.tsx";
 import GradeCell from "../UI/Tables/GradeCell.tsx";
-import Notification, { ChildMethods } from "../UI/Notification.tsx";
+import Notification, { type ChildMethods } from "../UI/Notification.tsx";
 import { PersonTableCell } from "./PersonTableCell.tsx";
+import SubscribeToListeners from "./SubscribeToListeners.tsx";
+import Button from "../UI/Buttons/Button.tsx";
 
 const ProblemListTable = () => {
   const { data, activeProject, isDataLoaded, isLoading, changeProblem } =
@@ -47,15 +49,15 @@ const ProblemListTable = () => {
             <Th width="w-24">Status</Th>
             <Th width="w-24">Responsibility</Th>
             <Th width={"w-96"}>Listeners</Th>
+            <Th width={"w-24"}>Subscribe</Th>
           </TableHeading>
           <tbody>
             {data.map((item) => (
               <TableRow key={item.id}>
-                <td
-                  className="hover:cursor-pointer hover:underline px-2"
-                  onClick={() => setDataForEdit(item)}
-                >
-                  {item.item}
+                <td className="flex-col px-2">
+                  <p>{item.item}</p>
+                  <Button>Open</Button>
+                  <Button onClick={() => setDataForEdit(item)}>Edit</Button>
                 </td>
                 <TableStages
                   stages={item.stages}
@@ -69,8 +71,14 @@ const ProblemListTable = () => {
                 <GradeCell value={item.grade} />
                 <td className={"px-2"}>{item.class}</td>
                 <td className={"px-2"}>{item.status}</td>
-                <td className={"px-2"}>{item.responsibility}</td>
+                <td className={"px-2"}>
+                  {item.responsibility.name} - {item.responsibility.designation}
+                </td>
                 <PersonTableCell users={item.listeners} />
+                <SubscribeToListeners
+                  listeners={item.listeners}
+                  itemId={item.id}
+                />
               </TableRow>
             ))}
           </tbody>

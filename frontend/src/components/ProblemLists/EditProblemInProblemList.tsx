@@ -1,5 +1,5 @@
 import ModalFull from "../UI/ModalFull.tsx";
-import { ProblemListDataType } from "./Store/ProblemListTypes.tsx";
+import { ProblemListDataType, UserType } from "./Store/ProblemListTypes.tsx";
 import { useRef, useState } from "react";
 import InputText from "../UI/Input/InputText.tsx";
 import InputTextArea from "../UI/Input/InputTextArea.tsx";
@@ -8,6 +8,7 @@ import InputCheckbox from "../UI/Input/InputCheckbox.tsx";
 import GradeSelect from "../UI/Select/GradeSelect.tsx";
 import BasicSelect from "../UI/Select/BasicSelect.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
+import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
 
 type EditProblemType = {
   onClose: () => void;
@@ -56,6 +57,25 @@ const EditProblemInProblemList = ({
       array: array,
     };
   });
+  const [responsibility, setResponsibility] = useState<UserType>(
+    dataForEdit.responsibility
+  );
+
+  const responsibilityArray = format.allUsers.map((user) => {
+    return {
+      value: user.id,
+      label: `${user.name} - ${user.designation}`,
+    };
+  });
+
+  const onResponsibleChange = (value: OptionType | null) => {
+    if (value) {
+      const findUser = format.allUsers.find((user) => {
+        return user.id === value.value;
+      });
+      setResponsibility(findUser!);
+    }
+  };
 
   const onSubmit = () => {
     if (
@@ -98,7 +118,7 @@ const EditProblemInProblemList = ({
       grade: grade,
       class: classes.value,
       status: status.selected,
-      responsibility: dataForEdit.responsibility,
+      responsibility: responsibility,
       listeners: dataForEdit.listeners,
     };
 
@@ -125,6 +145,7 @@ const EditProblemInProblemList = ({
   };
 
   const onStatusChange = (value: string) => {
+    console.log(value);
     setStatus((prevState) => {
       return {
         ...prevState,
@@ -206,6 +227,16 @@ const EditProblemInProblemList = ({
         label={"Countermeasure:"}
         defaultValue={dataForEdit.counterMeasure}
         ref={counterMeasure}
+      />
+      <SelectSearch
+        options={responsibilityArray}
+        onSelect={onResponsibleChange}
+        label={"Select responsible person:"}
+        clearable={false}
+        defaultValue={{
+          label: `${responsibility.name} - ${responsibility.designation}`,
+          value: responsibility.id,
+        }}
       />
       <GradeSelect
         defaultValue={dataForEdit.grade}

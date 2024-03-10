@@ -27,7 +27,7 @@ export type ProblemListDataType = {
   grade: "A" | "B" | "C" | "D" | "S" | "";
   class: string;
   status: string;
-  responsibility: string;
+  responsibility: UserType;
   listeners: AllUsersType[];
 };
 
@@ -50,8 +50,9 @@ export type ProjectTypes = {
 
 export type UserType = {
   id: number;
-  userId: string;
-  userName: string;
+  name: string;
+  designation: string;
+  image: string;
 };
 
 export type AllUsersType = {
@@ -92,4 +93,6 @@ export type ProblemListContextType = InitialStateType & {
   loadProblems: (problems: ProblemListDataType[], projectId: number) => void;
   setLoading: () => void;
   changeProblem: (problem: ProblemListDataType) => void;
+  setSubscribed: (itemId: number) => void;
+  setUnsubscribed: (itemId: number) => void;
 };

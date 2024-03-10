@@ -11,12 +11,16 @@ interface SelectProps {
   options: OptionType[];
   onSelect: (option: OptionType | null) => void;
   label: string;
+  defaultValue?: OptionType;
+  clearable?: boolean;
 }
 
 const SelectSearch = ({
   options,
   onSelect,
   label,
+  defaultValue,
+  clearable = true,
 }: SelectProps): JSX.Element => {
   const [optionData, setOptionData] = useState<OptionType[]>([]);
 
@@ -52,7 +56,8 @@ const SelectSearch = ({
         options={optionData}
         onChange={handleChange}
         className="w-56 h-10 rounded-lg text-black"
-        isClearable={true}
+        isClearable={clearable}
+        defaultValue={defaultValue ? defaultValue : null}
       />
     </div>
   );
