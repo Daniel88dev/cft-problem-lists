@@ -16,12 +16,41 @@ import SubscribeToListeners from "./SubscribeToListeners.tsx";
 import Button from "../UI/Buttons/Button.tsx";
 
 const ProblemListTable = () => {
-  const { data, activeProject, isDataLoaded, isLoading, changeProblem } =
-    useProblemListContext();
+  const {
+    data,
+    activeProject,
+    isDataLoaded,
+    isLoading,
+    changeProblem,
+    filters,
+  } = useProblemListContext();
   const [dataForEdit, setDataForEdit] = useState<ProblemListDataType | null>(
     null
   );
   const notifyRef = useRef<ChildMethods>(null);
+
+  let filtered: ProblemListDataType[] = [];
+
+  if (!filters.filtersApplied) {
+    filtered = data;
+  } else {
+    if (filters.status.length !== 0 && filters.grade.length !== 0) {
+      filtered = data.filter((dat) => {
+        return (
+          filters.status.includes(dat.status) &&
+          filters.grade.includes(dat.grade)
+        );
+      });
+    } else if (filters.status.length !== 0) {
+      filtered = data.filter((dat) => {
+        return filters.status.includes(dat.status);
+      });
+    } else if (filters.grade.length !== 0) {
+      filtered = data.filter((dat) => {
+        return filters.grade.includes(dat.grade);
+      });
+    }
+  }
 
   const onProblemEditSubmit = (dataForChange: ProblemListDataType) => {
     changeProblem(dataForChange);
@@ -46,13 +75,14 @@ const ProblemListTable = () => {
             <Th width="w-48">Counter Measure</Th>
             <Th width="w-24">Grade</Th>
             <Th width="w-24">Class</Th>
-            <Th width="w-24">Status</Th>
+            <Th width="w-24">Action</Th>
+            <Th width={"w-24"}>Status</Th>
             <Th width="w-24">Responsibility</Th>
             <Th width={"w-96"}>Listeners</Th>
             <Th width={"w-24"}>Subscribe</Th>
           </TableHeading>
           <tbody>
-            {data.map((item) => (
+            {filtered.map((item) => (
               <TableRow key={item.id}>
                 <td className="flex-col px-2">
                   <p>{item.item}</p>
@@ -70,6 +100,7 @@ const ProblemListTable = () => {
                 <td className={"px-2"}>{item.counterMeasure}</td>
                 <GradeCell value={item.grade} />
                 <td className={"px-2"}>{item.class}</td>
+                <td className={"px-2"}>{item.action}</td>
                 <td className={"px-2"}>{item.status}</td>
                 <td className={"px-2"}>
                   {item.responsibility.name} - {item.responsibility.designation}

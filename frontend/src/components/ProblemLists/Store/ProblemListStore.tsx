@@ -25,6 +25,7 @@ const initialState: InitialStateType = {
     projects: [],
     classes: [],
     actions: [],
+    status: [],
   },
   data: [],
   activeProject: {
@@ -40,6 +41,11 @@ const initialState: InitialStateType = {
       active: "",
     },
     lists: [],
+  },
+  filters: {
+    filtersApplied: false,
+    status: [],
+    grade: [],
   },
 };
 
@@ -81,13 +87,19 @@ type Unsubscribe = {
   payload: { itemId: number };
 };
 
+type SetFilters = {
+  type: "APPLY_FILTERS";
+  payload: { statusFilters: string[]; gradeFilters: string[] };
+};
+
 type Action =
   | AddInitialData
   | AddProblems
   | AddLoadingState
   | ChangeProblem
   | Subscribe
-  | Unsubscribe;
+  | Unsubscribe
+  | SetFilters;
 
 function problemListReducer(
   state: InitialStateType,
@@ -102,6 +114,7 @@ function problemListReducer(
         projects: action.payload.projects,
         classes: action.payload.classes,
         actions: action.payload.actions,
+        status: action.payload.status,
       },
       isInitialLoaded: true,
       isLoading: false,
@@ -197,6 +210,20 @@ function problemListReducer(
     };
   }
 
+  if (action.type === "APPLY_FILTERS") {
+    return {
+      ...state,
+      filters: {
+        filtersApplied: !(
+          action.payload.statusFilters.length === 0 &&
+          action.payload.gradeFilters.length === 0
+        ),
+        status: action.payload.statusFilters,
+        grade: action.payload.gradeFilters,
+      },
+    };
+  }
+
   return state;
 }
 
@@ -213,6 +240,7 @@ const ProblemListStore = ({ children }: ProblemListType) => {
     format: problemListState.format,
     data: problemListState.data,
     activeProject: problemListState.activeProject,
+    filters: problemListState.filters,
     loadInitialData(data) {
       dispatch({ type: "ADD_INITIAL_DATA", payload: data });
     },
@@ -239,6 +267,12 @@ const ProblemListStore = ({ children }: ProblemListType) => {
     },
     setUnsubscribed(itemId) {
       dispatch({ type: "UNSUBSCRIBE", payload: { itemId } });
+    },
+    applyFilters(statusFilters, gradeFilters) {
+      dispatch({
+        type: "APPLY_FILTERS",
+        payload: { statusFilters, gradeFilters },
+      });
     },
   };
   return (

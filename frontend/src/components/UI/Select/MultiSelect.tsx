@@ -11,12 +11,14 @@ interface SelectProps {
   options: MultiOptionType[];
   onSelect: (option: readonly MultiOptionType[] | null) => void;
   label: string;
+  width?: "w-96" | "w-48";
 }
 
 const MultiSelect = ({
   options,
   onSelect,
   label,
+  width = "w-96",
 }: SelectProps): JSX.Element => {
   const [optionData, setOptionData] = useState<MultiOptionType[]>([]);
 
@@ -56,7 +58,7 @@ const MultiSelect = ({
       <Select
         options={optionData}
         onChange={handleChange}
-        className="w-96 h-10 rounded-lg text-black"
+        className={`h-10 rounded-lg text-black ${width}`}
         isClearable={true}
         isMulti={true}
       />

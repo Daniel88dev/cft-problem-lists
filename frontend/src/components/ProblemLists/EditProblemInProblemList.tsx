@@ -45,7 +45,7 @@ const EditProblemInProblemList = ({
       array: array,
     };
   });
-  const [status, setStatus] = useState(() => {
+  const [action, setAction] = useState(() => {
     const findStatus = format.actions.filter((action) => {
       return action.class === dataForEdit.class;
     });
@@ -53,7 +53,8 @@ const EditProblemInProblemList = ({
       return action.action;
     });
     return {
-      selected: dataForEdit.status,
+      selected: dataForEdit.action,
+      status: dataForEdit.status,
       array: array,
     };
   });
@@ -117,7 +118,8 @@ const EditProblemInProblemList = ({
       counterMeasure: counterMeasure.current.value,
       grade: grade,
       class: classes.value,
-      status: status.selected,
+      status: action.selected,
+      action: action.status,
       responsibility: responsibility,
       listeners: dataForEdit.listeners,
     };
@@ -138,21 +140,23 @@ const EditProblemInProblemList = ({
     const array = findStatus.map((status) => {
       return status.action;
     });
-    setStatus({
+    setAction({
       selected: "---",
       array: array,
+      status: "---",
     });
   };
 
   const onStatusChange = (value: string) => {
-    console.log(value);
-    setStatus((prevState) => {
+    setAction((prevState) => {
       return {
         ...prevState,
         selected: value,
       };
     });
   };
+
+  //TODO find status and apply
 
   const content = (
     <div className={"w-full"}>
@@ -253,10 +257,10 @@ const EditProblemInProblemList = ({
       />
       <BasicSelect
         id={"status"}
-        label={"Select status:"}
-        defaultValue={status.selected}
+        label={"Select action:"}
+        defaultValue={action.selected}
         onChange={onStatusChange}
-        valuesArray={status.array}
+        valuesArray={action.array}
       />
       <div className={"flex"}>
         <FilledButton onClick={onSubmit}>Submit</FilledButton>

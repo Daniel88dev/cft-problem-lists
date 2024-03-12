@@ -5,6 +5,7 @@ import {
   EXAMPLE_CLASS_DATA,
   EXAMPLE_PROBLEM_LIST_DATA,
   PROJECTS_DEFAULT,
+  STATUS_EXAMPLES,
   USER_DEFAULT,
   USERS_DEFAULT,
 } from "../../Assets/PROBLEM_LIST_DATA.ts";
@@ -12,6 +13,7 @@ import FilterMenu from "../UI/FilterMenu.tsx";
 import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
 import Notification, { type ChildMethods } from "../UI/Notification.tsx";
+import MultiSelect, { MultiOptionType } from "../UI/Select/MultiSelect.tsx";
 
 type SelectedType = {
   projectId: number;
@@ -19,8 +21,15 @@ type SelectedType = {
 };
 
 const ProblemListHeader = () => {
-  const { loadInitialData, format, loadProblems, setLoading } =
-    useProblemListContext();
+  const {
+    loadInitialData,
+    format,
+    loadProblems,
+    setLoading,
+    isInitialLoaded,
+    filters,
+    applyFilters,
+  } = useProblemListContext();
   const [selectedData, setSelectedData] = useState<SelectedType>({
     projectId: 0,
     list: [],
@@ -35,6 +44,7 @@ const ProblemListHeader = () => {
       projects: PROJECTS_DEFAULT,
       classes: EXAMPLE_CLASS_DATA,
       actions: EXAMPLE_ACTION_DATA,
+      status: STATUS_EXAMPLES,
     };
     loadInitialData(loadedData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -85,12 +95,54 @@ const ProblemListHeader = () => {
 
   const onListSelect = (value: OptionType | null) => {
     console.log(value);
+    // TODO apply logic
     // Do something with the selected list
   };
 
   useEffect(() => {
     loadInitial();
   }, [loadInitial]);
+
+  const statusArray: MultiOptionType[] = [];
+
+  if (isInitialLoaded) {
+    format.status.map((single) => {
+      statusArray.push({
+        label: single,
+        value: single,
+      });
+    });
+  }
+
+  const gradeArray = [
+    { label: "S", value: "S" },
+    { label: "A", value: "A" },
+    { label: "B", value: "B" },
+    { label: "C", value: "C" },
+    { label: "D", value: "D" },
+  ];
+
+  const onStatusSelect = (value: readonly MultiOptionType[] | null) => {
+    if (value!.length === 0) {
+      applyFilters([], filters.grade);
+    } else {
+      const array: string[] = value!.map((single) => {
+        return single.label;
+      });
+      applyFilters(array, filters.grade);
+    }
+  };
+
+  const onGradeSelect = (value: readonly MultiOptionType[] | null) => {
+    if (value!.length === 0) {
+      applyFilters(filters.status, []);
+    } else {
+      const array: string[] = value!.map((single) => {
+        return single.label;
+      });
+      applyFilters(filters.status, array);
+    }
+  };
 
   return (
     <>
@@ -106,6 +158,17 @@ const ProblemListHeader = () => {
           label="Select Problem list:"
         />
         <FilledButton onClick={loadProblemList}>Load Data</FilledButton>
+        <MultiSelect
+          options={statusArray}
+          onSelect={onStatusSelect}
+          label={"Filter by status:"}
+        />
+        <MultiSelect
+          options={gradeArray}
+          onSelect={onGradeSelect}
+          label={"Filter by grade:"}
+          width={"w-48"}
+        />
       </FilterMenu>
       <Notification ref={notifyRef} />
     </>

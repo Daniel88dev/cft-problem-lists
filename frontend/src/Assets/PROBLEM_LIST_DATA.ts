@@ -113,27 +113,27 @@ export const EXAMPLE_CLASS_DATA: ClassType[] = [
 ];
 
 export const EXAMPLE_ACTION_DATA: ActionType[] = [
-  { class: "Design", action: "U/Consideration" },
-  { class: "Design", action: "Tryout" },
-  { class: "Design", action: "EO plan" },
-  { class: "Design", action: "EO issued" },
-  { class: "Design", action: "W&S (keep)" },
-  { class: "Design", action: "Improved" },
-  { class: "Part", action: "U/Consideration" },
-  { class: "Part", action: "Tryout" },
-  { class: "Part", action: "W&S (keep)" },
-  { class: "Part", action: "C/M" },
-  { class: "Part", action: "Improved" },
-  { class: "Workability", action: "U/Consideration" },
-  { class: "Workability", action: "Tryout" },
-  { class: "Workability", action: "EO plan" },
-  { class: "Workability", action: "EO issued" },
-  { class: "Workability", action: "W&S (keep)" },
-  { class: "Workability", action: "C/M" },
-  { class: "Workability", action: "Improved" },
-  { class: "Equipment", action: "U/Consideration" },
-  { class: "Equipment", action: "C/M" },
-  { class: "Equipment", action: "Improved" },
+  { class: "Design", action: "U/Consideration", status: "Open" },
+  { class: "Design", action: "Tryout", status: "CM" },
+  { class: "Design", action: "EO plan", status: "CM" },
+  { class: "Design", action: "EO issued", status: "CM" },
+  { class: "Design", action: "W&S (keep)", status: "Closed" },
+  { class: "Design", action: "Improved", status: "Closed" },
+  { class: "Part", action: "U/Consideration", status: "Open" },
+  { class: "Part", action: "Tryout", status: "CM" },
+  { class: "Part", action: "W&S (keep)", status: "Closed" },
+  { class: "Part", action: "C/M", status: "CM" },
+  { class: "Part", action: "Improved", status: "Closed" },
+  { class: "Workability", action: "U/Consideration", status: "Open" },
+  { class: "Workability", action: "Tryout", status: "CM" },
+  { class: "Workability", action: "EO plan", status: "CM" },
+  { class: "Workability", action: "EO issued", status: "CM" },
+  { class: "Workability", action: "W&S (keep)", status: "Closed" },
+  { class: "Workability", action: "C/M", status: "CM" },
+  { class: "Workability", action: "Improved", status: "Closed" },
+  { class: "Equipment", action: "U/Consideration", status: "Open" },
+  { class: "Equipment", action: "C/M", status: "CM" },
+  { class: "Equipment", action: "Improved", status: "Closed" },
 ];
 
 export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
@@ -155,7 +155,8 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "U/Consideration",
+    action: "C/M",
+    status: "CM",
     responsibility: {
       id: 1,
       name: "John Doe",
@@ -191,7 +192,8 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "S",
     class: "Equipment",
-    status: "U/Consideration",
+    action: "Improved",
+    status: "Closed",
     responsibility: {
       id: 1,
       name: "John Doe",
@@ -219,7 +221,8 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "S",
     class: "Equipment",
-    status: "U/Consideration",
+    action: "C/M",
+    status: "CM",
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -262,7 +265,8 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "U/Consideration",
+    action: "Improved",
+    status: "Closed",
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -333,7 +337,8 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "U/Consideration",
+    action: "U/Consideration",
+    status: "Open",
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -404,7 +409,8 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     counterMeasure: "Action to solve caused problem.",
     grade: "A",
     class: "Equipment",
-    status: "U/Consideration",
+    action: "U/Consideration",
+    status: "Open",
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -458,3 +464,5 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     ],
   },
 ];
+
+export const STATUS_EXAMPLES = ["Open", "CM", "Closed"];

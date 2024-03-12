@@ -26,6 +26,7 @@ export type ProblemListDataType = {
   counterMeasure: string;
   grade: "A" | "B" | "C" | "D" | "S" | "";
   class: string;
+  action: string;
   status: string;
   responsibility: UserType;
   listeners: AllUsersType[];
@@ -69,6 +70,13 @@ export type ClassType = {
 export type ActionType = {
   class: string;
   action: string;
+  status: string;
+};
+
+export type FiltersType = {
+  filtersApplied: boolean;
+  status: string[];
+  grade: string[];
 };
 
 export type FormatType = {
@@ -77,6 +85,7 @@ export type FormatType = {
   projects: ProjectTypes[];
   classes: ClassType[];
   actions: ActionType[];
+  status: string[];
 };
 
 export type InitialStateType = {
@@ -86,6 +95,7 @@ export type InitialStateType = {
   format: FormatType;
   data: ProblemListDataType[];
   activeProject: ProjectTypes;
+  filters: FiltersType;
 };
 
 export type ProblemListContextType = InitialStateType & {
@@ -95,4 +105,5 @@ export type ProblemListContextType = InitialStateType & {
   changeProblem: (problem: ProblemListDataType) => void;
   setSubscribed: (itemId: number) => void;
   setUnsubscribed: (itemId: number) => void;
+  applyFilters: (statusFilters: string[], gradeFilters: string[]) => void;
 };
