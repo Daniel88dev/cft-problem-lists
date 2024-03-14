@@ -16,6 +16,7 @@ const FilledButton = ({
         text-black dark:text-white hover:dark:text-white transition-all duration-500
         hover:dark:border-black
         my-2 mx-2
+        min-w-20
         
         before:absolute before:inset-0
         before:-z-10 before:translate-x-[150%]

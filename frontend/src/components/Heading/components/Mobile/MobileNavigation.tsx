@@ -38,7 +38,7 @@ const MobileNavigation = ({ data }: { data: HeadingObjectType[] }) => {
       <div
         id="menu"
         className={
-          "absolute z-10 top-0 bottom-0 left-0 flex-col self-end w-full min-h-screen py-1 pt-40 pl-24 space-y-3 text-lg text-white uppercase bg-violet-500 dark:bg-black" +
+          "absolute z-10 top-0 left-0 flex-col self-end w-full min-h-screen py-1 pt-40 pl-24 space-y-3 text-lg text-white uppercase bg-violet-500 dark:bg-black" +
           (open ? " flex" : " hidden")
         }
       >

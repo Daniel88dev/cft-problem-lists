@@ -118,8 +118,8 @@ const EditProblemInProblemList = ({
       counterMeasure: counterMeasure.current.value,
       grade: grade,
       class: classes.value,
-      status: action.selected,
-      action: action.status,
+      action: action.selected,
+      status: action.status,
       responsibility: responsibility,
       listeners: dataForEdit.listeners,
     };
@@ -131,7 +131,7 @@ const EditProblemInProblemList = ({
     setClasses((prevState) => {
       return {
         ...prevState,
-        selected: value,
+        value: value,
       };
     });
     const findStatus = format.actions.filter((action) => {
@@ -148,15 +148,28 @@ const EditProblemInProblemList = ({
   };
 
   const onStatusChange = (value: string) => {
-    setAction((prevState) => {
-      return {
-        ...prevState,
-        selected: value,
-      };
-    });
-  };
+    if (value === "---") {
+      setAction((prevState) => {
+        return {
+          ...prevState,
+          selected: "---",
+          status: "---",
+        };
+      });
+    } else {
+      const findStatus = format.actions.find((action) => {
+        return action.class === classes.value && action.action === value;
+      });
 
-  //TODO find status and apply
+      setAction((prevState) => {
+        return {
+          ...prevState,
+          selected: value,
+          status: findStatus!.status,
+        };
+      });
+    }
+  };
 
   const content = (
     <div className={"w-full"}>
@@ -262,6 +275,7 @@ const EditProblemInProblemList = ({
         onChange={onStatusChange}
         valuesArray={action.array}
       />
+      <h3 className={"px-2"}>Status of problem: {action.status}</h3>
       <div className={"flex"}>
         <FilledButton onClick={onSubmit}>Submit</FilledButton>
         <FilledButton onClick={onClose}>Cancel</FilledButton>
