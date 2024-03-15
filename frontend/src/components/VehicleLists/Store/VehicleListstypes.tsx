@@ -66,4 +66,5 @@ export type InitialStateType = {
 export type VehicleListContextType = InitialStateType & {
   loadInitialData: (data: ProjectTypes[]) => void;
   loadVehicles: (vehicles: VehicleDataType[], projectId: number) => void;
+  setLoading: () => void;
 };

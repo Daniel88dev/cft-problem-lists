@@ -54,20 +54,49 @@ type AddVehicleData = {
   payload: PayloadForAddVehicles;
 };
 
-type Action = AddInitialData | AddVehicleData;
+type AddLoadingState = {
+  type: "SET_LOADING";
+};
+
+type Action = AddInitialData | AddVehicleData | AddLoadingState;
 
 function vehicleListReducer(
   state: InitialStateType,
   action: Action
 ): InitialStateType {
   if (action.type === "ADD_INITIAL_DATA") {
-    // TODO add logic
-    return state;
+    return {
+      ...state,
+      projects: action.payload,
+      isInitialLoaded: true,
+      isLoading: false,
+    };
   }
 
   if (action.type === "ADD_VEHICLES_DATA") {
-    // TODO add logic
-    return state;
+    const findActiveProject = state.projects.find((project) => {
+      return project.id === action.payload.projectId;
+    });
+    const processData: VehicleDataType[] = action.payload.vehicles.map(
+      (record) => {
+        return record;
+      }
+    );
+
+    return {
+      ...state,
+      activeProject: findActiveProject!,
+      data: processData,
+      isDataLoaded: true,
+      isLoading: false,
+    };
+  }
+
+  if (action.type === "SET_LOADING") {
+    return {
+      ...state,
+      isLoading: true,
+    };
   }
 
   return state;
@@ -98,6 +127,9 @@ const VehicleListStore = ({ children }: VehicleListType) => {
           projectId: projectId,
         },
       });
+    },
+    setLoading() {
+      dispatch({ type: "SET_LOADING" });
     },
   };
   return (
