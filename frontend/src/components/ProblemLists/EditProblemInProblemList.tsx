@@ -9,6 +9,7 @@ import GradeSelect from "../UI/Select/GradeSelect.tsx";
 import BasicSelect from "../UI/Select/BasicSelect.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
 import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
+import DatePicker from "../UI/CalendarPicker/DatePicker.tsx";
 
 type EditProblemType = {
   onClose: () => void;
@@ -61,6 +62,7 @@ const EditProblemInProblemList = ({
   const [responsibility, setResponsibility] = useState<UserType>(
     dataForEdit.responsibility
   );
+  const [date, setDate] = useState<Date | undefined>(undefined);
 
   const responsibilityArray = format.allUsers.map((user) => {
     return {
@@ -274,6 +276,13 @@ const EditProblemInProblemList = ({
         defaultValue={action.selected}
         onChange={onStatusChange}
         valuesArray={action.array}
+      />
+      <DatePicker
+        id={"date"}
+        label={"Select Date:"}
+        date={date}
+        disabled={false}
+        onDateChange={setDate}
       />
       <h3 className={"px-2"}>Status of problem: {action.status}</h3>
       <div className={"flex"}>

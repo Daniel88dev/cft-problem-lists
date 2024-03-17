@@ -4,22 +4,13 @@ import FilledButton from "../components/UI/Buttons/FilledButton.tsx";
 import CloseButton from "../components/UI/Buttons/CloseButton.tsx";
 import InputText from "../components/UI/Input/InputText.tsx";
 import ModalFull from "../components/UI/ModalFull.tsx";
-import Calendar from "../components/UI/CalendarPicker/Calendar.tsx";
-import { format } from "date-fns";
-import { cn } from "../components/utility/cn.ts";
-import { Calendar as CalendarIcon } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "../components/UI/CalendarPicker/Popover.tsx";
-import { ButtonShadnCn } from "../components/UI/Buttons/ButtonShadnCn.tsx";
+import DatePicker from "../components/UI/CalendarPicker/DatePicker.tsx";
 
 const UIComponents = () => {
   const notifyRef = useRef<ChildMethods>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [displayModal, setDisplayModal] = useState(false);
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [date, setDate] = useState<Date | undefined>(undefined);
 
   const openModal = () => {
     setDisplayModal(true);
@@ -77,6 +68,13 @@ const UIComponents = () => {
         <FilledButton onClick={openModal}>Test Modal</FilledButton>
         <CloseButton onClick={testFunction} />
       </div>
+      <DatePicker
+        id={"test"}
+        label={"Select Date:"}
+        date={date}
+        disabled={false}
+        onDateChange={setDate}
+      />
       <div className="flex pt-4 pb-2">
         <InputText
           id="test"
@@ -86,28 +84,6 @@ const UIComponents = () => {
         />
       </div>
       <FilledButton onClick={textInInput}>Test Input</FilledButton>
-      <Popover>
-        <PopoverTrigger asChild>
-          <ButtonShadnCn
-            variant={"outline"}
-            className={cn(
-              "w-[280px] justify-start text-left font-normal",
-              !date && "text-muted-foreground"
-            )}
-          >
-            <CalendarIcon className={"mr-2 h-4 w-4"} />
-            {date ? format(date, "PPP") : <span>Pick a date</span>}
-          </ButtonShadnCn>
-        </PopoverTrigger>
-        <PopoverContent className={"w-auto p-0"}>
-          <Calendar
-            mode={"single"}
-            selected={date}
-            onSelect={setDate}
-            initialFocus
-          />
-        </PopoverContent>
-      </Popover>
       {displayModal && (
         <ModalFull onClose={closeModal} title={"Test of Modal"} type="medium">
           {modalContent}
