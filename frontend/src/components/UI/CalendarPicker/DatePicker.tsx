@@ -27,6 +27,8 @@ const DatePicker = ({
     }
   };
 
+  console.log(date);
+
   return (
     <div className={"mx-2 my-2"}>
       <label

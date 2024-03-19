@@ -2,6 +2,12 @@ import { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import CloseButton from "./Buttons/CloseButton.tsx";
 
+function isMobileDevice(): boolean {
+  return (
+    typeof window !== "undefined" && window.navigator.userAgent.includes("Mobi")
+  );
+}
+
 type ModalFullType = {
   onClose: () => void;
   children?: ReactNode;
@@ -19,12 +25,15 @@ const Backdrop = ({ onClose }: ModalFullType) => {
 };
 
 const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
+  const isMobile = isMobileDevice();
   let format =
     "fixed bg-violet-200 dark:bg-gray-700 text-black dark:text-white p-4 border-2 rounded-2xl border-black dark:border-white z-30 overflow-hidden";
 
   if (type === "small") {
     format +=
       " w-96 h-32 left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center overflow-hidden";
+  } else if (isMobile && (type === "full" || type === "medium")) {
+    format += " w-full h-full";
   } else if (type === "medium") {
     format +=
       " w-[48rem] h-[40rem] left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center overflow-hidden";

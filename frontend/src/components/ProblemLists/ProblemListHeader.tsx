@@ -20,19 +20,32 @@ type SelectedType = {
   list: OptionType[];
 };
 
+type FiltersType = {
+  project: OptionType | undefined;
+  list: OptionType | undefined;
+  status: readonly MultiOptionType[] | null | undefined;
+  grade: readonly MultiOptionType[] | null | undefined;
+};
+
 const ProblemListHeader = () => {
   const {
     loadInitialData,
     format,
     loadProblems,
     setLoading,
-    isInitialLoaded,
     filters,
+    isInitialLoaded,
     applyFilters,
   } = useProblemListContext();
   const [selectedData, setSelectedData] = useState<SelectedType>({
     projectId: 0,
     list: [],
+  });
+  const [filtersState, setFiltersState] = useState<FiltersType>({
+    project: undefined,
+    list: undefined,
+    status: [],
+    grade: [],
   });
   const notifyRef = useRef<ChildMethods>(null);
 
@@ -90,11 +103,41 @@ const ProblemListHeader = () => {
           list: listArray,
         };
       });
+      setFiltersState((prevState) => {
+        return {
+          ...prevState,
+          project: value,
+          list: undefined,
+        };
+      });
+    } else {
+      setFiltersState((prevState) => {
+        return {
+          ...prevState,
+          project: undefined,
+          list: undefined,
+        };
+      });
     }
   };
 
   const onListSelect = (value: OptionType | null) => {
     console.log(value);
+    if (value !== null) {
+      setFiltersState((prevState) => {
+        return {
+          ...prevState,
+          list: value,
+        };
+      });
+    } else {
+      setFiltersState((prevState) => {
+        return {
+          ...prevState,
+          list: undefined,
+        };
+      });
+    }
     // TODO apply logic
     // Do something with the selected list
   };
@@ -131,6 +174,12 @@ const ProblemListHeader = () => {
       });
       applyFilters(array, filters.grade);
     }
+    setFiltersState((prevState) => {
+      return {
+        ...prevState,
+        status: value,
+      };
+    });
   };
 
   const onGradeSelect = (value: readonly MultiOptionType[] | null) => {
@@ -142,6 +191,12 @@ const ProblemListHeader = () => {
       });
       applyFilters(filters.status, array);
     }
+    setFiltersState((prevState) => {
+      return {
+        ...prevState,
+        grade: value,
+      };
+    });
   };
 
   return (
@@ -151,23 +206,27 @@ const ProblemListHeader = () => {
           options={projectList()}
           onSelect={onProjectSelect}
           label="Select Project:"
+          defaultValue={filtersState.project}
         />
         <SelectSearch
           options={selectedData.list}
           onSelect={onListSelect}
           label="Select Problem list:"
+          defaultValue={filtersState.list}
         />
         <FilledButton onClick={loadProblemList}>Load Data</FilledButton>
         <MultiSelect
           options={statusArray}
           onSelect={onStatusSelect}
           label={"Filter by status:"}
+          defaultValue={filtersState.status}
         />
         <MultiSelect
           options={gradeArray}
           onSelect={onGradeSelect}
           label={"Filter by grade:"}
           width={"w-48"}
+          defaultValue={filtersState.grade}
         />
       </FilterMenu>
       <Notification ref={notifyRef} />

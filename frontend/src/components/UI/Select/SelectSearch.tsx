@@ -11,7 +11,7 @@ interface SelectProps {
   options: OptionType[];
   onSelect: (option: OptionType | null) => void;
   label: string;
-  defaultValue?: OptionType;
+  defaultValue?: OptionType | undefined;
   clearable?: boolean;
 }
 

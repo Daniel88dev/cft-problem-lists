@@ -14,6 +14,8 @@ import Notification, { type ChildMethods } from "../UI/Notification.tsx";
 import { PersonTableCell } from "./PersonTableCell.tsx";
 import SubscribeToListeners from "./SubscribeToListeners.tsx";
 import Button from "../UI/Buttons/Button.tsx";
+import { RxOpenInNewWindow } from "react-icons/rx";
+import { format } from "date-fns";
 
 const ProblemListTable = () => {
   const {
@@ -78,6 +80,7 @@ const ProblemListTable = () => {
             <Th width="w-24">Action</Th>
             <Th width={"w-24"}>Status</Th>
             <Th width="w-24">Responsibility</Th>
+            <Th width={"w-24"}>Date</Th>
             <Th width={"w-96"}>Listeners</Th>
             <Th width={"w-24"}>Subscribe</Th>
           </TableHeading>
@@ -86,7 +89,12 @@ const ProblemListTable = () => {
               <TableRow key={item.id}>
                 <td className="flex-col px-2">
                   <p>{item.item}</p>
-                  <Button>Open</Button>
+                  <Button>
+                    <div className={"flex content-center"}>
+                      Open
+                      <RxOpenInNewWindow />
+                    </div>
+                  </Button>
                   <Button onClick={() => setDataForEdit(item)}>Edit</Button>
                 </td>
                 <TableStages
@@ -104,6 +112,9 @@ const ProblemListTable = () => {
                 <td className={"px-2"}>{item.status}</td>
                 <td className={"px-2"}>
                   {item.responsibility.name} - {item.responsibility.designation}
+                </td>
+                <td className={"px-2"}>
+                  {item.plan ? format(item.plan, "PPP") : ""}
                 </td>
                 <PersonTableCell users={item.listeners} />
                 <SubscribeToListeners

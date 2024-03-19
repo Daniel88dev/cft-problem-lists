@@ -28,6 +28,7 @@ export type ProblemListDataType = {
   class: string;
   action: string;
   status: string;
+  plan: Date | undefined;
   responsibility: UserType;
   listeners: AllUsersType[];
 };
@@ -71,6 +72,7 @@ export type ActionType = {
   class: string;
   action: string;
   status: string;
+  plan: boolean;
 };
 
 export type FiltersType = {

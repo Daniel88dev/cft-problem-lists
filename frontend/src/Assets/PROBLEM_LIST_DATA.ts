@@ -113,27 +113,37 @@ export const EXAMPLE_CLASS_DATA: ClassType[] = [
 ];
 
 export const EXAMPLE_ACTION_DATA: ActionType[] = [
-  { class: "Design", action: "U/Consideration", status: "Open" },
-  { class: "Design", action: "Tryout", status: "CM" },
-  { class: "Design", action: "EO plan", status: "CM" },
-  { class: "Design", action: "EO issued", status: "CM" },
-  { class: "Design", action: "W&S (keep)", status: "Closed" },
-  { class: "Design", action: "Improved", status: "Closed" },
-  { class: "Part", action: "U/Consideration", status: "Open" },
-  { class: "Part", action: "Tryout", status: "CM" },
-  { class: "Part", action: "W&S (keep)", status: "Closed" },
-  { class: "Part", action: "C/M", status: "CM" },
-  { class: "Part", action: "Improved", status: "Closed" },
-  { class: "Workability", action: "U/Consideration", status: "Open" },
-  { class: "Workability", action: "Tryout", status: "CM" },
-  { class: "Workability", action: "EO plan", status: "CM" },
-  { class: "Workability", action: "EO issued", status: "CM" },
-  { class: "Workability", action: "W&S (keep)", status: "Closed" },
-  { class: "Workability", action: "C/M", status: "CM" },
-  { class: "Workability", action: "Improved", status: "Closed" },
-  { class: "Equipment", action: "U/Consideration", status: "Open" },
-  { class: "Equipment", action: "C/M", status: "CM" },
-  { class: "Equipment", action: "Improved", status: "Closed" },
+  { class: "Design", action: "U/Consideration", status: "Open", plan: false },
+  { class: "Design", action: "Tryout", status: "CM", plan: true },
+  { class: "Design", action: "EO plan", status: "CM", plan: true },
+  { class: "Design", action: "EO issued", status: "CM", plan: true },
+  { class: "Design", action: "W&S (keep)", status: "Closed", plan: true },
+  { class: "Design", action: "Improved", status: "Closed", plan: true },
+  { class: "Part", action: "U/Consideration", status: "Open", plan: false },
+  { class: "Part", action: "Tryout", status: "CM", plan: true },
+  { class: "Part", action: "W&S (keep)", status: "Closed", plan: true },
+  { class: "Part", action: "C/M", status: "CM", plan: true },
+  { class: "Part", action: "Improved", status: "Closed", plan: true },
+  {
+    class: "Workability",
+    action: "U/Consideration",
+    status: "Open",
+    plan: false,
+  },
+  { class: "Workability", action: "Tryout", status: "CM", plan: true },
+  { class: "Workability", action: "EO plan", status: "CM", plan: true },
+  { class: "Workability", action: "EO issued", status: "CM", plan: true },
+  { class: "Workability", action: "W&S (keep)", status: "Closed", plan: true },
+  { class: "Workability", action: "C/M", status: "CM", plan: true },
+  { class: "Workability", action: "Improved", status: "Closed", plan: true },
+  {
+    class: "Equipment",
+    action: "U/Consideration",
+    status: "Open",
+    plan: false,
+  },
+  { class: "Equipment", action: "C/M", status: "CM", plan: true },
+  { class: "Equipment", action: "Improved", status: "Closed", plan: true },
 ];
 
 export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
@@ -157,6 +167,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     class: "Equipment",
     action: "C/M",
     status: "CM",
+    plan: new Date("2024-07-01T13:00:00Z"),
     responsibility: {
       id: 1,
       name: "John Doe",
@@ -194,6 +205,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     class: "Equipment",
     action: "Improved",
     status: "Closed",
+    plan: new Date("2024-07-01T13:00:00Z"),
     responsibility: {
       id: 1,
       name: "John Doe",
@@ -223,6 +235,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     class: "Equipment",
     action: "C/M",
     status: "CM",
+    plan: new Date("2023-07-01T13:00:00Z"),
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -267,6 +280,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     class: "Equipment",
     action: "Improved",
     status: "Closed",
+    plan: new Date("2024-07-01T13:00:00Z"),
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -339,6 +353,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     class: "Equipment",
     action: "U/Consideration",
     status: "Open",
+    plan: undefined,
     responsibility: {
       id: 5,
       name: "Tyler Durden",
@@ -411,6 +426,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
     class: "Equipment",
     action: "U/Consideration",
     status: "Open",
+    plan: undefined,
     responsibility: {
       id: 5,
       name: "Tyler Durden",

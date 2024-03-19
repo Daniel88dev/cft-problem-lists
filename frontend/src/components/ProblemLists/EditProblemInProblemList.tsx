@@ -53,16 +53,23 @@ const EditProblemInProblemList = ({
     const array = findStatus.map((action) => {
       return action.action;
     });
+    const findPlan = format.actions.find((action) => {
+      return (
+        action.class === dataForEdit.class &&
+        action.action === dataForEdit.action
+      );
+    });
     return {
       selected: dataForEdit.action,
       status: dataForEdit.status,
       array: array,
+      plan: findPlan!.plan,
     };
   });
   const [responsibility, setResponsibility] = useState<UserType>(
     dataForEdit.responsibility
   );
-  const [date, setDate] = useState<Date | undefined>(undefined);
+  const [date, setDate] = useState<Date | undefined>(dataForEdit.plan);
 
   const responsibilityArray = format.allUsers.map((user) => {
     return {
@@ -102,6 +109,9 @@ const EditProblemInProblemList = ({
     ) {
       return alert("Problem with filled form!");
     }
+    if (action.plan && date === undefined) {
+      return alert("Fill date!");
+    }
     const editedData: ProblemListDataType = {
       id: dataForEdit.id,
       item: dataForEdit.item,
@@ -122,6 +132,7 @@ const EditProblemInProblemList = ({
       class: classes.value,
       action: action.selected,
       status: action.status,
+      plan: date,
       responsibility: responsibility,
       listeners: dataForEdit.listeners,
     };
@@ -146,7 +157,9 @@ const EditProblemInProblemList = ({
       selected: "---",
       array: array,
       status: "---",
+      plan: false,
     });
+    setDate(undefined);
   };
 
   const onStatusChange = (value: string) => {
@@ -156,8 +169,10 @@ const EditProblemInProblemList = ({
           ...prevState,
           selected: "---",
           status: "---",
+          plan: false,
         };
       });
+      setDate(undefined);
     } else {
       const findStatus = format.actions.find((action) => {
         return action.class === classes.value && action.action === value;
@@ -168,8 +183,10 @@ const EditProblemInProblemList = ({
           ...prevState,
           selected: value,
           status: findStatus!.status,
+          plan: findStatus!.plan,
         };
       });
+      setDate(undefined);
     }
   };
 
@@ -281,7 +298,7 @@ const EditProblemInProblemList = ({
         id={"date"}
         label={"Select Date:"}
         date={date}
-        disabled={false}
+        disabled={!action.plan}
         onDateChange={setDate}
       />
       <h3 className={"px-2"}>Status of problem: {action.status}</h3>

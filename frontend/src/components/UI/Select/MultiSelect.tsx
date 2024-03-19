@@ -12,12 +12,14 @@ interface SelectProps {
   onSelect: (option: readonly MultiOptionType[] | null) => void;
   label: string;
   width?: "w-96" | "w-48";
+  defaultValue?: readonly MultiOptionType[] | null | undefined;
 }
 
 const MultiSelect = ({
   options,
   onSelect,
   label,
+  defaultValue,
   width = "w-96",
 }: SelectProps): JSX.Element => {
   const [optionData, setOptionData] = useState<MultiOptionType[]>([]);
@@ -61,6 +63,7 @@ const MultiSelect = ({
         className={`h-10 rounded-lg text-black ${width}`}
         isClearable={true}
         isMulti={true}
+        defaultValue={defaultValue ? defaultValue : null}
       />
     </div>
   );

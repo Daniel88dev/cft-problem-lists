@@ -10,7 +10,7 @@ const Button = ({
   return (
     <button
       {...rest}
-      className="group relative px-4 py-2 my-2 font-medium text-neutral-50 rounded-2xl dark:text-slate-100 bg-violet-400 dark:bg-neutral-900 transition-colors duration-[400ms] hover:text-indigo-300"
+      className="flex justify-items-center whitespace-nowrap group relative px-4 py-2 my-2 font-medium text-neutral-50 rounded-2xl dark:text-slate-100 bg-violet-400 dark:bg-neutral-900 transition-colors duration-[400ms] hover:text-indigo-300"
     >
       <span>{children}</span>
 
