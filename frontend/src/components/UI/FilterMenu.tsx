@@ -29,7 +29,7 @@ const FilterMenu: FC<FilterMenuProps> = ({ pageName, children }) => {
       <AnimatePresence>
         {filters && (
           <motion.div
-            className={`flex flex-wrap my-2 h-22 border-black dark:border-white border-2 rounded-2xl items-end h-auto`}
+            className={`flex flex-wrap my-2 h-22 border-black dark:border-white border-2 rounded-2xl items-end h-auto overflow-visible flex-shrink-0`}
             initial={motionConfig.initial}
             animate={motionConfig.animate}
             exit={motionConfig.exit}

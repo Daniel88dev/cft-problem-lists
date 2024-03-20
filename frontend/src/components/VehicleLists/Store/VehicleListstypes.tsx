@@ -17,7 +17,7 @@ export type StagesNamesType = {
 export type ExtColorsType = {
   name: string;
   color: string;
-  text: string;
+  text: "black" | "white";
 };
 
 export type ProjectTypes = {
