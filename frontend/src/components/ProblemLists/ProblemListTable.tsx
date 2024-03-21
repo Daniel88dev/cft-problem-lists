@@ -81,7 +81,7 @@ const ProblemListTable = () => {
             <Th width={"w-24"}>Status</Th>
             <Th width="w-24">Responsibility</Th>
             <Th width={"w-24"}>Date</Th>
-            <Th width={"w-96"}>Listeners</Th>
+            <Th width={"w-[500px]"}>Listeners</Th>
             <Th width={"w-24"}>Subscribe</Th>
           </TableHeading>
           <tbody>

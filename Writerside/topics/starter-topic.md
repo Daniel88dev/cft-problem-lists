@@ -16,6 +16,11 @@ Each of problem can be opened in Modal for changes.
 
 ## Changes
 
+2024-03-21 15:30 - 18:30
+- working on Filter menu logic of vehicle-list menu
+- improving view for loaded table
+
+
 2024-03-20 15:00 - 17:30
 - Created documentation
 - Working on view UI for filters, and table, for correct scrolling function

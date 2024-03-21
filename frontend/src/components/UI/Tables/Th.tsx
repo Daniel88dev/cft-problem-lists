@@ -1,6 +1,6 @@
 type THType = {
   children: string;
-  width: "w-24" | "w-48" | "w-96";
+  width: "w-24" | "w-48" | "w-96" | "w-[500px]";
 };
 
 const Th = ({ children, width = "w-24" }: THType) => {
