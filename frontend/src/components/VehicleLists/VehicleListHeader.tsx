@@ -9,6 +9,7 @@ import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
 import Notification, { ChildMethods } from "../UI/Notification.tsx";
 import FilterMenu from "../UI/FilterMenu.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
+import MultiSelect, { MultiOptionType } from "../UI/Select/MultiSelect.tsx";
 
 type SelectedType = {
   projectId: number;
@@ -18,6 +19,8 @@ type SelectedType = {
 type FiltersType = {
   project: OptionType | undefined;
   stage: OptionType | undefined;
+  vehicleStatus: readonly MultiOptionType[] | null | undefined;
+  colors: readonly MultiOptionType[] | null | undefined;
 };
 
 const createOption = (stage: string): OptionType => ({
@@ -26,8 +29,15 @@ const createOption = (stage: string): OptionType => ({
 });
 
 const VehicleListHeader = () => {
-  const { loadInitialData, setLoading, loadVehicles, projects } =
-    useVehicleListsContext();
+  const {
+    loadInitialData,
+    setLoading,
+    loadVehicles,
+    projects,
+    activeProject,
+    filters,
+    applyFilters,
+  } = useVehicleListsContext();
   const [selectedData, setSelectedData] = useState<SelectedType>({
     projectId: 0,
     list: [],
@@ -35,6 +45,8 @@ const VehicleListHeader = () => {
   const [filterState, setFilterState] = useState<FiltersType>({
     project: undefined,
     stage: undefined,
+    vehicleStatus: [],
+    colors: [],
   });
   const notifyRef = useRef<ChildMethods>(null);
 
@@ -94,6 +106,18 @@ const VehicleListHeader = () => {
     return array;
   };
 
+  const vehicleStatus: MultiOptionType[] = [
+    { label: "NOT INPUT", value: "NOT INPUT" },
+    { label: "IN PROCESS", value: "IN PROCESS" },
+    { label: "DURABILITY", value: "DURABILITY" },
+    { label: "DELAYED", value: "DELAYED" },
+    { label: "FINISHED", value: "FINISHED" },
+  ];
+
+  const colorArray: MultiOptionType[] = activeProject.colors.map((color) => {
+    return { label: color.name, value: color.name };
+  });
+
   const onStageSelect = (value: OptionType | null) => {
     console.log(value);
     if (value !== null) {
@@ -112,6 +136,40 @@ const VehicleListHeader = () => {
       });
     }
     // TODO apply logic
+  };
+
+  const onVehicleStatusSelect = (value: readonly MultiOptionType[] | null) => {
+    if (value!.length === 0) {
+      applyFilters([], filters.color);
+    } else {
+      const array: string[] = value!.map((single) => {
+        return single.label;
+      });
+      applyFilters(array, filters.color);
+    }
+    setFilterState((prevState) => {
+      return {
+        ...prevState,
+        vehicleStatus: value,
+      };
+    });
+  };
+
+  const onColorSelect = (value: readonly MultiOptionType[] | null) => {
+    if (value!.length === 0) {
+      applyFilters(filters.status, []);
+    } else {
+      const array: string[] = value!.map((single) => {
+        return single.label;
+      });
+      applyFilters(filters.status, array);
+    }
+    setFilterState((prevState) => {
+      return {
+        ...prevState,
+        colors: value,
+      };
+    });
   };
 
   useEffect(() => {
@@ -134,6 +192,18 @@ const VehicleListHeader = () => {
           defaultValue={filterState.stage}
         />
         <FilledButton onClick={loadVehicleData}>Load data</FilledButton>
+        <MultiSelect
+          options={vehicleStatus}
+          onSelect={onVehicleStatusSelect}
+          label={"Select vehicle status:"}
+          defaultValue={filterState.vehicleStatus}
+        />
+        <MultiSelect
+          options={colorArray}
+          onSelect={onColorSelect}
+          label={"Select color:"}
+          defaultValue={filterState.colors}
+        />
       </FilterMenu>
       <Notification ref={notifyRef} />
     </>

@@ -17,7 +17,6 @@ const initialState: InitialStateType = {
     filtersApplied: false,
     status: [],
     color: [],
-    stage: [],
   },
   activeProject: {
     id: 0,
@@ -58,7 +57,12 @@ type AddLoadingState = {
   type: "SET_LOADING";
 };
 
-type Action = AddInitialData | AddVehicleData | AddLoadingState;
+type SetFilters = {
+  type: "APPLY_FILTERS";
+  payload: { vehicleStatusFilters: string[]; colorFilters: string[] };
+};
+
+type Action = AddInitialData | AddVehicleData | AddLoadingState | SetFilters;
 
 function vehicleListReducer(
   state: InitialStateType,
@@ -99,6 +103,20 @@ function vehicleListReducer(
     };
   }
 
+  if (action.type === "APPLY_FILTERS") {
+    return {
+      ...state,
+      filters: {
+        filtersApplied: !(
+          action.payload.vehicleStatusFilters.length === 0 &&
+          action.payload.colorFilters.length === 0
+        ),
+        status: action.payload.vehicleStatusFilters,
+        color: action.payload.colorFilters,
+      },
+    };
+  }
+
   return state;
 }
 
@@ -130,6 +148,12 @@ const VehicleListStore = ({ children }: VehicleListType) => {
     },
     setLoading() {
       dispatch({ type: "SET_LOADING" });
+    },
+    applyFilters(vehicleStatusFilters, colorFilters) {
+      dispatch({
+        type: "APPLY_FILTERS",
+        payload: { vehicleStatusFilters, colorFilters },
+      });
     },
   };
   return (

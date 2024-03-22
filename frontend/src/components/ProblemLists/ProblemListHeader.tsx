@@ -173,6 +173,7 @@ const ProblemListHeader = () => {
         return single.label;
       });
       applyFilters(array, filters.grade);
+      console.log(array, filters.grade);
     }
     setFiltersState((prevState) => {
       return {

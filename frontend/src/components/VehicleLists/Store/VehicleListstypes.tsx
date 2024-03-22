@@ -48,9 +48,8 @@ export type VehicleDataType = {
 
 export type FiltersType = {
   filtersApplied: boolean;
-  status: VehicleStatusType[];
+  status: string[];
   color: string[];
-  stage: string[];
 };
 
 export type InitialStateType = {
@@ -67,4 +66,8 @@ export type VehicleListContextType = InitialStateType & {
   loadInitialData: (data: ProjectTypes[]) => void;
   loadVehicles: (vehicles: VehicleDataType[], projectId: number) => void;
   setLoading: () => void;
+  applyFilters: (
+    vehicleStatusFilters: string[],
+    colorFilters: string[]
+  ) => void;
 };
