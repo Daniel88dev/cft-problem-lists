@@ -11,8 +11,8 @@ import EditProblemInProblemList from "./EditProblemInProblemList.tsx";
 import { type ProblemListDataType } from "./Store/ProblemListTypes.tsx";
 import GradeCell from "../UI/Tables/GradeCell.tsx";
 import Notification, { type ChildMethods } from "../UI/Notification.tsx";
-import { PersonTableCell } from "./PersonTableCell.tsx";
-import SubscribeToListeners from "./SubscribeToListeners.tsx";
+import { PersonTableCell } from "./components/PersonTableCell.tsx";
+import SubscribeToListeners from "./components/SubscribeToListeners.tsx";
 import Button from "../UI/Buttons/Button.tsx";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { format } from "date-fns";
@@ -86,7 +86,7 @@ const ProblemListTable = () => {
           </TableHeading>
           <tbody>
             {filtered.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item.id} height={"w-24"}>
                 <td className="flex-col px-2">
                   <p>{item.item}</p>
                   <Button>

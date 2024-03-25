@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import useProblemListContext from "./Store/ProblemListContext.tsx";
-import { AllUsersType } from "./Store/ProblemListTypes.tsx";
-import Notification, { ChildMethods } from "../UI/Notification.tsx";
+import useProblemListContext from "../Store/ProblemListContext.tsx";
+import { AllUsersType } from "../Store/ProblemListTypes.tsx";
+import Notification, { ChildMethods } from "../../UI/Notification.tsx";
 
 const SubscribeToListeners = ({
   listeners,
