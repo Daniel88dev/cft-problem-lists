@@ -61,7 +61,8 @@ export type VehicleIssuesContextType = InitialStateType & {
   loadInitialData: (projects: ProjectTypes[]) => void;
   loadIssuesData: (
     issues: VehicleIssuesType[],
-    vehicles: VehicleDataType[]
+    vehicles: VehicleDataType[],
+    projectId: number
   ) => void;
   setLoading: () => void;
 };

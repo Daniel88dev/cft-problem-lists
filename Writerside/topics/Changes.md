@@ -4,19 +4,25 @@
 
 | Day / Month | Manhour |
 |-------------|---------|
-|             |         |
+| 2024-03-27  | 2,5     |
 | 2024-03-25  | 2       |
 | 2024-03-23  | 4       |
 | 2024-03-22  | 2       |
 | 2024-03-21  | 3       |
 | 2024-03-20  | 2,5     |
 | Previous    | 60      |
-| TOTAL       | 73,5    |
+| TOTAL       | 76      |
 
 
 
 
 ## History detail
+
+### 2024-03-27 17:00 - 19:30
+- working on vehicle-issues Filter menu
+- adjusting logic for vehicle-issues store, to fix issues
+- dummy data initial update for vehicle-issues
+
 
 ### 2024-03-25 16:30 - 18:30
 - finishing setup for vehicle-issues store logic
@@ -27,6 +33,7 @@
 ### 2024-03-23 16:00 - 20:00
 - working on vehicle-list table making basic table for now
 - start on making vehicle-issues store logic
+
 
 ### 2024-03-22 15:30 - 17:30
 - working on Filter menu logic of vehicle-list menu

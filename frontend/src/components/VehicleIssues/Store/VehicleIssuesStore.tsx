@@ -35,6 +35,7 @@ type AddInitialData = {
 type PayloadForAddIssues = {
   issues: VehicleIssuesType[];
   vehicles: VehicleDataType[];
+  projectId: number;
 };
 
 type AddIssues = {
@@ -53,15 +54,35 @@ function vehicleIssuesReducer(
   action: Action
 ): InitialStateType {
   if (action.type === "ADD_INITIAL_DATA") {
-    return state;
+    return {
+      ...state,
+      projects: action.payload,
+      isInitialLoaded: true,
+      isLoading: false,
+    };
   }
 
   if (action.type === "ADD_ISSUES") {
-    return state;
+    const findActiveProject = state.projects.find((project) => {
+      return project.id === action.payload.projectId;
+    });
+    return {
+      ...state,
+      activeProject: findActiveProject,
+      data: {
+        vehicleIssues: action.payload.issues,
+        vehicles: action.payload.vehicles,
+      },
+      isDataLoaded: true,
+      isLoading: false,
+    };
   }
 
   if (action.type === "SET_LOADING") {
-    return state;
+    return {
+      ...state,
+      isLoading: true,
+    };
   }
 
   return state;
@@ -84,10 +105,10 @@ const VehicleIssuesStore = ({ children }: VehicleIssueType) => {
     loadInitialData(projects) {
       dispatch({ type: "ADD_INITIAL_DATA", payload: projects });
     },
-    loadIssuesData(issues, vehicles) {
+    loadIssuesData(issues, vehicles, projectId) {
       dispatch({
         type: "ADD_ISSUES",
-        payload: { issues, vehicles },
+        payload: { issues, vehicles, projectId },
       });
     },
     setLoading() {

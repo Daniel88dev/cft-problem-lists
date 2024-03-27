@@ -1,11 +1,11 @@
-import VehicleListStore from "../components/VehicleLists/Store/VehicleListsStore.tsx";
 import VehicleIssuesHeader from "../components/VehicleIssues/VehicleIssuesHeader.tsx";
+import VehicleIssuesStore from "../components/VehicleIssues/Store/VehicleIssuesStore.tsx";
 
 const VehicleIssues = () => {
   return (
-    <VehicleListStore>
+    <VehicleIssuesStore>
       <VehicleIssuesHeader />
-    </VehicleListStore>
+    </VehicleIssuesStore>
   );
 };
 
