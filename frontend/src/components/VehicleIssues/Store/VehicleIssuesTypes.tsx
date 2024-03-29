@@ -29,6 +29,7 @@ export type VehicleIssuesType = {
   problemName: string;
   problemDescription: string;
   DTCCodes: string[];
+  status: "OPEN" | "REPAIRED" | "CANT REPAIR";
 };
 
 export type DataType = {

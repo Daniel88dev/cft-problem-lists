@@ -27,7 +27,6 @@ const EditProblemInProblemList = ({
   const problemDescription = useRef<HTMLTextAreaElement>(null);
   const actionsDone = useRef<HTMLTextAreaElement>(null);
   const counterMeasure = useRef<HTMLTextAreaElement>(null);
-  //const responsibility = useRef(dataForEdit.responsibility);
   const stage1 = useRef<HTMLInputElement>(null);
   const stage2 = useRef<HTMLInputElement>(null);
   const stage3 = useRef<HTMLInputElement>(null);

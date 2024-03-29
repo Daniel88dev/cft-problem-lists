@@ -13,28 +13,3 @@ After selecting, it will load directly problems in that list from backend.
 Each of problem can be opened in Modal for changes.
 
 
-
-## Changes
-
-2024-03-22 15:30 -
-
-
-
-2024-03-21 15:30 - 18:30
-- working on Filter menu logic of vehicle-list menu
-- improving view for loaded table
-
-
-2024-03-20 15:00 - 17:30
-- Created documentation
-- Working on view UI for filters, and table, for correct scrolling function
-- Created dummy data for Vehicle-lists
-- working on Filter menu logic of vehicle-lists menu
-
-
-PREVIOUS
-- Already spend some time from start of January 2024 on development. (about 80 hours)
-- Some basic UI was made including navbar for both Desktop and mobile devices.
-- Problem-list menu nearly finished
-
-

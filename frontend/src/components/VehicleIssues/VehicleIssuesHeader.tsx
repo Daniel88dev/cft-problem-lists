@@ -9,10 +9,18 @@ import {
   PROJECT_DEFAULT,
 } from "../../Assets/VEHICLE_ISSUES_DATA.ts";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
+import MultiSelect, { MultiOptionType } from "../UI/Select/MultiSelect.tsx";
 
 type SelectedType = {
   projectId: number;
   list: OptionType[];
+};
+
+type FiltersType = {
+  project: OptionType | undefined;
+  stage: OptionType | undefined;
+  status: readonly MultiOptionType[] | null | undefined;
+  vehicle: readonly MultiOptionType[] | null | undefined;
 };
 
 const createOption = (stage: string): OptionType => ({
@@ -21,11 +29,23 @@ const createOption = (stage: string): OptionType => ({
 });
 
 const VehicleIssuesHeader = () => {
-  const { loadInitialData, projects, loadIssuesData, setLoading } =
-    useVehicleIssuesContext();
+  const {
+    loadInitialData,
+    projects,
+    loadIssuesData,
+    setLoading,
+    isDataLoaded,
+    data,
+  } = useVehicleIssuesContext();
   const [selectedData, setSelectedData] = useState<SelectedType>({
     projectId: 0,
     list: [],
+  });
+  const [filterState, setFilterState] = useState<FiltersType>({
+    project: undefined,
+    stage: undefined,
+    status: [],
+    vehicle: [],
   });
   const notifyRef = useRef<ChildMethods>(null);
 
@@ -37,11 +57,80 @@ const VehicleIssuesHeader = () => {
 
   const onStageSelect = (value: OptionType | null) => {
     console.log(value);
+    if (value !== null) {
+      setFilterState((prevState) => {
+        return {
+          ...prevState,
+          stage: value,
+        };
+      });
+    } else {
+      setFilterState((prevState) => {
+        return {
+          ...prevState,
+          stage: undefined,
+        };
+      });
+    }
+    // todo apply other logic
   };
 
   useEffect(() => {
     loadInitial();
   }, [loadInitial]);
+
+  const statusArray: MultiOptionType[] = [
+    { label: "OPEN", value: "OPEN" },
+    { label: "REPAIRED", value: "REPAIRED" },
+    { label: "CANT REPAIR", value: "CANT REPAIR" },
+  ];
+
+  const vehicleArray: MultiOptionType[] = [];
+
+  if (isDataLoaded) {
+    data.vehicles.map((vehicle) => {
+      vehicleArray.push({
+        label: `${vehicle.carIdentification} - ${vehicle.bodyNo}`,
+        value: vehicle.id,
+      });
+    });
+  }
+
+  const onVehicleSelect = (value: readonly MultiOptionType[] | null) => {
+    if (value!.length === 0) {
+      // todo apply filters
+    } else {
+      const array: number[] = value!.map((single) => {
+        return Number(single.value);
+      });
+      // todo apply filters
+      console.log(array);
+    }
+    setFilterState((prevState) => {
+      return {
+        ...prevState,
+        vehicle: value,
+      };
+    });
+  };
+
+  const onStatusSelect = (value: readonly MultiOptionType[] | null) => {
+    if (value!.length === 0) {
+      // todo apply filters
+    } else {
+      const array: string[] = value!.map((single) => {
+        return single.label;
+      });
+      // todo apply filters
+      console.log(array);
+    }
+    setFilterState((prevState) => {
+      return {
+        ...prevState,
+        status: value,
+      };
+    });
+  };
 
   const projectList = () => {
     const projectsArray: OptionType[] = [];
@@ -94,6 +183,21 @@ const VehicleIssuesHeader = () => {
           return prevState;
         }
       });
+      setFilterState((prevState) => {
+        return {
+          ...prevState,
+          project: value,
+          stage: undefined,
+        };
+      });
+    } else {
+      setFilterState((prevState) => {
+        return {
+          ...prevState,
+          project: undefined,
+          stage: undefined,
+        };
+      });
     }
   };
 
@@ -104,13 +208,27 @@ const VehicleIssuesHeader = () => {
           options={projectList()}
           onSelect={onProjectSelect}
           label={"Select Project:"}
+          defaultValue={filterState.project}
         />
         <SelectSearch
           options={selectedData.list}
           onSelect={onStageSelect}
           label={"Select Stage:"}
+          defaultValue={filterState.stage}
         />
         <FilledButton onClick={loadVehicleIssues}>Load data</FilledButton>
+        <MultiSelect
+          options={statusArray}
+          onSelect={onStatusSelect}
+          label={"Filter by status:"}
+          defaultValue={filterState.status}
+        />
+        <MultiSelect
+          options={vehicleArray}
+          onSelect={onVehicleSelect}
+          label={"Filter by vehicle:"}
+          defaultValue={filterState.vehicle}
+        />
       </FilterMenu>
       <Notification ref={notifyRef} />
     </>

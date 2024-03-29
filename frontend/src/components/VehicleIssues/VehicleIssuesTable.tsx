@@ -27,6 +27,7 @@ const VehicleIssuesTable = () => {
             <Th width={"w-48"}>Picture</Th>
             <Th width={"w-48"}>Problem Name</Th>
             <Th width={"w-96"}>Problem Description</Th>
+            <Th width={"w-24"}>Status</Th>
             <Th width={"w-24"}>DTC codes</Th>
           </TableHeading>
           <tbody>
@@ -48,6 +49,7 @@ const VehicleIssuesTable = () => {
                 <TablePicture src={item.picture} alt={item.problemName} />
                 <td>{item.problemName}</td>
                 <td>{item.problemDescription}</td>
+                <td>{item.status}</td>
                 <td>{item.DTCCodes ? item.DTCCodes[0] : ""}</td>
               </TableRow>
             ))}

@@ -60,6 +60,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemName: "Some issue on vehicle",
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
+    status: "OPEN",
   },
   {
     id: 2,
@@ -74,6 +75,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemName: "Some issue on vehicle",
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
+    status: "OPEN",
   },
   {
     id: 3,
@@ -88,6 +90,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemName: "Some issue on vehicle",
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
+    status: "OPEN",
   },
   {
     id: 4,
@@ -102,6 +105,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemName: "Some issue on vehicle",
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
+    status: "OPEN",
   },
   {
     id: 5,
@@ -116,6 +120,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemName: "Some issue on vehicle",
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
+    status: "OPEN",
   },
   {
     id: 6,
@@ -130,6 +135,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemName: "Some issue on vehicle",
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
+    status: "OPEN",
   },
 ];
 
