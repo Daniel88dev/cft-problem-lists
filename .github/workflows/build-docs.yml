@@ -19,6 +19,8 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
+      - name: List files
+        run: ls -R artifacts/
       - name: Save artifact with build results
         uses: actions/upload-artifact@v2
         with:
