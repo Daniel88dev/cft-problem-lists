@@ -6,17 +6,11 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
-<tr><td>2024-03-29</td><td>3</td></tr>
-<tr><td>2024-03-28</td><td>1,5</td></tr>
-<tr><td>2024-03-27</td><td>2,5</td></tr>
-<tr><td>2024-03-25</td><td>2</td></tr>
-<tr><td>2024-03-23</td><td>4</td></tr>
-<tr><td>2024-03-22</td><td>2</td></tr>
-<tr><td>2024-03-21</td><td>3</td></tr>
-<tr><td>2024-03-20</td><td>2,5</td></tr>
+<tr><td>2024-04-02</td><td>2</td></tr>
+<tr><td>April</td><td>2</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>80,5</td></tr>
+<tr><td>TOTAL</td><td>82,5</td></tr>
 </table>
 
 
@@ -28,7 +22,11 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tab title="March">
 
 <deflist>
-<def title="2024-04-02 17:30 - ">
+<def title="2024-04-02 17:30 - 19:30">
+<list type="bullet">
+<li>Working on register new problem on problem-list menu</li>
+<li>Debugging problem with publishing documentation</li>
+</list>
 </def>
 </deflist>
 

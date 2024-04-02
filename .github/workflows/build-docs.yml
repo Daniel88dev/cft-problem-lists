@@ -1,7 +1,7 @@
 name: Build & Deploy Documentation
 on:
   push:
-    branches: ["main"]
+    branches: ["docs"]
   workflow_dispatch:
 env:
   INSTANCE: 'Writerside/acp'
