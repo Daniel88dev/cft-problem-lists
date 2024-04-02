@@ -5,7 +5,7 @@ You can use it as a sandbox to play with Writerside features, and remove it from
 
 ## Main description
 This web page is about managing and controlling Problem lists in Vehicle production.
-Currently is page in development.
+Currently, is page in development.
 
 ## Problem-lists
 Can search and display some specific project development, and select specific problem list for that project.

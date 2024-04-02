@@ -210,7 +210,7 @@ const EditProblemInProblemList = ({
         label={"Problem Description:"}
         ref={problemDescription}
         defaultValue={dataForEdit.problemDescription}
-        cols={5}
+        rows={5}
       />
       <InputTextArea
         id={"actionsDone"}
