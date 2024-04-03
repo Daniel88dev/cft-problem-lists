@@ -14,13 +14,14 @@ import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
 import Notification, { type ChildMethods } from "../UI/Notification.tsx";
 import MultiSelect, { MultiOptionType } from "../UI/Select/MultiSelect.tsx";
+import NewProblemRegistration from "./Store/NewProblemRegistration.tsx";
 
 type SelectedType = {
   projectId: number;
   list: OptionType[];
 };
 
-type FiltersType = {
+export type FiltersType = {
   project: OptionType | undefined;
   list: OptionType | undefined;
   status: readonly MultiOptionType[] | null | undefined;
@@ -47,6 +48,7 @@ const ProblemListHeader = () => {
     status: [],
     grade: [],
   });
+  const [registerProblemState, setRegisterProblemState] = useState(false);
   const notifyRef = useRef<ChildMethods>(null);
 
   const loadInitial = useCallback(() => {
@@ -229,7 +231,20 @@ const ProblemListHeader = () => {
           width={"w-48"}
           defaultValue={filtersState.grade}
         />
+        <FilledButton
+          disabled={!loadInitial}
+          onClick={() => setRegisterProblemState(true)}
+        >
+          Register New Problem
+        </FilledButton>
       </FilterMenu>
+      {registerProblemState && (
+        <NewProblemRegistration
+          onClose={() => setRegisterProblemState(false)}
+          onSubmitData={(data) => console.log(data)}
+          selectedProjectData={filtersState}
+        />
+      )}
       <Notification ref={notifyRef} />
     </>
   );

@@ -6,11 +6,12 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
+<tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>2</td></tr>
+<tr><td>April</td><td>3,5</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>82,5</td></tr>
+<tr><td>TOTAL</td><td>84</td></tr>
 </table>
 
 
@@ -19,7 +20,16 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 ## History detail
 
 <tabs>
-<tab title="March">
+<tab title="April">
+
+<deflist>
+<def title="2024-04-03 16:30 - 18:00">
+<list>
+<li>Working on register new problem on problem-list logic</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-04-02 17:30 - 19:30">
@@ -31,6 +41,11 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 </deflist>
 
 
+</tab>
+
+
+
+<tab title="March">
 
 <deflist>
 <def title="2024-03-29 15:30 - 18:30">
