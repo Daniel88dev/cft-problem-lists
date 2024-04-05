@@ -14,7 +14,8 @@ import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
 import Notification, { type ChildMethods } from "../UI/Notification.tsx";
 import MultiSelect, { MultiOptionType } from "../UI/Select/MultiSelect.tsx";
-import NewProblemRegistration from "./Store/NewProblemRegistration.tsx";
+import NewProblemRegistration from "./components/NewProblemRegistration.tsx";
+import { ProblemListDataType } from "./Store/ProblemListTypes.tsx";
 
 type SelectedType = {
   projectId: number;
@@ -37,6 +38,7 @@ const ProblemListHeader = () => {
     filters,
     isInitialLoaded,
     applyFilters,
+    registerProblem,
   } = useProblemListContext();
   const [selectedData, setSelectedData] = useState<SelectedType>({
     projectId: 0,
@@ -202,6 +204,15 @@ const ProblemListHeader = () => {
     });
   };
 
+  const onProblemRegistrationSubmit = (dataToRegister: ProblemListDataType) => {
+    console.log(dataToRegister);
+    registerProblem(dataToRegister);
+    setRegisterProblemState(false);
+    if (notifyRef.current) {
+      notifyRef.current.setNotify("Problem registered", "basic");
+    }
+  };
+
   return (
     <>
       <FilterMenu pageName="Problem Lists">
@@ -241,7 +252,7 @@ const ProblemListHeader = () => {
       {registerProblemState && (
         <NewProblemRegistration
           onClose={() => setRegisterProblemState(false)}
-          onSubmitData={(data) => console.log(data)}
+          onSubmitData={(data) => onProblemRegistrationSubmit(data)}
           selectedProjectData={filtersState}
         />
       )}

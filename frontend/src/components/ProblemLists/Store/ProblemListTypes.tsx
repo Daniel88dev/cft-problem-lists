@@ -108,4 +108,5 @@ export type ProblemListContextType = InitialStateType & {
   setSubscribed: (itemId: number) => void;
   setUnsubscribed: (itemId: number) => void;
   applyFilters: (statusFilters: string[], gradeFilters: string[]) => void;
+  registerProblem: (problem: ProblemListDataType) => void;
 };

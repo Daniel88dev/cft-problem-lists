@@ -1,7 +1,7 @@
 import ModalFull from "../../UI/ModalFull.tsx";
-import useProblemListContext from "./ProblemListContext.tsx";
+import useProblemListContext from "../Store/ProblemListContext.tsx";
 import { useRef, useState } from "react";
-import { ProblemListDataType, UserType } from "./ProblemListTypes.tsx";
+import { ProblemListDataType, UserType } from "../Store/ProblemListTypes.tsx";
 import InputText from "../../UI/Input/InputText.tsx";
 import InputTextArea from "../../UI/Input/InputTextArea.tsx";
 import InputCheckbox from "../../UI/Input/InputCheckbox.tsx";
@@ -77,7 +77,9 @@ const NewProblemRegistration = ({
     array: [],
     plan: false,
   });
-  const [responsibility, setResponsibility] = useState<UserType | null>(null);
+  const [responsibility, setResponsibility] = useState<UserType | null>(
+    format.user
+  );
   const [date, setDate] = useState<Date | undefined>(undefined);
 
   const responsibilityArray = format.allUsers.map((user) => {
@@ -121,9 +123,10 @@ const NewProblemRegistration = ({
     if (action.plan && date === undefined) {
       return alert("Fill date!");
     }
+    const random = Math.floor(Math.random() * 99);
     const editedData: ProblemListDataType = {
-      id: 99, //todo add logic for random number
-      item: 99, //todo add logic for random number
+      id: random, //todo add logic for random number
+      item: random, //todo add logic for random number
       stages: {
         Stage1: stage1.current.checked,
         Stage2: stage2.current.checked,
@@ -132,7 +135,7 @@ const NewProblemRegistration = ({
         Stage5: stage5.current.checked,
         Stage6: stage6.current.checked,
       },
-      picture: "",
+      picture: "/EXAMPLE_PIC.jpeg", //todo upload picture logic
       problemName: problemName.current.value,
       problemDescription: problemDescription.current.value,
       actionsDone: actionsDone.current.value,
@@ -298,31 +301,31 @@ const NewProblemRegistration = ({
         />
         <InputCheckbox
           id={"stage2"}
-          label={activeProject.stages.stage1}
+          label={activeProject.stages.stage2}
           defaultChecked={false}
           ref={stage2}
         />
         <InputCheckbox
           id={"stage3"}
-          label={activeProject.stages.stage1}
+          label={activeProject.stages.stage3}
           defaultChecked={false}
           ref={stage3}
         />
         <InputCheckbox
           id={"stage4"}
-          label={activeProject.stages.stage1}
+          label={activeProject.stages.stage4}
           defaultChecked={false}
           ref={stage4}
         />
         <InputCheckbox
           id={"stage5"}
-          label={activeProject.stages.stage1}
+          label={activeProject.stages.stage5}
           defaultChecked={false}
           ref={stage5}
         />
         <InputCheckbox
           id={"stage6"}
-          label={activeProject.stages.stage1}
+          label={activeProject.stages.stage6}
           defaultChecked={false}
           ref={stage6}
         />

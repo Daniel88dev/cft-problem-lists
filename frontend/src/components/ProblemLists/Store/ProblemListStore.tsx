@@ -92,6 +92,11 @@ type SetFilters = {
   payload: { statusFilters: string[]; gradeFilters: string[] };
 };
 
+type RegisterProblem = {
+  type: "REGISTER_PROBLEM";
+  payload: { problem: ProblemListDataType };
+};
+
 type Action =
   | AddInitialData
   | AddProblems
@@ -99,7 +104,8 @@ type Action =
   | ChangeProblem
   | Subscribe
   | Unsubscribe
-  | SetFilters;
+  | SetFilters
+  | RegisterProblem;
 
 function problemListReducer(
   state: InitialStateType,
@@ -224,6 +230,21 @@ function problemListReducer(
     };
   }
 
+  if (action.type === "REGISTER_PROBLEM") {
+    const NewProblemsArray = state.data;
+    const findDuplicated = state.data.find((record) => {
+      return record.id === action.payload.problem.id;
+    });
+    if (!findDuplicated) {
+      NewProblemsArray.push(action.payload.problem);
+    }
+
+    return {
+      ...state,
+      data: NewProblemsArray,
+    };
+  }
+
   return state;
 }
 
@@ -273,6 +294,9 @@ const ProblemListStore = ({ children }: ProblemListType) => {
         type: "APPLY_FILTERS",
         payload: { statusFilters, gradeFilters },
       });
+    },
+    registerProblem(problem) {
+      dispatch({ type: "REGISTER_PROBLEM", payload: { problem: problem } });
     },
   };
   return (
