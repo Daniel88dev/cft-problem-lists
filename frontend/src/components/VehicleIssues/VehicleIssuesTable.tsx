@@ -9,6 +9,7 @@ import TableRow from "../UI/Tables/TableRow.tsx";
 import TablePicture from "../UI/Tables/TablePicture.tsx";
 import Button from "../UI/Buttons/Button.tsx";
 import { RxOpenInNewWindow } from "react-icons/rx";
+import DtcCodes from "./components/DtcCodes.tsx";
 
 const VehicleIssuesTable = () => {
   const { data, isDataLoaded, isLoading } = useVehicleIssuesContext();
@@ -50,7 +51,7 @@ const VehicleIssuesTable = () => {
                 <td>{item.problemName}</td>
                 <td>{item.problemDescription}</td>
                 <td>{item.status}</td>
-                <td>{item.DTCCodes ? item.DTCCodes[0] : ""}</td>
+                <DtcCodes dtcArray={item.DTCCodes} />
               </TableRow>
             ))}
           </tbody>

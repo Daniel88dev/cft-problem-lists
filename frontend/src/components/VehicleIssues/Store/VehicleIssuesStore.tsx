@@ -1,5 +1,6 @@
 import {
   InitialStateType,
+  ListType,
   ProjectTypes,
   VehicleDataType,
   VehicleIssuesContextType,
@@ -22,6 +23,7 @@ const initialState: InitialStateType = {
     vehicleIssues: [],
     vehicles: [],
   },
+  selectedProjectProblems: [],
 };
 
 export const VehicleIssuesContext =
@@ -36,6 +38,7 @@ type PayloadForAddIssues = {
   issues: VehicleIssuesType[];
   vehicles: VehicleDataType[];
   projectId: number;
+  problemsData: ListType[];
 };
 
 type AddIssues = {
@@ -73,6 +76,7 @@ function vehicleIssuesReducer(
         vehicleIssues: action.payload.issues,
         vehicles: action.payload.vehicles,
       },
+      selectedProjectProblems: action.payload.problemsData,
       isDataLoaded: true,
       isLoading: false,
     };
@@ -102,13 +106,14 @@ const VehicleIssuesStore = ({ children }: VehicleIssueType) => {
     activeProject: vehicleIssuesState.activeProject,
     filters: vehicleIssuesState.filters,
     data: vehicleIssuesState.data,
+    selectedProjectProblems: vehicleIssuesState.selectedProjectProblems,
     loadInitialData(projects) {
       dispatch({ type: "ADD_INITIAL_DATA", payload: projects });
     },
-    loadIssuesData(issues, vehicles, projectId) {
+    loadIssuesData(issues, vehicles, projectId, problemsData) {
       dispatch({
         type: "ADD_ISSUES",
-        payload: { issues, vehicles, projectId },
+        payload: { issues, vehicles, projectId, problemsData },
       });
     },
     setLoading() {

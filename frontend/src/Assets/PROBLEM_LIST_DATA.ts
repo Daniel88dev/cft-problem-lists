@@ -197,7 +197,7 @@ export const EXAMPLE_PROBLEM_LIST_DATA: ProblemListDataType[] = [
       Stage6: false,
     },
     picture: "/EXAMPLE_PIC.jpeg",
-    problemName: "First Problem Example",
+    problemName: "Second Problem Example",
     problemDescription: "Description about problem which happened",
     actionsDone: "Some actions which was done filled by responsible person.",
     counterMeasure: "Action to solve caused problem.",

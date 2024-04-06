@@ -49,6 +49,7 @@ const NewProblemRegistration = ({
       selectedProject: selectedProjectData.project,
       selectedList: selectedProjectData.list,
       listArray: listArray,
+      defaultStage: findProject ? findProject.stages.active : null,
     };
   });
   const problemName = useRef<HTMLInputElement>(null);
@@ -215,7 +216,7 @@ const NewProblemRegistration = ({
 
   const onProjectSelect = (value: OptionType | null) => {
     if (value !== null) {
-      setSelectedProject(() => {
+      setSelectedProject((prevState) => {
         const findProject = format.projects.find((project) => {
           return project.id === value.value;
         });
@@ -227,16 +228,20 @@ const NewProblemRegistration = ({
           });
         });
         return {
+          ...prevState,
           selectedProject: value,
           selectedList: undefined,
           listArray: listArray,
         };
       });
     } else {
-      setSelectedProject({
-        selectedProject: undefined,
-        selectedList: undefined,
-        listArray: [],
+      setSelectedProject((prevState) => {
+        return {
+          ...prevState,
+          selectedProject: undefined,
+          selectedList: undefined,
+          listArray: [],
+        };
       });
     }
   };
@@ -296,37 +301,49 @@ const NewProblemRegistration = ({
         <InputCheckbox
           id={"stage1"}
           label={activeProject.stages.stage1}
-          defaultChecked={false}
+          defaultChecked={
+            activeProject.stages.stage1 === selectedProject.defaultStage
+          }
           ref={stage1}
         />
         <InputCheckbox
           id={"stage2"}
           label={activeProject.stages.stage2}
-          defaultChecked={false}
+          defaultChecked={
+            activeProject.stages.stage2 === selectedProject.defaultStage
+          }
           ref={stage2}
         />
         <InputCheckbox
           id={"stage3"}
           label={activeProject.stages.stage3}
-          defaultChecked={false}
+          defaultChecked={
+            activeProject.stages.stage3 === selectedProject.defaultStage
+          }
           ref={stage3}
         />
         <InputCheckbox
           id={"stage4"}
           label={activeProject.stages.stage4}
-          defaultChecked={false}
+          defaultChecked={
+            activeProject.stages.stage4 === selectedProject.defaultStage
+          }
           ref={stage4}
         />
         <InputCheckbox
           id={"stage5"}
           label={activeProject.stages.stage5}
-          defaultChecked={false}
+          defaultChecked={
+            activeProject.stages.stage5 === selectedProject.defaultStage
+          }
           ref={stage5}
         />
         <InputCheckbox
           id={"stage6"}
           label={activeProject.stages.stage6}
-          defaultChecked={false}
+          defaultChecked={
+            activeProject.stages.stage6 === selectedProject.defaultStage
+          }
           ref={stage6}
         />
       </div>

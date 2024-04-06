@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Notification, { ChildMethods } from "../UI/Notification.tsx";
 import FilterMenu from "../UI/FilterMenu.tsx";
 import {
+  EXAMPLE_ProblemListData,
   EXAMPLE_VEHICLE_DATA,
   EXAMPLE_VEHICLE_ISSUES_DATA,
   PROJECT_DEFAULT,
@@ -149,7 +150,8 @@ const VehicleIssuesHeader = () => {
     loadIssuesData(
       EXAMPLE_VEHICLE_ISSUES_DATA,
       EXAMPLE_VEHICLE_DATA,
-      selectedData.projectId
+      selectedData.projectId,
+      EXAMPLE_ProblemListData
     );
     if (notifyRef.current) {
       notifyRef.current.setNotify("Data Load Successfully", "basic");

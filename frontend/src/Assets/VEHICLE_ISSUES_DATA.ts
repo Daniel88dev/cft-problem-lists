@@ -1,8 +1,10 @@
 import {
+  ListType,
   ProjectTypes,
   VehicleDataType,
   VehicleIssuesType,
 } from "../components/VehicleIssues/Store/VehicleIssuesTypes.tsx";
+import { EXAMPLE_PROBLEM_LIST_DATA } from "./PROBLEM_LIST_DATA.ts";
 
 export const PROJECT_DEFAULT: ProjectTypes[] = [
   {
@@ -61,6 +63,12 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
     status: "OPEN",
+    connectedProblem: {
+      list: "ELE",
+      id: 1,
+      item: 1,
+      problemName: "First Problem Example",
+    },
   },
   {
     id: 2,
@@ -76,6 +84,12 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
     status: "OPEN",
+    connectedProblem: {
+      list: "ELE",
+      id: 2,
+      item: 2,
+      problemName: "Second Problem Example",
+    },
   },
   {
     id: 3,
@@ -91,6 +105,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
     status: "OPEN",
+    connectedProblem: null,
   },
   {
     id: 4,
@@ -106,6 +121,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
     status: "OPEN",
+    connectedProblem: null,
   },
   {
     id: 5,
@@ -121,6 +137,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
     status: "OPEN",
+    connectedProblem: null,
   },
   {
     id: 6,
@@ -136,6 +153,7 @@ export const EXAMPLE_VEHICLE_ISSUES_DATA: VehicleIssuesType[] = [
     problemDescription: "Description in detail for vehicle issue.",
     DTCCodes: ["P1000", "P2500"],
     status: "OPEN",
+    connectedProblem: null,
   },
 ];
 
@@ -176,4 +194,45 @@ export const EXAMPLE_VEHICLE_DATA: VehicleDataType[] = [
     bodyNo: "GTW 444444",
     vehicleStage: "LP2",
   },
+];
+
+const problems = EXAMPLE_PROBLEM_LIST_DATA.map((problem) => {
+  return {
+    id: problem.id,
+    item: problem.item,
+    problemName: problem.problemName,
+  };
+});
+const stage1 = {
+  listName: PROJECT_DEFAULT[0].stages.stage1,
+  problems: problems,
+};
+const stage2 = {
+  listName: PROJECT_DEFAULT[0].stages.stage2,
+  problems: problems,
+};
+const stage3 = {
+  listName: PROJECT_DEFAULT[0].stages.stage3,
+  problems: problems,
+};
+const stage4 = {
+  listName: PROJECT_DEFAULT[0].stages.stage4,
+  problems: problems,
+};
+const stage5 = {
+  listName: PROJECT_DEFAULT[0].stages.stage5,
+  problems: problems,
+};
+const stage6 = {
+  listName: PROJECT_DEFAULT[0].stages.stage6,
+  problems: problems,
+};
+
+export const EXAMPLE_ProblemListData: ListType[] = [
+  stage1,
+  stage2,
+  stage3,
+  stage4,
+  stage5,
+  stage6,
 ];

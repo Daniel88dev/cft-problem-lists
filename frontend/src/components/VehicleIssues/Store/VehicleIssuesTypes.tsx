@@ -21,6 +21,13 @@ export type VehicleDataType = {
   vehicleStage: string;
 };
 
+export type VehicleProblemType = {
+  list: string;
+  id: number;
+  item: number;
+  problemName: string;
+};
+
 export type VehicleIssuesType = {
   id: number;
   item: number;
@@ -30,6 +37,7 @@ export type VehicleIssuesType = {
   problemDescription: string;
   DTCCodes: string[];
   status: "OPEN" | "REPAIRED" | "CANT REPAIR";
+  connectedProblem: VehicleProblemType | null;
 };
 
 export type DataType = {
@@ -48,6 +56,17 @@ export type FiltersType = {
   vehicleId: number;
 };
 
+export type ProblemList = {
+  id: number;
+  item: number;
+  problemName: string;
+};
+
+export type ListType = {
+  listName: string;
+  problems: ProblemList[];
+};
+
 export type InitialStateType = {
   isInitialLoaded: boolean;
   isDataLoaded: boolean;
@@ -56,6 +75,7 @@ export type InitialStateType = {
   activeProject: ProjectTypes | undefined;
   filters: FiltersType;
   data: DataType;
+  selectedProjectProblems: ListType[];
 };
 
 export type VehicleIssuesContextType = InitialStateType & {
@@ -63,7 +83,8 @@ export type VehicleIssuesContextType = InitialStateType & {
   loadIssuesData: (
     issues: VehicleIssuesType[],
     vehicles: VehicleDataType[],
-    projectId: number
+    projectId: number,
+    problemsData: ListType[]
   ) => void;
   setLoading: () => void;
 };
