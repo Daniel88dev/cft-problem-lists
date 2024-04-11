@@ -49,6 +49,7 @@ export type ProjectTypes = {
   id: number;
   name: string;
   stages: StagesNamesType;
+  lists: string[];
 };
 
 export type FiltersType = {
@@ -87,4 +88,8 @@ export type VehicleIssuesContextType = InitialStateType & {
     problemsData: ListType[]
   ) => void;
   setLoading: () => void;
+  setLinkedProblem: (
+    problem: VehicleProblemType | null,
+    issueId: number
+  ) => void;
 };

@@ -11,6 +11,7 @@ import {
 } from "../../Assets/VEHICLE_ISSUES_DATA.ts";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
 import MultiSelect, { MultiOptionType } from "../UI/Select/MultiSelect.tsx";
+import { createOption } from "./components/createOption.ts";
 
 type SelectedType = {
   projectId: number;
@@ -23,11 +24,6 @@ type FiltersType = {
   status: readonly MultiOptionType[] | null | undefined;
   vehicle: readonly MultiOptionType[] | null | undefined;
 };
-
-const createOption = (stage: string): OptionType => ({
-  value: stage,
-  label: stage,
-});
 
 const VehicleIssuesHeader = () => {
   const {

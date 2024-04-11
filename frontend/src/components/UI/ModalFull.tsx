@@ -48,7 +48,7 @@ const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
         <CloseButton onClick={onClose} />
       </div>
       <div className="overflow-y-auto w-full h-[95%]">
-        <div className="flex overflow-hidden">{children}</div>
+        <div className="flex overflow-visible">{children}</div>
       </div>
     </div>
   );

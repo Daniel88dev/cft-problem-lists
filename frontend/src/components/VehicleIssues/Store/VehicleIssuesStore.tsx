@@ -6,6 +6,7 @@ import {
   VehicleIssuesContextType,
   VehicleIssuesType,
   VehicleIssueType,
+  VehicleProblemType,
 } from "./VehicleIssuesTypes.tsx";
 import { createContext, useReducer } from "react";
 
@@ -50,7 +51,17 @@ type AddLoadingState = {
   type: "SET_LOADING";
 };
 
-type Action = AddInitialData | AddIssues | AddLoadingState;
+type PayloadForProblemLink = {
+  problem: VehicleProblemType | null;
+  issueId: number;
+};
+
+type SetLinkedProblem = {
+  type: "LINK_PROBLEM";
+  payload: PayloadForProblemLink;
+};
+
+type Action = AddInitialData | AddIssues | AddLoadingState | SetLinkedProblem;
 
 function vehicleIssuesReducer(
   state: InitialStateType,
@@ -89,6 +100,26 @@ function vehicleIssuesReducer(
     };
   }
 
+  if (action.type === "LINK_PROBLEM") {
+    const updatedIssueArray = state.data.vehicleIssues.map((issue) => {
+      if (issue.id === action.payload.issueId) {
+        return {
+          ...issue,
+          connectedProblem: action.payload.problem,
+        };
+      } else {
+        return issue;
+      }
+    });
+    return {
+      ...state,
+      data: {
+        ...state.data,
+        vehicleIssues: updatedIssueArray,
+      },
+    };
+  }
+
   return state;
 }
 
@@ -118,6 +149,12 @@ const VehicleIssuesStore = ({ children }: VehicleIssueType) => {
     },
     setLoading() {
       dispatch({ type: "SET_LOADING" });
+    },
+    setLinkedProblem(problem, issueId) {
+      dispatch({
+        type: "LINK_PROBLEM",
+        payload: { problem, issueId },
+      });
     },
   };
   return (

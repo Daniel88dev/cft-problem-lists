@@ -10,6 +10,7 @@ import TablePicture from "../UI/Tables/TablePicture.tsx";
 import Button from "../UI/Buttons/Button.tsx";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import DtcCodes from "./components/DtcCodes.tsx";
+import ProblemCell from "./components/ProblemCell.tsx";
 
 const VehicleIssuesTable = () => {
   const { data, isDataLoaded, isLoading } = useVehicleIssuesContext();
@@ -28,6 +29,7 @@ const VehicleIssuesTable = () => {
             <Th width={"w-48"}>Picture</Th>
             <Th width={"w-48"}>Problem Name</Th>
             <Th width={"w-96"}>Problem Description</Th>
+            <Th width={"w-48"}>Linked Problem</Th>
             <Th width={"w-24"}>Status</Th>
             <Th width={"w-24"}>DTC codes</Th>
           </TableHeading>
@@ -44,13 +46,14 @@ const VehicleIssuesTable = () => {
                   </Button>
                   <Button>Edit</Button>
                 </td>
-                <td>{item.vehicleId.carIdentification}</td>
-                <td>{item.vehicleId.bodyNo}</td>
-                <td>{item.vehicleId.vehicleStage}</td>
+                <td className={"px-2"}>{item.vehicleId.carIdentification}</td>
+                <td className={"px-2"}>{item.vehicleId.bodyNo}</td>
+                <td className={"px-2"}>{item.vehicleId.vehicleStage}</td>
                 <TablePicture src={item.picture} alt={item.problemName} />
-                <td>{item.problemName}</td>
-                <td>{item.problemDescription}</td>
-                <td>{item.status}</td>
+                <td className={"px-2"}>{item.problemName}</td>
+                <td className={"px-2"}>{item.problemDescription}</td>
+                <ProblemCell data={item.connectedProblem} issueId={item.id} />
+                <td className={"px-2"}>{item.status}</td>
                 <DtcCodes dtcArray={item.DTCCodes} />
               </TableRow>
             ))}

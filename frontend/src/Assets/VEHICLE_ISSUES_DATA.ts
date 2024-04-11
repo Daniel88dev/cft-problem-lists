@@ -4,7 +4,10 @@ import {
   VehicleDataType,
   VehicleIssuesType,
 } from "../components/VehicleIssues/Store/VehicleIssuesTypes.tsx";
-import { EXAMPLE_PROBLEM_LIST_DATA } from "./PROBLEM_LIST_DATA.ts";
+import {
+  EXAMPLE_PROBLEM_LIST_DATA,
+  PROJECTS_DEFAULT,
+} from "./PROBLEM_LIST_DATA.ts";
 
 export const PROJECT_DEFAULT: ProjectTypes[] = [
   {
@@ -19,6 +22,7 @@ export const PROJECT_DEFAULT: ProjectTypes[] = [
       stage6: "M",
       active: "LP1",
     },
+    lists: ["ELE", "EXT", "INT", "CHA", "MOV", "Audit"],
   },
   {
     id: 2,
@@ -32,6 +36,7 @@ export const PROJECT_DEFAULT: ProjectTypes[] = [
       stage6: "M",
       active: "LP1",
     },
+    lists: ["ELE", "EXT", "INT", "CHA", "MOV", "Audit"],
   },
   {
     id: 3,
@@ -45,6 +50,7 @@ export const PROJECT_DEFAULT: ProjectTypes[] = [
       stage6: "M",
       active: "LP1",
     },
+    lists: ["ELE", "EXT", "INT", "CHA", "MOV", "Audit"],
   },
 ];
 
@@ -196,6 +202,8 @@ export const EXAMPLE_VEHICLE_DATA: VehicleDataType[] = [
   },
 ];
 
+//todo change stages to list
+
 const problems = EXAMPLE_PROBLEM_LIST_DATA.map((problem) => {
   return {
     id: problem.id,
@@ -203,36 +211,12 @@ const problems = EXAMPLE_PROBLEM_LIST_DATA.map((problem) => {
     problemName: problem.problemName,
   };
 });
-const stage1 = {
-  listName: PROJECT_DEFAULT[0].stages.stage1,
-  problems: problems,
-};
-const stage2 = {
-  listName: PROJECT_DEFAULT[0].stages.stage2,
-  problems: problems,
-};
-const stage3 = {
-  listName: PROJECT_DEFAULT[0].stages.stage3,
-  problems: problems,
-};
-const stage4 = {
-  listName: PROJECT_DEFAULT[0].stages.stage4,
-  problems: problems,
-};
-const stage5 = {
-  listName: PROJECT_DEFAULT[0].stages.stage5,
-  problems: problems,
-};
-const stage6 = {
-  listName: PROJECT_DEFAULT[0].stages.stage6,
-  problems: problems,
-};
 
-export const EXAMPLE_ProblemListData: ListType[] = [
-  stage1,
-  stage2,
-  stage3,
-  stage4,
-  stage5,
-  stage6,
-];
+const lists = PROJECTS_DEFAULT[0].lists.map((list) => {
+  return {
+    listName: list,
+    problems: problems,
+  };
+});
+
+export const EXAMPLE_ProblemListData: ListType[] = lists;
