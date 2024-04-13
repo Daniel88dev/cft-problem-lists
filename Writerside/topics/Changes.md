@@ -6,16 +6,17 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
+<tr><td>2024-04-13</td><td>4</td></tr>
 <tr><td>2024-04-11</td><td>2</td></tr>
 <tr><td>2024-04-10</td><td>3</td></tr>
 <tr><td>2024-04-06</td><td>2,5</td></tr>
 <tr><td>2024-04-05</td><td>2,5</td></tr>
 <tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>13.5</td></tr>
+<tr><td>April</td><td>17.5</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>94</td></tr>
+<tr><td>TOTAL</td><td>98</td></tr>
 </table>
 
 
@@ -25,6 +26,17 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <tabs>
 <tab title="April">
+
+<deflist>
+<def title="2024-04-13 17:30 - 21:30">
+<list>
+<li>Added new menu's to header: Problem-search, Vehicle-search, and Admin</li>
+<li>Initial pages added to be loaded</li>
+<li>Making problem-search menu and logic</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-04-11 15:30 - 17:30">

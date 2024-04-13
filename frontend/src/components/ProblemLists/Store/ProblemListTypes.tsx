@@ -24,6 +24,8 @@ export type ProblemListDataType = {
   problemDescription: string;
   actionsDone: string;
   counterMeasure: string;
+  projectId: number;
+  list: string;
   grade: "A" | "B" | "C" | "D" | "S" | "";
   class: string;
   action: string;

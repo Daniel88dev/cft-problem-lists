@@ -13,6 +13,7 @@ interface SelectProps {
   label: string;
   defaultValue?: OptionType | undefined;
   clearable?: boolean;
+  disabled?: boolean;
 }
 
 const SelectSearch = ({
@@ -21,8 +22,11 @@ const SelectSearch = ({
   label,
   defaultValue,
   clearable = true,
+  disabled = false,
 }: SelectProps): JSX.Element => {
   const [optionData, setOptionData] = useState<OptionType[]>([]);
+
+  console.log({ defaultValue, options });
 
   useEffect(() => {
     const array: OptionType[] = [];
@@ -58,6 +62,7 @@ const SelectSearch = ({
         className="w-56 h-10 rounded-lg text-black"
         isClearable={clearable}
         defaultValue={defaultValue ? defaultValue : null}
+        isDisabled={disabled}
       />
     </div>
   );

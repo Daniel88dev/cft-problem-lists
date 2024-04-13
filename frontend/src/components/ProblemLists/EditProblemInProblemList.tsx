@@ -127,6 +127,8 @@ const EditProblemInProblemList = ({
       problemDescription: problemDescription.current.value,
       actionsDone: actionsDone.current.value,
       counterMeasure: counterMeasure.current.value,
+      projectId: dataForEdit.projectId,
+      list: dataForEdit.list,
       grade: grade,
       class: classes.value,
       action: action.selected,

@@ -31,11 +31,21 @@ export const Heading = () => {
     },
     {
       id: 5,
-      name: "test",
-      link: "/test",
+      name: "Problem-search",
+      link: "/problem-search/problem/0",
     },
     {
       id: 6,
+      name: "Vehicle-search",
+      link: "/vehicle-search/vehicle/0",
+    },
+    {
+      id: 7,
+      name: "Admin",
+      link: "/admin",
+    },
+    {
+      id: 8,
       name: "UI Components",
       link: "/ui-components",
     },

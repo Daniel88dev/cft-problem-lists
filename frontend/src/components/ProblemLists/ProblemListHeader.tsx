@@ -88,7 +88,6 @@ const ProblemListHeader = () => {
   };
 
   const onProjectSelect = (value: OptionType | null) => {
-    console.log(value);
     if (value !== null) {
       setSelectedData((prevState) => {
         const listArray: OptionType[] = [];

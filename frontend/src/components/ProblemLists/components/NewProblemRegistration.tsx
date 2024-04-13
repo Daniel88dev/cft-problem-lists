@@ -141,6 +141,8 @@ const NewProblemRegistration = ({
       problemDescription: problemDescription.current.value,
       actionsDone: actionsDone.current.value,
       counterMeasure: counterMeasure.current.value,
+      projectId: Number(selectedProject.selectedProject!.value),
+      list: selectedProject.selectedList!.label,
       grade: grade,
       class: classes.value,
       action: action.selected,
@@ -152,6 +154,8 @@ const NewProblemRegistration = ({
 
     onSubmitData(editedData);
   };
+
+  console.log(selectedProject.selectedProject);
 
   const onChangeClass = (value: string) => {
     setClasses((prevState) => {
