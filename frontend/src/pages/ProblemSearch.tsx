@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { EXAMPLE_PROBLEM_LIST_DATA } from "../Assets/PROBLEM_LIST_DATA.ts";
 import { ProblemListDataType } from "../components/ProblemLists/Store/ProblemListTypes.tsx";
+import ProblemSearchDetail from "../components/ProblemSearch/ProblemSearchDetail.tsx";
 
 type loadedProblemType = ProblemListDataType | null;
 
@@ -25,6 +26,7 @@ const ProblemSearch = () => {
   return (
     <>
       <ProblemSearchHeader problemId={Number(problemId)} />
+      {loadedProblem && <ProblemSearchDetail data={loadedProblem} />}
     </>
   );
 };

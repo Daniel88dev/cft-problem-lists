@@ -62,6 +62,10 @@ const ProblemListTable = () => {
     setDataForEdit(null);
   };
 
+  const onOpenInTab = (location: number) => {
+    window.open(`/problem-search/problem/${location}`);
+  };
+
   return (
     <>
       {isLoading && <Loader />}
@@ -89,7 +93,7 @@ const ProblemListTable = () => {
               <TableRow key={item.id} height={"w-24"}>
                 <td className="flex-col px-2">
                   <p>{item.item}</p>
-                  <Button>
+                  <Button onClick={() => onOpenInTab(item.id)}>
                     <div className={"flex content-center"}>
                       Open
                       <RxOpenInNewWindow />

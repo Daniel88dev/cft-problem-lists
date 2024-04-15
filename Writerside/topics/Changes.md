@@ -30,6 +30,10 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <deflist>
 <def title="2024-04-15 17:00 -">
+<list>
+<li>Fixing bug regarding Vercel hosting and routing to different page doesn't work, to open page with specific route, than basic root route</li>
+<li>Working on Problem-search detail of page</li>
+</list>
 </def>
 </deflist>
 
