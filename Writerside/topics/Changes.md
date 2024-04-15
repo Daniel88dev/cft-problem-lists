@@ -6,6 +6,7 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
+<tr><td>2024-04-15</td><td>0</td></tr>
 <tr><td>2024-04-13</td><td>4</td></tr>
 <tr><td>2024-04-11</td><td>2</td></tr>
 <tr><td>2024-04-10</td><td>3</td></tr>
@@ -26,6 +27,12 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <tabs>
 <tab title="April">
+
+<deflist>
+<def title="2024-04-15 17:00 -">
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-04-13 17:30 - 21:30">
