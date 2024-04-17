@@ -10,7 +10,7 @@ const DesktopNavigation = ({ data }: { data: HeadingObjectType[] }) => {
       <Logo />
 
       {data.map((dat) => (
-        <NavLink key={dat.id} link={dat.link}>
+        <NavLink key={dat.id} link={dat.link} menu={dat.menu}>
           {dat.name}
         </NavLink>
       ))}

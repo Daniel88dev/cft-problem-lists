@@ -26,8 +26,6 @@ const SelectSearch = ({
 }: SelectProps): JSX.Element => {
   const [optionData, setOptionData] = useState<OptionType[]>([]);
 
-  console.log({ defaultValue, options });
-
   useEffect(() => {
     const array: OptionType[] = [];
     if (options.length > 0) {

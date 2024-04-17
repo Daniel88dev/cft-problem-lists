@@ -8,23 +8,33 @@ const ProblemSearchDetail = ({ data }: ProblemSearchDetailType) => {
   return (
     <div
       className={
-        "py-4 border-black dark:border-white border-2 rounded-2xl h-auto overflow-visible"
+        "py-4 my-2 border-black dark:border-white border-2 rounded-2xl h-auto overflow-visible"
       }
     >
       <div className={"flex"}>
         <h1 className={"text-4xl mx-2"}>Item: {data.item}</h1>
         <h1 className={"text-4xl ml-4"}>Problem Name: {data.problemName}</h1>
       </div>
-      <img
-        className={"w-96 p-2"}
-        src={data.picture}
-        alt={data.problemName + " picture"}
-      />
-      <div className={"py-2"}>
-        <h3 className={"text-xl text-left px-2 underline"}>
-          Problem description:
-        </h3>
-        <p className={"text-2 text-left px-2"}>{data.problemDescription}</p>
+      <div className={"flex"}>
+        <img
+          className={"w-96 p-2"}
+          src={data.picture}
+          alt={data.problemName + " picture"}
+        />
+        <div className={"flex-col"}>
+          <div className={"py-2"}>
+            <h3 className={"text-xl text-left px-2 underline"}>
+              Problem description:
+            </h3>
+            <p className={"text-2 text-left px-2"}>{data.problemDescription}</p>
+            <div className={"py-2"}>
+              <h3 className={"text-xl text-left px-2 underline"}>
+                Countermeasure:
+              </h3>
+              <p className={"text-2 text-left px-2"}>{data.counterMeasure}</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className={"py-2"}>
         <h3 className={"text-xl text-left px-2 underline"}>Actions done:</h3>
@@ -40,10 +50,6 @@ const ProblemSearchDetail = ({ data }: ProblemSearchDetailType) => {
           {data.stages.Stage5 && <p className={"mx-2"}>LP2</p>}
           {data.stages.Stage6 && <p className={"mx-2"}>M</p>}
         </div>
-      </div>
-      <div className={"py-2"}>
-        <h3 className={"text-xl text-left px-2 underline"}>Countermeasure:</h3>
-        <p className={"text-2 text-left px-2"}>{data.counterMeasure}</p>
       </div>
     </div>
   );

@@ -1,8 +1,18 @@
 import { Link, useMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const NavLink = ({ children, link }: { children: string; link: string }) => {
+const NavLink = ({
+  children,
+  link,
+  menu,
+}: {
+  children: string;
+  link: string;
+  menu: string;
+}) => {
   const match = useMatch(link);
+
+  const destination = match?.pathname.split("/");
 
   return (
     <Link
@@ -10,7 +20,9 @@ const NavLink = ({ children, link }: { children: string; link: string }) => {
       rel="nofollow"
       className={
         "block overflow-hidden text-nowrap pr-4" +
-        (match?.pathname === link ? " underline dark:text-white" : "")
+        (destination && destination[1] === menu
+          ? " underline dark:text-white"
+          : "")
       }
     >
       <motion.div

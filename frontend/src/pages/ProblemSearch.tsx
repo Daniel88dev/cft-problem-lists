@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { EXAMPLE_PROBLEM_LIST_DATA } from "../Assets/PROBLEM_LIST_DATA.ts";
 import { ProblemListDataType } from "../components/ProblemLists/Store/ProblemListTypes.tsx";
 import ProblemSearchDetail from "../components/ProblemSearch/ProblemSearchDetail.tsx";
+import ProblemSearchChat from "../components/ProblemSearch/ProblemSearchChat.tsx";
 
 type loadedProblemType = ProblemListDataType | null;
 
@@ -27,6 +28,7 @@ const ProblemSearch = () => {
     <>
       <ProblemSearchHeader problemId={Number(problemId)} />
       {loadedProblem && <ProblemSearchDetail data={loadedProblem} />}
+      {loadedProblem && <ProblemSearchChat />}
     </>
   );
 };

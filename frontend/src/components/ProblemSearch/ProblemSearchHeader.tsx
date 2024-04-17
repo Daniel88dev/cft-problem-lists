@@ -7,6 +7,7 @@ import {
   PROJECTS_DEFAULT,
 } from "../../Assets/PROBLEM_LIST_DATA.ts";
 import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
+import { useNavigate } from "react-router-dom";
 
 type ProblemSearchHeaderType = {
   problemId: number;
@@ -31,6 +32,7 @@ const ProblemSearchHeader = ({ problemId }: ProblemSearchHeaderType) => {
     problemsArray: [],
     selectedProblem: null,
   });
+  const navigate = useNavigate();
 
   const loadInitial = useCallback(() => {
     //todo load data from backend
@@ -77,8 +79,6 @@ const ProblemSearchHeader = ({ problemId }: ProblemSearchHeaderType) => {
       });
     }
   }, [problemId]);
-
-  console.log(selectedData);
 
   useEffect(() => {
     loadInitial();
@@ -166,11 +166,14 @@ const ProblemSearchHeader = ({ problemId }: ProblemSearchHeaderType) => {
     }
   };
 
-  if (selectedData.selectedProject === selectedData.projectList[0]) {
-    console.log("SAME");
-  }
-
-  //todo fix problem with selected project
+  const onSubmitSearch = () => {
+    if (
+      selectedData.selectedProblem &&
+      selectedData.selectedProblem.value !== 0
+    ) {
+      navigate(`/problem-search/problem/${selectedData.selectedProblem.value}`);
+    }
+  };
 
   return (
     <>
@@ -208,7 +211,12 @@ const ProblemSearchHeader = ({ problemId }: ProblemSearchHeaderType) => {
           }
           disabled={selectedData.selectedList === null}
         />
-        <FilledButton>Load Problem</FilledButton>
+        <FilledButton
+          onClick={onSubmitSearch}
+          disabled={!selectedData.selectedProblem}
+        >
+          Load Problem
+        </FilledButton>
       </FilterMenu>
     </>
   );

@@ -5,6 +5,7 @@ export type HeadingObjectType = {
   id: number;
   name: string;
   link: string;
+  menu: string;
 };
 
 export const Heading = () => {
@@ -13,41 +14,49 @@ export const Heading = () => {
       id: 1,
       name: "Home",
       link: "/",
+      menu: "",
     },
     {
       id: 2,
       name: "Problem-lists",
       link: "/problem-lists",
+      menu: "problem-lists",
     },
     {
       id: 3,
       name: "Vehicle-lists",
       link: "/vehicle-lists",
+      menu: "vehicle-lists",
     },
     {
       id: 4,
       name: "Vehicle-issues",
       link: "/vehicle-issues",
+      menu: "vehicle-issues",
     },
     {
       id: 5,
       name: "Problem-search",
       link: "/problem-search/problem/0",
+      menu: "problem-search",
     },
     {
       id: 6,
       name: "Vehicle-search",
       link: "/vehicle-search/vehicle/0",
+      menu: "vehicle-search",
     },
     {
       id: 7,
       name: "Admin",
       link: "/admin",
+      menu: "admin",
     },
     {
       id: 8,
       name: "UI Components",
       link: "/ui-components",
+      menu: "ui-components",
     },
   ];
 

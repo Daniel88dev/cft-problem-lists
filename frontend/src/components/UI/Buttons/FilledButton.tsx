@@ -18,6 +18,7 @@ const FilledButton = ({
         my-2 mx-2
         min-w-20
         
+        disabled:cursor-not-allowed
         before:absolute before:inset-0
         before:-z-10 before:translate-x-[150%]
         before:translate-y-[150%] before:scale-[2.5]
