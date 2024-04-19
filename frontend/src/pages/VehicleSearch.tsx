@@ -5,7 +5,7 @@ const VehicleSearch = () => {
   const { vehicleId } = useParams();
   return (
     <>
-      <VehicleSearchHeader vehicleId={vehicleId} />
+      <VehicleSearchHeader vehicleId={Number(vehicleId)} />
     </>
   );
 };
