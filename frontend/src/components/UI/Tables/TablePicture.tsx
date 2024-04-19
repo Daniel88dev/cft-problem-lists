@@ -31,7 +31,11 @@ const TablePicture = ({ src, alt }: TablePictureType) => {
         ></div>
       </td>
       {openModal && (
-        <ModalFull onClose={() => setOpenModal(false)} type="full">
+        <ModalFull
+          onClose={() => setOpenModal(false)}
+          type="medium"
+          title={"Picture"}
+        >
           {pictureContent}
         </ModalFull>
       )}

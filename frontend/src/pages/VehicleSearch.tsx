@@ -1,5 +1,13 @@
+import { useParams } from "react-router-dom";
+import VehicleSearchHeader from "../components/VehicleSearch/VehicleSearchHeader.tsx";
+
 const VehicleSearch = () => {
-  return <h1>initial</h1>;
+  const { vehicleId } = useParams();
+  return (
+    <>
+      <VehicleSearchHeader vehicleId={vehicleId} />
+    </>
+  );
 };
 
 export default VehicleSearch;

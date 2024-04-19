@@ -16,6 +16,7 @@ import SubscribeToListeners from "./components/SubscribeToListeners.tsx";
 import Button from "../UI/Buttons/Button.tsx";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { format } from "date-fns";
+import { AnimatePresence } from "framer-motion";
 
 const ProblemListTable = () => {
   const {
@@ -76,9 +77,9 @@ const ProblemListTable = () => {
             <Th width="w-24">Stages</Th>
             <Th width="w-48">Picture</Th>
             <Th width="w-24">Problem Name</Th>
-            <Th width="w-48">Problem Description</Th>
-            <Th width="w-48">Actions done</Th>
-            <Th width="w-48">Counter Measure</Th>
+            <Th width="w-96">Problem Description</Th>
+            <Th width="w-96">Actions done</Th>
+            <Th width="w-96">Counter Measure</Th>
             <Th width="w-24">Grade</Th>
             <Th width="w-24">Class</Th>
             <Th width="w-24">Action</Th>
@@ -130,13 +131,15 @@ const ProblemListTable = () => {
           </tbody>
         </TableMain>
       )}
-      {dataForEdit && (
-        <EditProblemInProblemList
-          onClose={() => setDataForEdit(null)}
-          dataForEdit={dataForEdit}
-          onSubmitData={onProblemEditSubmit}
-        />
-      )}
+      <AnimatePresence>
+        {dataForEdit && (
+          <EditProblemInProblemList
+            onClose={() => setDataForEdit(null)}
+            dataForEdit={dataForEdit}
+            onSubmitData={onProblemEditSubmit}
+          />
+        )}
+      </AnimatePresence>
       <Notification ref={notifyRef} />
     </>
   );

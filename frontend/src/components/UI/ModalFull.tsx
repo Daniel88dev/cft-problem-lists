@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import CloseButton from "./Buttons/CloseButton.tsx";
 
 function isMobileDevice(): boolean {
@@ -15,34 +16,28 @@ type ModalFullType = {
   type?: "small" | "medium" | "full";
 };
 
-const Backdrop = ({ onClose }: ModalFullType) => {
-  return (
-    <div
-      className="fixed top-0 left-0 z-20 w-full h-full backdrop-blur-sm"
-      onClick={onClose}
-    />
-  );
-};
-
 const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
   const isMobile = isMobileDevice();
   let format =
-    "fixed bg-violet-200 dark:bg-gray-700 text-black dark:text-white p-4 border-2 rounded-2xl border-black dark:border-white z-30 overflow-hidden";
+    "relative bg-violet-200 dark:bg-gray-700 text-black dark:text-white p-4 border-2 rounded-2xl border-black dark:border-white z-30 overflow-hidden";
 
   if (type === "small") {
-    format +=
-      " w-96 h-32 left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center overflow-hidden";
+    format += " w-96 h-40";
   } else if (isMobile && (type === "full" || type === "medium")) {
     format += " w-full h-full";
   } else if (type === "medium") {
-    format +=
-      " w-[48rem] h-[40rem] left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 items-center justify-center overflow-hidden";
+    format += " w-[48rem] h-[40rem]";
   } else if (type === "full") {
-    format += " top-14 left-14 right-14 bottom-14 overflow-hidden";
+    format += " w-full h-full";
   }
 
   return (
-    <div className={format}>
+    <motion.div
+      className={format}
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 60 }}
+    >
       <div className="flex justify-between">
         <h2 className="text-2xl">{title ? title : "Popup window"}</h2>
         <CloseButton onClick={onClose} />
@@ -50,7 +45,21 @@ const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
       <div className="overflow-y-auto w-full h-[95%]">
         <div className="flex overflow-visible">{children}</div>
       </div>
-    </div>
+    </motion.div>
+  );
+};
+
+const Backdrop = ({ onClose, children }: ModalFullType) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="absolute flex justify-center items-center left-0 top-0 w-full h-full z-20 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      {children}
+    </motion.div>
   );
 };
 
@@ -64,11 +73,12 @@ const ModalFull = ({
 }: ModalFullType) => {
   return portalElement ? (
     <>
-      {createPortal(<Backdrop onClose={onClose} />, portalElement)}
       {createPortal(
-        <ModalOverlay onClose={onClose} title={title} type={type}>
-          {children}
-        </ModalOverlay>,
+        <Backdrop onClose={onClose}>
+          <ModalOverlay onClose={onClose} title={title} type={type}>
+            {children}
+          </ModalOverlay>
+        </Backdrop>,
         portalElement
       )}
     </>
