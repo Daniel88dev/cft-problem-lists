@@ -1,5 +1,5 @@
 import FilterMenu from "../UI/FilterMenu.tsx";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ProjectTypes } from "../ProblemLists/Store/ProblemListTypes.tsx";
 import { PROJECTS_DEFAULT } from "../../Assets/PROBLEM_LIST_DATA.ts";
 import SelectSearch, { OptionType } from "../UI/Select/SelectSearch.tsx";
@@ -7,6 +7,7 @@ import { EXAMPLE_VEHICLE_DATA } from "../../Assets/VEHICLE_ISSUES_DATA.ts";
 import { createOption } from "../VehicleIssues/components/createOption.ts";
 import FilledButton from "../UI/Buttons/FilledButton.tsx";
 import { useNavigate } from "react-router-dom";
+import InputText from "../UI/Input/InputText.tsx";
 
 type VehicleSearchHeaderType = {
   vehicleId: number;
@@ -31,6 +32,7 @@ const VehicleSearchHeader = ({ vehicleId }: VehicleSearchHeaderType) => {
     vehicleList: [],
     selectedVehicle: null,
   });
+  const scanBarcode = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const loadInitial = useCallback(() => {
@@ -88,7 +90,7 @@ const VehicleSearchHeader = ({ vehicleId }: VehicleSearchHeaderType) => {
   const onProjectSelect = (value: OptionType | null) => {
     if (value) {
       const findProject = projects.find((project) => {
-        return project.id === Number(value);
+        return project.id === Number(value.value);
       });
       const findProjectFromArray = selectedData.projectList.find((project) => {
         return project.value === value.value;
@@ -106,6 +108,9 @@ const VehicleSearchHeader = ({ vehicleId }: VehicleSearchHeaderType) => {
           ...prevState,
           stageList: stagesArray,
           selectedProject: findProjectFromArray!,
+          vehicleList: [],
+          selectedVehicle: null,
+          selectedStage: null,
         };
       });
     } else {
@@ -166,6 +171,58 @@ const VehicleSearchHeader = ({ vehicleId }: VehicleSearchHeaderType) => {
     }
   };
 
+  const onBarcodeSearch = () => {
+    if (scanBarcode.current) {
+      const barcodeData = scanBarcode.current.value;
+      const barcodeSplit = barcodeData.split(" ");
+      if (barcodeSplit[0].length !== 3 && barcodeSplit[1].length !== 6) {
+        return alert("Enter valid vehicle body no!");
+      }
+      const reformatedBodyNo = `${barcodeSplit[0].toUpperCase()} ${
+        barcodeSplit[1]
+      }`;
+      const findVehicle = EXAMPLE_VEHICLE_DATA.find((vehicle) => {
+        return vehicle.bodyNo === reformatedBodyNo;
+      });
+      console.log(findVehicle);
+      const projectArray: OptionType[] = PROJECTS_DEFAULT.map((project) => {
+        return {
+          label: project.name,
+          value: project.id,
+        };
+      });
+      const findProject = PROJECTS_DEFAULT.find((project) => {
+        return project.id === 1;
+      });
+      const stagesArray: OptionType[] = [
+        createOption(findProject!.stages.stage1),
+        createOption(findProject!.stages.stage2),
+        createOption(findProject!.stages.stage3),
+        createOption(findProject!.stages.stage4),
+        createOption(findProject!.stages.stage5),
+        createOption(findProject!.stages.stage6),
+      ];
+      const vehicleArray: OptionType[] = EXAMPLE_VEHICLE_DATA.map((vehicle) => {
+        return {
+          value: vehicle.id,
+          label: `${vehicle.carIdentification} - ${vehicle.bodyNo}`,
+        };
+      });
+      const findVehicleFromArray = vehicleArray.find((vehicle) => {
+        return vehicle.value === findVehicle!.id;
+      });
+      setSelectedData({
+        selectedStage: stagesArray[0],
+        selectedProject: projectArray[0],
+        selectedVehicle: findVehicleFromArray!,
+        projectList: projectArray,
+        stageList: stagesArray,
+        vehicleList: vehicleArray,
+      });
+      navigate(`/vehicle-search/vehicle/${findVehicleFromArray!.value}`);
+    }
+  };
+
   const onSubmitSearch = () => {
     if (
       selectedData.selectedVehicle &&
@@ -217,6 +274,8 @@ const VehicleSearchHeader = ({ vehicleId }: VehicleSearchHeaderType) => {
         >
           Load Vehicle
         </FilledButton>
+        <InputText id={"barcode"} label={"Scan barcode:"} ref={scanBarcode} />
+        <FilledButton onClick={onBarcodeSearch}>Load Barcode</FilledButton>
       </FilterMenu>
     </>
   );

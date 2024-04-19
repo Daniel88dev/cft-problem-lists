@@ -6,7 +6,7 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
-<tr><td>2024-04-19</td><td>0</td></tr>
+<tr><td>2024-04-19</td><td>4</td></tr>
 <tr><td>2024-04-18</td><td>3</td></tr>
 <tr><td>2024-04-17</td><td>2,5</td></tr>
 <tr><td>2024-04-16</td><td>1,5</td></tr>
@@ -18,10 +18,10 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tr><td>2024-04-05</td><td>2,5</td></tr>
 <tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>26,5</td></tr>
+<tr><td>April</td><td>30,5</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>107</td></tr>
+<tr><td>TOTAL</td><td>111</td></tr>
 </table>
 
 
@@ -33,7 +33,13 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tab title="April">
 
 <deflist>
-<def title="2024-04-19 15:00 - 16:30 and 20:00 -">
+<def title="2024-04-19 15:00 - 16:30 and 20:00 - 22:30">
+<list>
+<li>Working on vehicle search header</li>
+<li>Implementing Barcode manual input for searching vehicle</li>
+<li>Testing SDK package for implementing scanning possibility on mobile phone</li>
+<li>Improving table format</li>
+</list>
 </def>
 </deflist>
 

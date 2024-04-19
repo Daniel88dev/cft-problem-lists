@@ -5,7 +5,6 @@ import CloseButton from "../components/UI/Buttons/CloseButton.tsx";
 import InputText from "../components/UI/Input/InputText.tsx";
 import ModalFull from "../components/UI/ModalFull.tsx";
 import DatePicker from "../components/UI/CalendarPicker/DatePicker.tsx";
-import ScanBarcode from "../components/VehicleSearch/ScanBarcode.tsx";
 
 const UIComponents = () => {
   const notifyRef = useRef<ChildMethods>(null);
@@ -84,7 +83,6 @@ const UIComponents = () => {
           placeholder={initial}
         />
       </div>
-      <ScanBarcode />
       <FilledButton onClick={textInInput}>Test Input</FilledButton>
       {displayModal && (
         <ModalFull onClose={closeModal} title={"Test of Modal"} type="medium">

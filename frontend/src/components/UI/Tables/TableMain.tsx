@@ -6,7 +6,7 @@ type TableType = {
 
 const TableMain = ({ children }: TableType) => {
   return (
-    <div className="flex-grow z-0 overflow-x-auto">
+    <div className="flex-grow z-0">
       <table className="min-w-full">{children}</table>
     </div>
   );

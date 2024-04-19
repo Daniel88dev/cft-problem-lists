@@ -1,4 +1,4 @@
-import { Link, useMatch } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const NavLink = ({
@@ -10,9 +10,9 @@ const NavLink = ({
   link: string;
   menu: string;
 }) => {
-  const match = useMatch(link);
+  const location = useLocation();
 
-  const destination = match?.pathname.split("/");
+  const destination = location?.pathname.split("/");
 
   return (
     <Link
