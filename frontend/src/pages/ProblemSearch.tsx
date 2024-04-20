@@ -11,10 +11,9 @@ type loadedProblemType = ProblemListDataType | null;
 const ProblemSearch = () => {
   const { problemId } = useParams();
   const [loadedProblem, setLoadedProblem] = useState<loadedProblemType>(null);
-  console.log(problemId);
 
   useEffect(() => {
-    if (Number(problemId)) {
+    if (Number(problemId) !== 0) {
       const findProblem = EXAMPLE_PROBLEM_LIST_DATA.find((problem) => {
         return problem.id === Number(problemId);
       });

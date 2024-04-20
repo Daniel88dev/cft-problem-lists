@@ -1,25 +1,22 @@
+import { ConnectedProblemType } from "../../VehicleIssues/components/ProblemCell.tsx";
+import { useRef, useState } from "react";
+import Notification, { ChildMethods } from "../../UI/Notification.tsx";
 import Button from "../../UI/Buttons/Button.tsx";
 import { RxOpenInNewWindow } from "react-icons/rx";
-import { useRef, useState } from "react";
-import LinkProblem from "./LinkProblem.tsx";
-import Notification, { ChildMethods } from "../../UI/Notification.tsx";
-import useVehicleIssuesContext from "../Store/VehicleIssuesContext.tsx";
-import { VehicleProblemType } from "../Store/VehicleIssuesTypes.tsx";
+import LinkProblem from "../../VehicleIssues/components/LinkProblem.tsx";
+import { VehicleProblemType } from "../../VehicleIssues/Store/VehicleIssuesTypes.tsx";
 
-export type ConnectedProblemType = {
-  list: string;
-  id: number;
-  item: number;
-  problemName: string;
-};
-
-type ProblemCellType = {
+type ProblemCellSearchType = {
   data: ConnectedProblemType | null;
   issueId: number;
+  onLinkProblem: (value: VehicleProblemType | null, issueId: number) => void;
 };
 
-const ProblemCell = ({ data, issueId }: ProblemCellType) => {
-  const { setLinkedProblem } = useVehicleIssuesContext();
+const ProblemCellSearch = ({
+  data,
+  issueId,
+  onLinkProblem,
+}: ProblemCellSearchType) => {
   const [editProblem, setEditProblem] = useState(false);
   const notifyRef = useRef<ChildMethods>(null);
 
@@ -33,9 +30,9 @@ const ProblemCell = ({ data, issueId }: ProblemCellType) => {
 
   const onLinkSubmit = (value: VehicleProblemType) => {
     if (value.id !== 0) {
-      setLinkedProblem(value, issueId);
+      onLinkProblem(value, issueId);
     } else {
-      setLinkedProblem(null, issueId);
+      onLinkProblem(null, issueId);
     }
     setEditProblem(false);
     if (notifyRef.current) {
@@ -62,6 +59,7 @@ const ProblemCell = ({ data, issueId }: ProblemCellType) => {
         </div>
       </td>
       {editProblem && (
+        //todo declare same function outside of Context, or update to not use Context
         <LinkProblem
           onClose={onCloseEdit}
           data={data}
@@ -73,4 +71,4 @@ const ProblemCell = ({ data, issueId }: ProblemCellType) => {
   );
 };
 
-export default ProblemCell;
+export default ProblemCellSearch;
