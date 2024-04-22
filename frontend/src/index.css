@@ -9,7 +9,7 @@
     }
 
     #root {
-        @apply w-full max-w-full
+        @apply w-full max-w-full pt-10 px-0 md:px-10
     }
 }
 

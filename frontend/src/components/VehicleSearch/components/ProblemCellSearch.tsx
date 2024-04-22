@@ -25,7 +25,11 @@ const ProblemCellSearch = ({
   };
 
   const onProblemEdit = () => {
-    setEditProblem(true);
+    //setEditProblem(true);
+    alert(
+      "Linking problem on this menu not functional now in development. " +
+        "Go to Vehicle-issue to test problem linking."
+    );
   };
 
   const onLinkSubmit = (value: VehicleProblemType) => {

@@ -6,6 +6,8 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
+<tr><td>2024-04-22</td><td>1,5</td></tr>
+<tr><td>2024-04-21</td><td>3</td></tr>
 <tr><td>2024-04-20</td><td>2</td></tr>
 <tr><td>2024-04-19</td><td>4</td></tr>
 <tr><td>2024-04-18</td><td>3</td></tr>
@@ -19,10 +21,10 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tr><td>2024-04-05</td><td>2,5</td></tr>
 <tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>32,5</td></tr>
+<tr><td>April</td><td>37</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>113</td></tr>
+<tr><td>TOTAL</td><td>117,5</td></tr>
 </table>
 
 
@@ -32,6 +34,28 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <tabs>
 <tab title="April">
+
+<deflist>
+<def title="2024-04-22 17:00 - 18:30">
+<list>
+<li>Animating underline for Admin sub-menu</li>
+<li>finishing dummy data for Admin - project menu</li>
+<li>Working on Admin - project edit selection menu</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-04-21 13:30 - 16:30">
+<list>
+<li>Displaying vehicle detail for vehicle-search</li>
+<li>Working on admin menu selection</li>
+<li>Creating dummy types and data for Admin management</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-04-20 15:30 - 17:30">

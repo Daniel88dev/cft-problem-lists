@@ -90,6 +90,34 @@ const router = createBrowserRouter([
             <AdminPage />
           </Suspense>
         ),
+        children: [
+          {
+            path: "projects",
+            element: (
+              <Suspense fallback={<p>loading...</p>}>
+                <AdminPage />
+              </Suspense>
+            ),
+            children: [
+              {
+                path: ":projectId",
+                element: (
+                  <Suspense fallback={<p>loading...</p>}>
+                    <AdminPage />
+                  </Suspense>
+                ),
+              },
+            ],
+          },
+          {
+            path: "users",
+            element: (
+              <Suspense fallback={<p>loading...</p>}>
+                <AdminPage />
+              </Suspense>
+            ),
+          },
+        ],
       },
       {
         path: "ui-components",

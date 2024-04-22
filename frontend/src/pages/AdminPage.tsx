@@ -1,5 +1,13 @@
+import AdminSelection from "../components/AdminPage/AdminSelection.tsx";
+import AdminProjectSelection from "../components/AdminPage/Project/AdminProjectSelection.tsx";
+
 const AdminPage = () => {
-  return <h1>Admin menu</h1>;
+  return (
+    <>
+      <AdminSelection />
+      <AdminProjectSelection />
+    </>
+  );
 };
 
 export default AdminPage;

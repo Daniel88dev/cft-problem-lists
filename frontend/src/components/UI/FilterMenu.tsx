@@ -17,7 +17,7 @@ const FilterMenu: FC<FilterMenuProps> = ({ pageName, children }) => {
   };
   return (
     <>
-      <div className={"flex justify-between"}>
+      <div className={"flex justify-between px-4 md:px-0"}>
         <h1 className="text-left ml-2 text-xl underline">{pageName}</h1>
         <FilterIcon
           className={
@@ -29,7 +29,7 @@ const FilterMenu: FC<FilterMenuProps> = ({ pageName, children }) => {
       <AnimatePresence>
         {filters && (
           <motion.div
-            className={`flex flex-wrap my-2 h-22 border-black dark:border-white border-2 rounded-2xl items-end h-auto overflow-visible flex-shrink-0`}
+            className={`flex flex-wrap my-2 h-22 border-black dark:border-white border-2 rounded-2xl items-end h-auto overflow-visible flex-shrink-0 mx-4 md:mx-0`}
             initial={motionConfig.initial}
             animate={motionConfig.animate}
             exit={motionConfig.exit}
