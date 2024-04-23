@@ -4,6 +4,7 @@ type BasicSelectType = {
   defaultValue: string;
   onChange: (value: string) => void;
   valuesArray: string[] | [];
+  emptyOption?: boolean;
 };
 
 const BasicSelect = ({
@@ -12,6 +13,7 @@ const BasicSelect = ({
   defaultValue,
   onChange,
   valuesArray,
+  emptyOption = true,
   ...props
 }: BasicSelectType) => {
   return (
@@ -33,7 +35,7 @@ const BasicSelect = ({
         }
         {...props}
       >
-        <option>---</option>
+        {emptyOption && <option>---</option>}
         {valuesArray.length === 0 && <option>{defaultValue}</option>}
         {valuesArray.length !== 0 &&
           valuesArray.map((value) => <option key={value}>{value}</option>)}

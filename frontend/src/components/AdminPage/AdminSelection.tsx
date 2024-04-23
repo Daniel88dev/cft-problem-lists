@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 const AdminSelection = () => {
   const location = useLocation();
   const locationUpdated = location.pathname.split("/");
+
   return (
     <div>
       <ul className={"flex justify-center"}>
@@ -14,7 +15,7 @@ const AdminSelection = () => {
           {locationUpdated[2] === "projects" && (
             <motion.div
               layoutId={"admin-underline"}
-              className={"bg-violet-500 dark:bg-black h-2"}
+              className={"bg-violet-500 h-2 rounded-2xl"}
             />
           )}
         </li>
@@ -25,7 +26,7 @@ const AdminSelection = () => {
           {locationUpdated[2] === "users" && (
             <motion.div
               layoutId={"admin-underline"}
-              className={"bg-violet-500 dark:bg-black h-2"}
+              className={"bg-violet-500 h-2 rounded-2xl"}
             />
           )}
         </li>
