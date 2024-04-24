@@ -1,4 +1,4 @@
-type ColorType = {
+export type ColorType = {
   name: string;
   color: string;
   text: "white" | "black";

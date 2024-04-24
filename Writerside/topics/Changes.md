@@ -6,7 +6,8 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
-<tr><td>2024-04-23</td><td>0</td></tr>
+<tr><td>2024-04-24</td><td>1,5</td></tr>
+<tr><td>2024-04-23</td><td>3,5</td></tr>
 <tr><td>2024-04-22</td><td>1,5</td></tr>
 <tr><td>2024-04-21</td><td>3</td></tr>
 <tr><td>2024-04-20</td><td>2</td></tr>
@@ -22,10 +23,10 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tr><td>2024-04-05</td><td>2,5</td></tr>
 <tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>37</td></tr>
+<tr><td>April</td><td>42</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>117,5</td></tr>
+<tr><td>TOTAL</td><td>122,5</td></tr>
 </table>
 
 
@@ -37,7 +38,18 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tab title="April">
 
 <deflist>
-<def title="2024-04-23 15:30 - ">
+<def title="2024-04-24 16:00 - 17:30">
+<list>
+<li>Creating new UI element to select color</li>
+<li>Working on Project data edit in Admin - project menu</li>
+<li>Adding color select element to Admin - project menu</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-04-23 15:30 - 19:00">
 <list>
 <li>Discussion with <a href="https://www.scandit.com">Scandit</a> company about price of tool to implementing scanning capability by mobile phone.</li>
 <li>Working on Project data edit in Admin - project menu</li>

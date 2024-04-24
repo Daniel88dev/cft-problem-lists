@@ -2,6 +2,7 @@ import { ProjectType, StagesType } from "./AdminTypes.ts";
 import { ChangeEvent, useRef, useState } from "react";
 import InputText from "../../UI/Input/InputText.tsx";
 import BasicSelect from "../../UI/Select/BasicSelect.tsx";
+import ColorSelection from "./ColorSelection.tsx";
 
 type AdminProjectEditType = {
   data: ProjectType;
@@ -62,7 +63,7 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
   };
 
   return (
-    <form className={"flex-col w-full"}>
+    <form className={"flex flex-col justify-self-start mx-auto"}>
       <InputText
         ref={projectName}
         id={"projectName"}
@@ -87,53 +88,60 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
           emptyOption={false}
         />
       </div>
-      <div className={"flex-col"}>
-        <h3>Enter Stages Names:</h3>
+      <h3 className={"text-left"}>Enter Stages Names:</h3>
+      <div className={"flex"}>
         <InputText
+          className={"w-20"}
           id={"stage1"}
           label={"Stage 1:"}
           defaultValue={stagesData.stage1 ? stagesData.stage1 : ""}
           onChange={onStageEdit}
         />
         <InputText
+          className={"w-20"}
           id={"stage2"}
           label={"Stage 2:"}
           defaultValue={stagesData.stage2 ? stagesData.stage2 : ""}
           onChange={onStageEdit}
         />
         <InputText
+          className={"w-20"}
           id={"stage3"}
           label={"Stage 3:"}
           defaultValue={stagesData.stage3 ? stagesData.stage3 : ""}
           onChange={onStageEdit}
         />
         <InputText
+          className={"w-20"}
           id={"stage4"}
           label={"Stage 4:"}
           defaultValue={stagesData.stage4 ? stagesData.stage4 : ""}
           onChange={onStageEdit}
         />
         <InputText
+          className={"w-20"}
           id={"stage5"}
           label={"Stage 5:"}
           defaultValue={stagesData.stage5 ? stagesData.stage5 : ""}
           onChange={onStageEdit}
         />
         <InputText
+          className={"w-20"}
           id={"stage6"}
           label={"Stage 6:"}
           defaultValue={stagesData.stage6 ? stagesData.stage6 : ""}
           onChange={onStageEdit}
         />
-        <BasicSelect
-          id={"activeStage"}
-          label={"Select currently active stage:"}
-          defaultValue={stagesData.active ? stagesData.active : ""}
-          onChange={onActiveStageActive}
-          valuesArray={stagesArray()}
-          emptyOption={false}
-        />
       </div>
+      <BasicSelect
+        id={"activeStage"}
+        label={"Select currently active stage:"}
+        defaultValue={stagesData.active ? stagesData.active : ""}
+        onChange={onActiveStageActive}
+        valuesArray={stagesArray()}
+        emptyOption={false}
+      />
+      <ColorSelection data={data.colors[0]} id={"color1"} />
     </form>
   );
 };
