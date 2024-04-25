@@ -141,7 +141,13 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
         valuesArray={stagesArray()}
         emptyOption={false}
       />
-      <ColorSelection data={data.colors[0]} id={"color1"} />
+      {data.colors.map((color, index) => (
+        <ColorSelection
+          key={`color${index}`}
+          data={color}
+          id={`Color${index}`}
+        />
+      ))}
     </form>
   );
 };

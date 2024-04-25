@@ -6,6 +6,7 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
+<tr><td>2024-04-25</td><td>2</td></tr>
 <tr><td>2024-04-24</td><td>1,5</td></tr>
 <tr><td>2024-04-23</td><td>3,5</td></tr>
 <tr><td>2024-04-22</td><td>1,5</td></tr>
@@ -23,10 +24,10 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tr><td>2024-04-05</td><td>2,5</td></tr>
 <tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>42</td></tr>
+<tr><td>April</td><td>44</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>122,5</td></tr>
+<tr><td>TOTAL</td><td>124,5</td></tr>
 </table>
 
 
@@ -36,6 +37,16 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <tabs>
 <tab title="April">
+
+<deflist>
+<def title="2024-04-25 16:00 - 18:00">
+<list>
+<li>Fixing error of Modal, when clicking any element inside of Modal, it was causing to close Modal</li>
+<li>Working on Color select component, adding logic to it, and making more UI elements</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-04-24 16:00 - 17:30">
@@ -126,7 +137,7 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <deflist>
 <def title="2024-04-16 15:30 - 17:00">
 <list>
-<li>Making changes for documentation publishing on github. But not successful</li>
+<li>Making changes for documentation publishing on GitHub. But not successful</li>
 <li>Finishing detail page for problem-search + logic to redirect to corresponding route</li>
 </list>
 </def>

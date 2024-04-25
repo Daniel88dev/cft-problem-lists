@@ -37,6 +37,7 @@ const ModalOverlay = ({ onClose, children, title, type }: ModalFullType) => {
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 60 }}
+      onClick={(e) => e.stopPropagation()}
     >
       <div className="flex justify-between">
         <h2 className="text-2xl">{title ? title : "Popup window"}</h2>
