@@ -1,7 +1,8 @@
 export type ColorType = {
-  name: string;
-  color: string;
+  name: string | null;
+  color: string | null;
   text: "white" | "black";
+  id: number;
 };
 
 export type StagesType = {

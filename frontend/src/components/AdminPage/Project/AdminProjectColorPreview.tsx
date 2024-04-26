@@ -6,8 +6,8 @@ type AdminProjectColorPreviewType = {
 
 const AdminProjectColorPreview = ({ data }: AdminProjectColorPreviewType) => {
   const style = {
-    background: data.color,
-    color: data.text,
+    background: data.color ? data.color : "#ffffff",
+    color: data.text ? data.text : "black",
   };
 
   return (
@@ -20,7 +20,7 @@ const AdminProjectColorPreview = ({ data }: AdminProjectColorPreviewType) => {
         Preview:
       </label>
       <div className={"mt-4 mx-2 w-20 border-white border-2"} style={style}>
-        {data.name}
+        {data.name ? data.name : "Empty"}
       </div>
     </div>
   );
