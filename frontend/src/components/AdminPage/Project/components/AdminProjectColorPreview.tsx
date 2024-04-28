@@ -1,4 +1,4 @@
-import { ColorType } from "./AdminTypes.ts";
+import { ColorType } from "../AdminTypes.ts";
 
 type AdminProjectColorPreviewType = {
   data: ColorType;

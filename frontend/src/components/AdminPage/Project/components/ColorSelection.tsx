@@ -1,10 +1,10 @@
-import InputText from "../../UI/Input/InputText.tsx";
-import { ColorType } from "./AdminTypes.ts";
-import InputColor from "../../UI/Input/InputColor.tsx";
+import InputText from "../../../UI/Input/InputText.tsx";
+import { ColorType } from "../AdminTypes.ts";
+import InputColor from "../../../UI/Input/InputColor.tsx";
 import { ChangeEvent, MouseEvent, useState } from "react";
-import InputRadioInline from "../../UI/Input/InputRadioInline.tsx";
+import InputRadioInline from "../../../UI/Input/InputRadioInline.tsx";
 import AdminProjectColorPreview from "./AdminProjectColorPreview.tsx";
-import FilledButton from "../../UI/Buttons/FilledButton.tsx";
+import FilledButton from "../../../UI/Buttons/FilledButton.tsx";
 
 type ColorSelection = {
   data: ColorType;

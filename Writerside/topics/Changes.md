@@ -6,6 +6,8 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <table>
 <tr><td>Day / Month</td><td>Manhour</td></tr>
+<tr><td>2024-04-28</td><td>4</td></tr>
+<tr><td>2024-04-27</td><td>2</td></tr>
 <tr><td>2024-04-26</td><td>2,5</td></tr>
 <tr><td>2024-04-25</td><td>2</td></tr>
 <tr><td>2024-04-24</td><td>1,5</td></tr>
@@ -25,10 +27,10 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 <tr><td>2024-04-05</td><td>2,5</td></tr>
 <tr><td>2024-04-03</td><td>1,5</td></tr>
 <tr><td>2024-04-02</td><td>2</td></tr>
-<tr><td>April</td><td>46,5</td></tr>
+<tr><td>April</td><td>54,5</td></tr>
 <tr><td>March</td><td>20,5</td></tr>
 <tr><td>Previous</td><td>60</td></tr>
-<tr><td>TOTAL</td><td>127</td></tr>
+<tr><td>TOTAL</td><td>133</td></tr>
 </table>
 
 
@@ -38,6 +40,26 @@ Changes, and Manhour details about time spend on Making CFT Problem lists projec
 
 <tabs>
 <tab title="April">
+
+<deflist>
+<def title="2024-04-28 15:00 - 19:00">
+<list>
+<li>Studying details for response to IT regarding security, and web development</li>
+<li>Working on classes and actions logic + content to adjust Project possible responsibilities selections</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-04-27 15:00 - 17:00">
+<list>
+<li>Making dummy data for classes and actions for Admin - project administration</li>
+<li>Working on administration of classes and actions</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-04-26 17:00 - 19:30">

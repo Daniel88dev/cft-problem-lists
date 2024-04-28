@@ -2,8 +2,9 @@ import { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import { ColorType, ProjectType } from "./AdminTypes.ts";
 import InputText from "../../UI/Input/InputText.tsx";
 import BasicSelect from "../../UI/Select/BasicSelect.tsx";
-import ColorSelection from "./ColorSelection.tsx";
+import ColorSelection from "./components/ColorSelection.tsx";
 import FilledButton from "../../UI/Buttons/FilledButton.tsx";
+import AdminEditClasses from "./components/AdminEditClasses.tsx";
 
 type AdminProjectEditType = {
   data: ProjectType;
@@ -145,7 +146,7 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
           emptyOption={false}
         />
       </div>
-      <h3 className={"text-left"}>Enter Stages Names:</h3>
+      <h3 className={"text-left px-2 underline"}>Enter Stages Names:</h3>
       <div className={"flex"}>
         <InputText
           className={"w-20"}
@@ -220,9 +221,10 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
           onColorRemove={onColorRemove}
         />
       ))}
-      <FilledButton className={"w-20"} onClick={onAddNewColor}>
+      <FilledButton className={"w-32"} onClick={onAddNewColor}>
         Add Color
       </FilledButton>
+      <AdminEditClasses data={projectData.actions} />
     </form>
   );
 };

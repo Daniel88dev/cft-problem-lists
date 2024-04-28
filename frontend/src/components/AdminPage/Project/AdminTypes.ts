@@ -15,6 +15,35 @@ export type StagesType = {
   active: string | null;
 };
 
+export type ClassType = {
+  classId: number;
+  className: string;
+};
+
+export type ActionType = {
+  actionId: number;
+  actionName: string;
+};
+
+export type StatusType = {
+  statusId: number;
+  statusName: string;
+};
+
+export type ActionFormatTypes = {
+  classes: ClassType[];
+  actions: ActionType[];
+  status: StatusType[];
+};
+
+export type ProjectActionTypes = {
+  actionId: number;
+  selectedClass: ClassType;
+  action: ActionType;
+  status: StatusType;
+  plan: boolean;
+};
+
 export type ProjectType = {
   id: number;
   name: string;
@@ -22,4 +51,5 @@ export type ProjectType = {
   colors: ColorType[];
   security: "SECURED" | "PUBLIC";
   disabled: boolean;
+  actions: ProjectActionTypes[];
 };

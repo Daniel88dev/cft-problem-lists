@@ -1,7 +1,9 @@
 import React from "react";
+import { cn } from "../../utility/cn.ts";
 
 const FilledButton = ({
   children,
+  className,
   ...rest
 }: React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -10,7 +12,8 @@ const FilledButton = ({
   return (
     <button
       {...rest}
-      className={`
+      className={cn(
+        `
         relative flex items-center gap-2 overflow-hidden rounded-lg border-[1px] h-10 mb-2
         border-black dark:border-white px-4 py-2 font-semibold
         text-black dark:text-white hover:dark:text-white transition-all duration-500
@@ -29,7 +32,9 @@ const FilledButton = ({
         hover:scale-105 hover:text-white
         hover:before:translate-x-[0%]
         hover:before:translate-y-[0%]
-        active:scale-95`}
+        active:scale-95`,
+        className ? className : null
+      )}
     >
       <span>{children}</span>
     </button>
