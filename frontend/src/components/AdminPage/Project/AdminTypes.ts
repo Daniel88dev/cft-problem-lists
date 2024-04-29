@@ -30,6 +30,12 @@ export type StatusType = {
   statusName: string;
 };
 
+export type ProblemListType = {
+  problemListId: number;
+  problemListName: string;
+  type: "BASIC" | "AUDIT";
+};
+
 export type ActionFormatTypes = {
   classes: ClassType[];
   actions: ActionType[];
@@ -52,4 +58,5 @@ export type ProjectType = {
   security: "SECURED" | "PUBLIC";
   disabled: boolean;
   actions: ProjectActionTypes[];
+  problemLists: ProblemListType[];
 };

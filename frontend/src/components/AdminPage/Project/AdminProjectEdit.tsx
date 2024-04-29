@@ -2,9 +2,10 @@ import { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import { ColorType, ProjectType } from "./AdminTypes.ts";
 import InputText from "../../UI/Input/InputText.tsx";
 import BasicSelect from "../../UI/Select/BasicSelect.tsx";
-import ColorSelection from "./components/ColorSelection.tsx";
-import FilledButton from "../../UI/Buttons/FilledButton.tsx";
 import AdminEditClasses from "./components/AdminEditClasses.tsx";
+import ColorSettingMain from "./components/ColorSettingMain.tsx";
+import StagesSettingMain from "./components/StagesSettingMain.tsx";
+import ProblemListsMain from "./components/ProblemListsMain.tsx";
 
 type AdminProjectEditType = {
   data: ProjectType;
@@ -43,17 +44,6 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
         };
       });
     }
-  };
-
-  const stagesArray = () => {
-    const array = [];
-    if (projectData.stages.stage1) array.push(projectData.stages.stage1);
-    if (projectData.stages.stage2) array.push(projectData.stages.stage2);
-    if (projectData.stages.stage3) array.push(projectData.stages.stage3);
-    if (projectData.stages.stage4) array.push(projectData.stages.stage4);
-    if (projectData.stages.stage5) array.push(projectData.stages.stage5);
-    if (projectData.stages.stage6) array.push(projectData.stages.stage6);
-    return array;
   };
 
   const onStageEdit = (event: ChangeEvent<HTMLInputElement> | undefined) => {
@@ -121,10 +111,16 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
   console.log(projectData.colors);
 
   return (
-    <form className={"flex flex-col justify-self-start mx-auto"}>
+    <form
+      className={"flex flex-col justify-self-start mx-auto w-[1152px] ml-8"}
+    >
+      <h1 className={"text-left text-2xl px-2 underline"}>
+        Edit Selected Project:
+      </h1>
       <InputText
         ref={projectName}
         id={"projectName"}
+        className={"w-44"}
         label={"Enter Project Name:"}
         defaultValue={data.name}
       />
@@ -146,84 +142,18 @@ const AdminProjectEdit = ({ data }: AdminProjectEditType) => {
           emptyOption={false}
         />
       </div>
-      <h3 className={"text-left px-2 underline"}>Enter Stages Names:</h3>
-      <div className={"flex"}>
-        <InputText
-          className={"w-20"}
-          id={"stage1"}
-          label={"Stage 1:"}
-          defaultValue={
-            projectData.stages.stage1 ? projectData.stages.stage1 : ""
-          }
-          onChange={onStageEdit}
-        />
-        <InputText
-          className={"w-20"}
-          id={"stage2"}
-          label={"Stage 2:"}
-          defaultValue={
-            projectData.stages.stage2 ? projectData.stages.stage2 : ""
-          }
-          onChange={onStageEdit}
-        />
-        <InputText
-          className={"w-20"}
-          id={"stage3"}
-          label={"Stage 3:"}
-          defaultValue={
-            projectData.stages.stage3 ? projectData.stages.stage3 : ""
-          }
-          onChange={onStageEdit}
-        />
-        <InputText
-          className={"w-20"}
-          id={"stage4"}
-          label={"Stage 4:"}
-          defaultValue={
-            projectData.stages.stage4 ? projectData.stages.stage4 : ""
-          }
-          onChange={onStageEdit}
-        />
-        <InputText
-          className={"w-20"}
-          id={"stage5"}
-          label={"Stage 5:"}
-          defaultValue={
-            projectData.stages.stage5 ? projectData.stages.stage5 : ""
-          }
-          onChange={onStageEdit}
-        />
-        <InputText
-          className={"w-20"}
-          id={"stage6"}
-          label={"Stage 6:"}
-          defaultValue={
-            projectData.stages.stage6 ? projectData.stages.stage6 : ""
-          }
-          onChange={onStageEdit}
-        />
-      </div>
-      <BasicSelect
-        id={"activeStage"}
-        label={"Select currently active stage:"}
-        defaultValue={
-          projectData.stages.active ? projectData.stages.active : ""
-        }
-        onChange={onActiveStageActive}
-        valuesArray={stagesArray()}
-        emptyOption={false}
+      <StagesSettingMain
+        stages={projectData.stages}
+        onStageChange={onStageEdit}
+        onActiveStageChange={onActiveStageActive}
       />
-      {projectData.colors.map((color) => (
-        <ColorSelection
-          key={`color${color.id}`}
-          data={color}
-          onColorUpdate={onColorChange}
-          onColorRemove={onColorRemove}
-        />
-      ))}
-      <FilledButton className={"w-32"} onClick={onAddNewColor}>
-        Add Color
-      </FilledButton>
+      <ProblemListsMain problemLists={projectData.problemLists} />
+      <ColorSettingMain
+        data={projectData.colors}
+        onColorUpdate={onColorChange}
+        onColorRemove={onColorRemove}
+        onAddNewColor={onAddNewColor}
+      />
       <AdminEditClasses data={projectData.actions} />
     </form>
   );

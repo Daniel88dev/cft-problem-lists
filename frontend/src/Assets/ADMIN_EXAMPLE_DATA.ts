@@ -199,6 +199,14 @@ export const PROJECT_EXAMPLE_DATA: ProjectType[] = [
         plan: true,
       },
     ],
+    problemLists: [
+      { problemListId: 1, problemListName: "ELE", type: "BASIC" },
+      { problemListId: 2, problemListName: "EXT", type: "BASIC" },
+      { problemListId: 3, problemListName: "INT", type: "BASIC" },
+      { problemListId: 4, problemListName: "CHA", type: "BASIC" },
+      { problemListId: 5, problemListName: "MOV", type: "BASIC" },
+      { problemListId: 6, problemListName: "AUDIT", type: "AUDIT" },
+    ],
   },
   {
     id: 2,
@@ -395,6 +403,14 @@ export const PROJECT_EXAMPLE_DATA: ProjectType[] = [
         plan: true,
       },
     ],
+    problemLists: [
+      { problemListId: 7, problemListName: "ELE", type: "BASIC" },
+      { problemListId: 8, problemListName: "EXT", type: "BASIC" },
+      { problemListId: 9, problemListName: "INT", type: "BASIC" },
+      { problemListId: 10, problemListName: "CHA", type: "BASIC" },
+      { problemListId: 11, problemListName: "MOV", type: "BASIC" },
+      { problemListId: 12, problemListName: "AUDIT", type: "AUDIT" },
+    ],
   },
   {
     id: 3,
@@ -590,6 +606,14 @@ export const PROJECT_EXAMPLE_DATA: ProjectType[] = [
         status: { statusId: 3, statusName: "Closed" },
         plan: true,
       },
+    ],
+    problemLists: [
+      { problemListId: 13, problemListName: "ELE", type: "BASIC" },
+      { problemListId: 14, problemListName: "EXT", type: "BASIC" },
+      { problemListId: 15, problemListName: "INT", type: "BASIC" },
+      { problemListId: 16, problemListName: "CHA", type: "BASIC" },
+      { problemListId: 17, problemListName: "MOV", type: "BASIC" },
+      { problemListId: 18, problemListName: "AUDIT", type: "AUDIT" },
     ],
   },
 ];

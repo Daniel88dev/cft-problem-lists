@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 import { ActionFormatTypes, ProjectActionTypes } from "../AdminTypes.ts";
 import FilledButton from "../../../UI/Buttons/FilledButton.tsx";
 import { ACTION_FORMAT_DEFAULT } from "../../../../Assets/ADMIN_EXAMPLE_DATA.ts";
 import { OptionType } from "../../../UI/Select/SelectSearch.tsx";
 import ResponsibilitySelect from "./ResponsibilitySelect.tsx";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 type AdminEditClassesType = {
   data: ProjectActionTypes[];
@@ -17,6 +20,7 @@ const AdminEditClasses = ({ data }: AdminEditClassesType) => {
   });
   const [responsibilities, setResponsibilities] =
     useState<ProjectActionTypes[]>(data);
+  const [isOpen, setIsOpen] = useState(false);
 
   const loadInitial = useCallback(() => {
     //todo load from backend
@@ -52,11 +56,12 @@ const AdminEditClasses = ({ data }: AdminEditClassesType) => {
     setResponsibilities([]);
   };
 
-  return (
+  const onHeaderClick = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
+  const content = (
     <>
-      <h3 className={"text-left px-2 underline"}>
-        Edit Responsibilities Actions
-      </h3>
       <p className={"text-left p-2"}>
         <span>Warning: </span>Making responsibility changes, can influence data
         in Problem list.
@@ -79,6 +84,23 @@ const AdminEditClasses = ({ data }: AdminEditClassesType) => {
         Add row
       </FilledButton>
     </>
+  );
+
+  return (
+    <motion.div className={"flex-col"}>
+      <h3
+        className={"text-left text-xl px-2 underline flex"}
+        onClick={onHeaderClick}
+      >
+        Edit Responsibilities Actions
+        {isOpen ? (
+          <SlArrowUp className={"mt-1 ml-2"} />
+        ) : (
+          <SlArrowDown className={"mt-1 ml-2"} />
+        )}
+      </h3>
+      {isOpen && content}
+    </motion.div>
   );
 };
 
