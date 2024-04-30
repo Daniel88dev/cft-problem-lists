@@ -2,9 +2,10 @@ import AdminSelection from "../components/AdminPage/AdminSelection.tsx";
 import AdminProjectSelection from "../components/AdminPage/Project/AdminProjectSelection.tsx";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ProjectType } from "../components/AdminPage/Project/AdminTypes.ts";
+import { ProjectType } from "../components/AdminPage/AdminTypes.ts";
 import { PROJECT_EXAMPLE_DATA } from "../Assets/ADMIN_EXAMPLE_DATA.ts";
 import AdminProjectEdit from "../components/AdminPage/Project/AdminProjectEdit.tsx";
+import AdminUserList from "../components/AdminPage/Users/AdminUserList.tsx";
 
 export type MenuType = "projects" | "users" | undefined;
 
@@ -27,18 +28,27 @@ const AdminPage = () => {
 
   useEffect(() => {
     const locationUpdated = location.pathname.split("/");
-    if (locationUpdated[2] === "projects" || locationUpdated[2] === "users") {
-      setSelectedMenu(locationUpdated[2]);
+    if (locationUpdated[2] === "projects") {
+      if (selectedMenu !== "projects") {
+        setSelectedMenu("projects");
+        setProjectEditData(null);
+      }
+    } else if (locationUpdated[2] === "users") {
+      setSelectedMenu("users");
     }
-  }, [location]);
+  }, [location, selectedMenu]);
 
   return (
     <>
       <AdminSelection />
       {selectedMenu === "projects" && <AdminProjectSelection />}
       {selectedMenu === "projects" && projectEditData && (
-        <AdminProjectEdit data={projectEditData} />
+        <AdminProjectEdit
+          key={`project${projectEditData.id}`}
+          data={projectEditData}
+        />
       )}
+      {selectedMenu === "users" && <AdminUserList />}
     </>
   );
 };

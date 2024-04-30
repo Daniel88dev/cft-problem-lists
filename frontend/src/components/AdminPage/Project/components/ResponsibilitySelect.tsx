@@ -1,4 +1,4 @@
-import { ProjectActionTypes } from "../AdminTypes.ts";
+import { ProjectActionTypes } from "../../AdminTypes.ts";
 import SelectSearch, { OptionType } from "../../../UI/Select/SelectSearch.tsx";
 
 type ResponsibilitySelectType = {

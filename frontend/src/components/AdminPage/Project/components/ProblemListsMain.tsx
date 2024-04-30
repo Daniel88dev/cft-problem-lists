@@ -1,4 +1,4 @@
-import { ProblemListType } from "../AdminTypes.ts";
+import { ProblemListType } from "../../AdminTypes.ts";
 import { useState } from "react";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import InputText from "../../../UI/Input/InputText.tsx";

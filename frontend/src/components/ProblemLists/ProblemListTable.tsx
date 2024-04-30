@@ -91,7 +91,7 @@ const ProblemListTable = () => {
           </TableHeading>
           <tbody>
             {filtered.map((item) => (
-              <TableRow key={item.id} height={"w-24"}>
+              <TableRow key={item.id} height={"h-24"}>
                 <td className="flex-col px-2">
                   <p>{item.item}</p>
                   <Button onClick={() => onOpenInTab(item.id)}>

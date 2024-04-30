@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="171fcd6d">
+        <description>Created after removal of "Changes" from About CFT ProblemLists</description>
+        <accepts>Changes.html</accepts>
+    </rule>
+</rules>

@@ -1,5 +1,5 @@
 import { ChangeEvent, MouseEvent, useRef, useState } from "react";
-import { ColorType, ProjectType } from "./AdminTypes.ts";
+import { ColorType, ProjectType } from "../AdminTypes.ts";
 import InputText from "../../UI/Input/InputText.tsx";
 import BasicSelect from "../../UI/Select/BasicSelect.tsx";
 import AdminEditClasses from "./components/AdminEditClasses.tsx";

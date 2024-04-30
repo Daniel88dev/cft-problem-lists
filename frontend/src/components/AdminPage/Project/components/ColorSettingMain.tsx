@@ -1,5 +1,5 @@
 import { useState, MouseEvent } from "react";
-import { ColorType } from "../AdminTypes.ts";
+import { ColorType } from "../../AdminTypes.ts";
 import ColorSelection from "./ColorSelection.tsx";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import FilledButton from "../../../UI/Buttons/FilledButton.tsx";

@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { StagesType } from "../AdminTypes.ts";
+import { StagesType } from "../../AdminTypes.ts";
 import InputText from "../../../UI/Input/InputText.tsx";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import BasicSelect from "../../../UI/Select/BasicSelect.tsx";

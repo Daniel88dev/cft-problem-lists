@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import { ActionFormatTypes, ProjectActionTypes } from "../AdminTypes.ts";
+import { ActionFormatTypes, ProjectActionTypes } from "../../AdminTypes.ts";
 import FilledButton from "../../../UI/Buttons/FilledButton.tsx";
 import { ACTION_FORMAT_DEFAULT } from "../../../../Assets/ADMIN_EXAMPLE_DATA.ts";
 import { OptionType } from "../../../UI/Select/SelectSearch.tsx";

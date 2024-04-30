@@ -60,3 +60,19 @@ export type ProjectType = {
   actions: ProjectActionTypes[];
   problemLists: ProblemListType[];
 };
+
+export type DesignationListType = {
+  id: number;
+  designationName: string;
+};
+
+export type UserType = {
+  id: number;
+  userId: string;
+  name: string;
+  image: string;
+  designation: DesignationListType;
+  security: boolean;
+  isAdmin: boolean;
+  isSuperAdmin: boolean;
+};
