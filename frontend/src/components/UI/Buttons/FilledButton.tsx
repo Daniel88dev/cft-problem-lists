@@ -4,14 +4,14 @@ import { cn } from "../../utility/cn.ts";
 const FilledButton = ({
   children,
   className,
-  ...rest
+  ...props
 }: React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >) => {
   return (
     <button
-      {...rest}
+      {...props}
       className={cn(
         `
         relative flex items-center gap-2 overflow-hidden rounded-lg border-[1px] h-10 mb-2

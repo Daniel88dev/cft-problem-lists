@@ -72,6 +72,7 @@ export type UserType = {
   name: string;
   image: string;
   designation: DesignationListType;
+  active: boolean;
   security: boolean;
   isAdmin: boolean;
   isSuperAdmin: boolean;

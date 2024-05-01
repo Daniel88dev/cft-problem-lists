@@ -4,33 +4,12 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
-<tr><td>2024-04-30</td><td>3</td><td>0</td></tr>
-<tr><td>2024-04-29</td><td>2</td><td>0</td></tr>
-<tr><td>2024-04-28</td><td>4</td><td>0</td></tr>
-<tr><td>2024-04-27</td><td>2</td><td>0</td></tr>
-<tr><td>2024-04-26</td><td>2,5</td><td>0</td></tr>
-<tr><td>2024-04-25</td><td>2</td><td>0</td></tr>
-<tr><td>2024-04-24</td><td>1,5</td><td>0</td></tr>
-<tr><td>2024-04-23</td><td>3,5</td><td>0</td></tr>
-<tr><td>2024-04-22</td><td>1,5</td><td>0</td></tr>
-<tr><td>2024-04-21</td><td>3</td><td>0</td></tr>
-<tr><td>2024-04-20</td><td>2</td><td>0</td></tr>
-<tr><td>2024-04-19</td><td>4</td><td>0</td></tr>
-<tr><td>2024-04-18</td><td>3</td><td>0</td></tr>
-<tr><td>2024-04-17</td><td>2,5</td><td>0</td></tr>
-<tr><td>2024-04-16</td><td>1,5</td><td>0</td></tr>
-<tr><td>2024-04-15</td><td>2</td><td>0</td></tr>
-<tr><td>2024-04-13</td><td>4</td><td>0</td></tr>
-<tr><td>2024-04-11</td><td>2</td><td>0</td></tr>
-<tr><td>2024-04-10</td><td>3</td><td>0</td></tr>
-<tr><td>2024-04-06</td><td>2,5</td><td>0</td></tr>
-<tr><td>2024-04-05</td><td>2,5</td><td>0</td></tr>
-<tr><td>2024-04-03</td><td>1,5</td><td>0</td></tr>
-<tr><td>2024-04-02</td><td>2</td><td>0</td></tr>
+<tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
+<tr><td>May</td><td>2,5</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>138</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>140,5</td><td>0</td></tr>
 </table>
 
 
@@ -39,6 +18,20 @@
 ## History detail
 
 <tabs>
+<tab title="May">
+
+<deflist>
+<def title="2024-05-01 16:00 - 18:30">
+<list>
+<li>Working on administration of users</li>
+<li>Creating modal to modify user permissions</li>
+</list>
+</def>
+</deflist>
+
+
+</tab>
+
 <tab title="April">
 
 <deflist>
