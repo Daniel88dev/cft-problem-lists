@@ -77,3 +77,21 @@ export type UserType = {
   isAdmin: boolean;
   isSuperAdmin: boolean;
 };
+
+export type OrganisationUserType = {
+  id: number;
+  image: string;
+  name: string;
+  designation: string;
+};
+
+export type OrganisationChartList = {
+  listName: string;
+  userList: OrganisationUserType[];
+};
+
+export type OrganisationChartMain = {
+  managerUserList: OrganisationUserType[];
+  otherUserList: OrganisationUserType[];
+  problemLists: OrganisationChartList[];
+};

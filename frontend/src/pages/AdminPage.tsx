@@ -6,8 +6,14 @@ import { ProjectType } from "../components/AdminPage/AdminTypes.ts";
 import { PROJECT_EXAMPLE_DATA } from "../Assets/ADMIN_EXAMPLE_DATA.ts";
 import AdminProjectEdit from "../components/AdminPage/Project/AdminProjectEdit.tsx";
 import AdminUserList from "../components/AdminPage/Users/AdminUserList.tsx";
+import OrganisationProjectSelection from "../components/AdminPage/Organisation/OrganisationProjectSelection.tsx";
+import OrganisationProjectView from "../components/AdminPage/Organisation/OrganisationProjectView.tsx";
 
-export type MenuType = "projects" | "users" | undefined;
+export type MenuType =
+  | "projects"
+  | "users"
+  | "project-organisation"
+  | undefined;
 
 const AdminPage = () => {
   const { projectId } = useParams();
@@ -35,6 +41,10 @@ const AdminPage = () => {
       }
     } else if (locationUpdated[2] === "users") {
       setSelectedMenu("users");
+      setProjectEditData(null);
+    } else if (locationUpdated[2] === "project-organisation") {
+      setSelectedMenu("project-organisation");
+      setProjectEditData(null);
     }
   }, [location, selectedMenu]);
 
@@ -48,6 +58,10 @@ const AdminPage = () => {
           data={projectEditData}
         />
       )}
+      {selectedMenu === "project-organisation" && (
+        <OrganisationProjectSelection />
+      )}
+      {selectedMenu === "project-organisation" && <OrganisationProjectView />}
       {selectedMenu === "users" && <AdminUserList />}
     </>
   );

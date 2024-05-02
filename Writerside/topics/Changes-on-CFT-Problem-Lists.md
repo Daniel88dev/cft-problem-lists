@@ -4,6 +4,7 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
+<tr><td>2024-05-02</td><td>0</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
 <tr><td>May</td><td>2,5</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
@@ -19,6 +20,16 @@
 
 <tabs>
 <tab title="May">
+
+<deflist>
+<def title="2024-05-02 15:30 - 17:30">
+<list>
+<li>Making example data for Admin - Organisation chart view + management</li>
+<li>Working on components for Admin - Organisation chart view</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-05-01 16:00 - 18:30">

@@ -117,6 +117,24 @@ const router = createBrowserRouter([
               </Suspense>
             ),
           },
+          {
+            path: "project-organisation",
+            element: (
+              <Suspense fallback={<p>loading...</p>}>
+                <AdminPage />
+              </Suspense>
+            ),
+            children: [
+              {
+                path: ":projectId",
+                element: (
+                  <Suspense fallback={<p>loading...</p>}>
+                    <AdminPage />
+                  </Suspense>
+                ),
+              },
+            ],
+          },
         ],
       },
       {
