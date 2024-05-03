@@ -91,6 +91,7 @@ export type OrganisationChartList = {
 };
 
 export type OrganisationChartMain = {
+  projectName: string;
   managerUserList: OrganisationUserType[];
   otherUserList: OrganisationUserType[];
   problemLists: OrganisationChartList[];

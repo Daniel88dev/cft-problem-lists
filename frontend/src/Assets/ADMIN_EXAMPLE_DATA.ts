@@ -731,6 +731,7 @@ export const DESIGNATIONS_DEFAULT: DesignationListType[] = [
 ];
 
 export const ORGANISATION_USER_DEFAULT: OrganisationChartMain = {
+  projectName: "Testing Project",
   managerUserList: [
     {
       id: 1,

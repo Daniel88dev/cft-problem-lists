@@ -5,7 +5,7 @@ import TableMain from "../../UI/Tables/TableMain.tsx";
 import TableHeading from "../../UI/Tables/TableHeading.tsx";
 import TableRow from "../../UI/Tables/TableRow.tsx";
 import Th from "../../UI/Tables/Th.tsx";
-import ImagePerson from "../../UI/Persons/ImagePerson.tsx";
+import ImageTablePerson from "../../UI/Persons/ImageTablePerson.tsx";
 import FilledButton from "../../UI/Buttons/FilledButton.tsx";
 import Notification, { ChildMethods } from "../../UI/Notification.tsx";
 import UserEditPermission from "./component/UserEditPermission.tsx";
@@ -72,7 +72,7 @@ const AdminUserList = () => {
               <TableRow key={user.id} height={"h-24"}>
                 <td>{user.userId}</td>
                 <td>{user.name}</td>
-                <ImagePerson imageSrc={user.image} imageName={user.name} />
+                <ImageTablePerson imageSrc={user.image} imageName={user.name} />
                 <td>{user.designation.designationName}</td>
                 <td>{user.active ? "YES" : "NO"}</td>
                 <td>{user.security ? "YES" : "NO"}</td>

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { OrganisationChartMain } from "../AdminTypes.ts";
 import { ORGANISATION_USER_DEFAULT } from "../../../Assets/ADMIN_EXAMPLE_DATA.ts";
+import OrganisationList from "./components/OrganisationList.tsx";
 
 const OrganisationProjectView = () => {
   const [projectData, setProjectData] = useState<OrganisationChartMain | null>(
@@ -26,8 +27,35 @@ const OrganisationProjectView = () => {
   console.log(projectData);
 
   return (
-    <div>
-      <h1>test</h1>
+    <div className={"flex-col"}>
+      {projectData && (
+        <>
+          <h1 className={"text-2xl text-left underline px-2"}>
+            {projectData?.projectName} Organisation Chart
+          </h1>
+          <div className={"flex justify-center"}>
+            <OrganisationList
+              listName={"Management"}
+              userList={projectData?.managerUserList}
+            />
+          </div>
+          <div className={"flex flex-wrap justify-center"}>
+            {projectData.problemLists.map((list) => (
+              <OrganisationList
+                key={`list${list.listName}`}
+                listName={list.listName}
+                userList={list.userList}
+              />
+            ))}
+          </div>
+          <div className={"flex justify-center"}>
+            <OrganisationList
+              listName={"Others"}
+              userList={projectData.otherUserList}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

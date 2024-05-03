@@ -4,13 +4,14 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
-<tr><td>2024-05-02</td><td>0</td><td>0</td></tr>
+<tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
+<tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
-<tr><td>May</td><td>2,5</td><td>0</td></tr>
+<tr><td>May</td><td>6,5</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>140,5</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>146,5</td><td>0</td></tr>
 </table>
 
 
@@ -20,6 +21,16 @@
 
 <tabs>
 <tab title="May">
+
+<deflist>
+<def title="2024-05-03 16:00 - 18:00">
+<list>
+<li>Working on components for Admin - Organisation chart view</li>
+<li>Making component to display each CFT Team members</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-05-02 15:30 - 17:30">
