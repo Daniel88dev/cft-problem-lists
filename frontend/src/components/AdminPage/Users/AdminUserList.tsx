@@ -60,6 +60,7 @@ const AdminUserList = () => {
             <Th width={"w-24"}>User ID</Th>
             <Th width={"w-48"}>Name</Th>
             <Th width={"w-24"}>User Picture</Th>
+            <Th width={"w-48"}>E-mail</Th>
             <Th width={"w-48"}>Section</Th>
             <Th width={"w-48"}>Activated User</Th>
             <Th width={"w-48"}>Security permission</Th>
@@ -73,6 +74,7 @@ const AdminUserList = () => {
                 <td>{user.userId}</td>
                 <td>{user.name}</td>
                 <ImageTablePerson imageSrc={user.image} imageName={user.name} />
+                <td>{user.email}</td>
                 <td>{user.designation.designationName}</td>
                 <td>{user.active ? "YES" : "NO"}</td>
                 <td>{user.security ? "YES" : "NO"}</td>

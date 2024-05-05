@@ -648,6 +648,7 @@ export const ALL_USERS_DEFAULT: UserType[] = [
   {
     id: 1,
     name: "John Doe",
+    email: "john.doe@example.com",
     designation: { id: 1, designationName: "ASSY ME" },
     userId: "18100001",
     active: true,
@@ -660,6 +661,7 @@ export const ALL_USERS_DEFAULT: UserType[] = [
   {
     id: 2,
     name: "Robert Johnson",
+    email: "robert.johnson@example.com",
     designation: { id: 2, designationName: "ASSY PE" },
     userId: "18100002",
     active: true,
@@ -672,6 +674,7 @@ export const ALL_USERS_DEFAULT: UserType[] = [
   {
     id: 3,
     name: "Jane Smith",
+    email: "jane.smith@example.com",
     designation: { id: 5, designationName: "QC VQC" },
     userId: "18100003",
     active: true,
@@ -684,6 +687,7 @@ export const ALL_USERS_DEFAULT: UserType[] = [
   {
     id: 4,
     name: "Emily Davis",
+    email: "emily.davis@example.com",
     designation: { id: 4, designationName: "QC PQ" },
     userId: "18100004",
     active: true,
@@ -696,6 +700,7 @@ export const ALL_USERS_DEFAULT: UserType[] = [
   {
     id: 5,
     name: "Tyler Durden",
+    email: "tyler.durden@example.com",
     designation: { id: 8, designationName: "PD" },
     userId: "18100005",
     active: true,
@@ -708,6 +713,7 @@ export const ALL_USERS_DEFAULT: UserType[] = [
   {
     id: 6,
     name: "Dora",
+    email: "dora@example.com",
     designation: { id: 7, designationName: "PC" },
     userId: "18100006",
     active: true,

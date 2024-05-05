@@ -46,14 +46,15 @@ export const Heading = () => {
       link: "/vehicle-search/vehicle/0",
       menu: "vehicle-search",
     },
+    { id: 7, name: "Charts", link: "/charts", menu: "charts" },
     {
-      id: 7,
+      id: 8,
       name: "Admin",
       link: "/admin",
       menu: "admin",
     },
     {
-      id: 8,
+      id: 9,
       name: "UI Components",
       link: "/ui-components",
       menu: "ui-components",

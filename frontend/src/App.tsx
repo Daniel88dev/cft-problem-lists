@@ -11,6 +11,7 @@ const ProblemSearch = lazy(() => import("./pages/ProblemSearch.tsx"));
 const VehicleSearch = lazy(() => import("./pages/VehicleSearch.tsx"));
 const UIComponents = lazy(() => import("./pages/UIComponents.tsx"));
 const AdminPage = lazy(() => import("./pages/AdminPage.tsx"));
+const Charts = lazy(() => import("./pages/Charts.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -136,6 +137,14 @@ const router = createBrowserRouter([
             ],
           },
         ],
+      },
+      {
+        path: "charts",
+        element: (
+          <Suspense fallback={<p>loading...</p>}>
+            <Charts />
+          </Suspense>
+        ),
       },
       {
         path: "ui-components",

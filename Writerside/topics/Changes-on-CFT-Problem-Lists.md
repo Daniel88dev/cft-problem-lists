@@ -4,6 +4,7 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
+<tr><td>2024-05-05</td><td>0</td><td>0</td></tr>
 <tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
@@ -21,6 +22,16 @@
 
 <tabs>
 <tab title="May">
+
+<deflist>
+<def title="2024-05-05 15:00">
+<list>
+<li>Implementing react-chart and chartJs packages to implement charts in to project</li>
+<li>Making example data for Chart component</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-05-03 16:00 - 18:00">

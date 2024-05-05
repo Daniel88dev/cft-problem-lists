@@ -70,6 +70,7 @@ export type UserType = {
   id: number;
   userId: string;
   name: string;
+  email: string;
   image: string;
   designation: DesignationListType;
   active: boolean;
