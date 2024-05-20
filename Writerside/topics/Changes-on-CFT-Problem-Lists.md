@@ -2,17 +2,26 @@
 
 ## Manhour spend
 
+
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
-<tr><td>2024-05-05</td><td>0</td><td>0</td></tr>
+<tr><td>2024-05-20</td><td>0</td><td>0</td></tr>
+<tr><td>2024-05-19</td><td>3,5</td><td>0</td></tr>
+<tr><td>2024-05-18</td><td>3</td><td>0</td></tr>
+<tr><td>2024-05-17</td><td>4,5</td><td>0</td></tr>
+<tr><td>2024-05-16</td><td>4,5</td><td>0</td></tr>
+<tr><td>2024-05-12</td><td>1</td><td>0</td></tr>
+<tr><td>2024-05-11</td><td>4,5</td><td>0</td></tr>
+<tr><td>2024-05-10</td><td>2,5</td><td>0</td></tr>
+<tr><td>2024-05-05</td><td>4</td><td>0</td></tr>
 <tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
-<tr><td>May</td><td>6,5</td><td>0</td></tr>
+<tr><td>May</td><td>34</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>146,5</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>174</td><td>0</td></tr>
 </table>
 
 
@@ -24,7 +33,84 @@
 <tab title="May">
 
 <deflist>
-<def title="2024-05-05 15:00">
+<def title="2024-05-20 16:30 - ">
+<list>
+<li>Finishing default Welcome page, and updating preview</li>
+<li>Making sample data for problem list</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-19 15:30 - 19:00">
+<list>
+<li>Finishing authentication interface</li>
+<li>Making default welcome page</li>
+</list>
+</def>
+</deflist>
+
+
+
+<deflist>
+<def title="2024-05-18 20:30 - 23:30">
+<list>
+<li>Working on authentication interface</li>
+<li>Cookies logic setup</li>
+</list>
+</def>
+</deflist>
+
+<deflist>
+<def title="2024-05-17 15:30 - 20:00">
+<list>
+<li>Start working on authentication interface</li>
+<li>Finish database structure</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-16 15:30 - 20:00">
+<list>
+<li>Continue working on structure of database</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-12 15:00 - 16:00">
+<list>
+<li>Continue working on structure of database</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-11 14:00 - 18:30">
+<list>
+<li>Making Database structure for whole CFT project</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-10 16:00 - 18:30">
+<list>
+<li>Start to rebuilding project in Next.js Fullstack framework</li>
+<li>Rebuilding page layout, and heading with full functionality</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-05 15:00 - 19:00">
 <list>
 <li>Implementing react-chart and chartJs packages to implement charts in to project</li>
 <li>Making example data for Chart component</li>
