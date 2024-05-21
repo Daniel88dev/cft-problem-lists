@@ -5,7 +5,8 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
-<tr><td>2024-05-20</td><td>0</td><td>0</td></tr>
+<tr><td>2024-05-21</td><td>3</td><td>0</td></tr>
+<tr><td>2024-05-20</td><td>2,5</td><td>0</td></tr>
 <tr><td>2024-05-19</td><td>3,5</td><td>0</td></tr>
 <tr><td>2024-05-18</td><td>3</td><td>0</td></tr>
 <tr><td>2024-05-17</td><td>4,5</td><td>0</td></tr>
@@ -17,11 +18,11 @@
 <tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
-<tr><td>May</td><td>34</td><td>0</td></tr>
+<tr><td>May</td><td>39,5</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>174</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>179,5</td><td>0</td></tr>
 </table>
 
 
@@ -33,10 +34,22 @@
 <tab title="May">
 
 <deflist>
-<def title="2024-05-20 16:30 - ">
+<def title="2024-05-21 16:30 - 19:30">
+<list>
+<li>Working on problem list UI</li>
+<li>Applying, and updating Select component for next.js project</li>
+<li>Applying initial data loading from backend</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-20 16:30 - 19:00">
 <list>
 <li>Finishing default Welcome page, and updating preview</li>
 <li>Making sample data for problem list</li>
+<li>Apply loader, when loading pages</li>
 </list>
 </def>
 </deflist>
