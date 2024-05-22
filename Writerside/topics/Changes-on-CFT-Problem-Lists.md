@@ -5,6 +5,7 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
+<tr><td>2024-05-22</td><td>3,5</td><td>0</td></tr>
 <tr><td>2024-05-21</td><td>3</td><td>0</td></tr>
 <tr><td>2024-05-20</td><td>2,5</td><td>0</td></tr>
 <tr><td>2024-05-19</td><td>3,5</td><td>0</td></tr>
@@ -18,11 +19,11 @@
 <tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
-<tr><td>May</td><td>39,5</td><td>0</td></tr>
+<tr><td>May</td><td>43</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>179,5</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>183</td><td>0</td></tr>
 </table>
 
 
@@ -32,6 +33,16 @@
 
 <tabs>
 <tab title="May">
+
+<deflist>
+<def title="2024-05-22 16:00 - 19:30">
+<list>
+<li>Working on problem list loading data from DB logic</li>
+<li>Making initial UI for problem list</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-05-21 16:30 - 19:30">
