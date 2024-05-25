@@ -5,6 +5,8 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
+<tr><td>2024-05-25</td><td>4,5</td><td>0</td></tr>
+<tr><td>2024-05-24</td><td>1,5</td><td>0</td></tr>
 <tr><td>2024-05-22</td><td>3,5</td><td>0</td></tr>
 <tr><td>2024-05-21</td><td>3</td><td>0</td></tr>
 <tr><td>2024-05-20</td><td>2,5</td><td>0</td></tr>
@@ -19,11 +21,11 @@
 <tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
-<tr><td>May</td><td>43</td><td>0</td></tr>
+<tr><td>May</td><td>49</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>183</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>189</td><td>0</td></tr>
 </table>
 
 
@@ -33,6 +35,26 @@
 
 <tabs>
 <tab title="May">
+
+<deflist>
+<def title="2024-05-25 14:30 - 19:00">
+<list>
+<li>Finishing Modal component</li>
+<li>Updating Problem List to load according to selected slug, and not id</li>
+<li>Working on Problem list page UI</li>
+<li>Start working on Edit Problem component + DB logic</li>
+</list>
+</def>
+</deflist>
+
+
+<deflist>
+<def title="2024-05-24 16:30 - 18:00">
+<list>
+<li>Creating Modal element for Login page as pop-up window</li>
+</list>
+</def>
+</deflist>
 
 <deflist>
 <def title="2024-05-22 16:00 - 19:30">

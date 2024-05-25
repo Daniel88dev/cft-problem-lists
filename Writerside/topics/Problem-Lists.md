@@ -11,7 +11,6 @@
 
 <deflist>
 <def title="Project examples:">
-
 <list>
 <li>NX4e F/L</li>
 <li>PDe PE2</li>
