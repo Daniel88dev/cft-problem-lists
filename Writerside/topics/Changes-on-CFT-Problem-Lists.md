@@ -5,6 +5,7 @@
 
 <table>
 <tr><td>Day / Month</td><td>Outside Work hours</td><td>Inside Work hours</td></tr>
+<tr><td>2024-05-26</td><td>7</td><td>0</td></tr>
 <tr><td>2024-05-25</td><td>7</td><td>0</td></tr>
 <tr><td>2024-05-24</td><td>1,5</td><td>0</td></tr>
 <tr><td>2024-05-22</td><td>3,5</td><td>0</td></tr>
@@ -21,11 +22,11 @@
 <tr><td>2024-05-03</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-02</td><td>2</td><td>0</td></tr>
 <tr><td>2024-05-01</td><td>2,5</td><td>0</td></tr>
-<tr><td>May</td><td>51,5</td><td>0</td></tr>
+<tr><td>May</td><td>58,5</td><td>0</td></tr>
 <tr><td>April</td><td>59,5</td><td>0</td></tr>
 <tr><td>March</td><td>20,5</td><td>0</td></tr>
 <tr><td>Previous</td><td>60</td><td>0</td></tr>
-<tr><td>TOTAL</td><td>191,5</td><td>0</td></tr>
+<tr><td>TOTAL</td><td>198,5</td><td>0</td></tr>
 </table>
 
 
@@ -35,6 +36,17 @@
 
 <tabs>
 <tab title="May">
+
+<deflist>
+<def title="2024-05-26 15:00 - 22:00">
+<list>
+<li>Working on Edit Problem component, and full logic</li>
+<li>Implementing previous components from previous project with only Front end logic</li>
+<li>Implementing Documentation data to New FullStack project.</li>
+</list>
+</def>
+</deflist>
+
 
 <deflist>
 <def title="2024-05-25 14:30 - 19:00 and 21:30 - 24:00">
